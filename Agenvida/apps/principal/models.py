@@ -21,8 +21,8 @@ class Vinculacion(models.Model):
         return unicode(self.vinculacion)
     
 class Proposito(models.Model):
-    usuario = models.ForeignKey(User)
-    vinculacion = models.ForeignKey(Vinculacion)
+    usuario = models.ForeignKey(User,related_name='propositos' )
+    vinculacion = models.ForeignKey(Vinculacion,related_name='propositos' )
     mes_ano = models.DateField()
     proposito = models.TextField()
     
@@ -30,7 +30,9 @@ class Proposito(models.Model):
         return unicode(self.proposito)
     
 class Marcacion(models.Model):
-    proposito = models.ForeignKey(Proposito)
+    usuario = models.ForeignKey(User, related_name='marcaciones')
+    proposito = models.ForeignKey(Proposito,related_name='marcaciones' )
+    
     dia = models.DateField()
     cumplimiento = models.IntegerField()
     

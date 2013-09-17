@@ -117,6 +117,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(RUTA_PROYECTO, 'Templates'),
 )
 
 INSTALLED_APPS = (
@@ -130,6 +131,8 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'principal',
     'south',
+    'tastypie',
+        
 )
 
 # A sample logging configuration. The only tangible logging
@@ -160,3 +163,5 @@ LOGGING = {
         },
     }
 }
+### TASTYPIE
+TASTYPIE_FULL_DEBUG=True
