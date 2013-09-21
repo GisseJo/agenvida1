@@ -23,6 +23,14 @@ tabla.Vinculacion = Backbone.Model.extend({
         defaults: {
                     vinculacion: ""       
                 },
+       initialize:function() {
+                 this.on("change:vinculacion", function(model){
+                vinculacion_nueva = model.get("vinculacion")
+                alert("El nombre de la vinculacion es " + vinculacion_nueva );
+            });
+
+       }
+
         });
     //////////////collections/////////////////////////////////
 tabla.PropositoCollection = Backbone.Collection.extend({
@@ -50,61 +58,7 @@ tabla.VinculacionCollection = Backbone.Collection.extend({
             return response.objects;
         }   
     });
-/////////////PRUEBAS/////////////////////////////////////////////////////
-///////////////Traigo todas las Vinculaciones/////////////////////////////    
-/*    vinculacion_collection = new tabla.VinculacionCollection();
-    vinculacion_collection.fetch( {success:function(){
-       // alert('Traigo todas las vinculaciones Cant: '+ vinculacion_collection.length);
-      //  alert('su meta es '+ JSON.stringify(vinculacion_collection.meta) )
-        //alert('sus modelos son es '+ JSON.stringify(vinculacion_collection.models) )
-        
-        vinculacion_collection.each(function(vinculacion) {
-          console.log(vinculacion.get("vinculacion"));
-        });
 
-        console.log('aca otra cosa');
-            // Select donuts with names longer than 2
-        vinculacion_collection.select(function(vinculacion) {
-          return vinculacion.get("vinculacion").length > 10;
-        });
-        // Map...
-        console.log('map')
-        vinculacion_collection.map(function(vinculacion) {
-          return vinculacion.get("vinculacion");
-        });
-        } 
-    });
-*/
-///////////////TRaigo la Marcacion de id :1////////////////////////////
-/*var marcacion_nueva1 = new tabla.Marcacion({id:2});  
-    marcacion_nueva1.fetch({                     
-    success:function(){
-            //alert('Traigo UNA marcacion '+ JSON.stringify(marcacion_nueva1.attributes)); //imprime los atributos
-        }
-    });
-///////////////TRaigo la Proposito de id :1////////////////////////////
-var proposito_nueva1 = new tabla.Proposito({id:2});  
-    proposito_nueva1.fetch({                     
-    success:function(){
-            //alert('Traigo UN proposito'+ JSON.stringify(proposito_nueva1.attributes)); //imprime los atributos
-        }
-    });
-///////////////TRaigo la vinculacion de id :1////////////////////////////
-    var vinculacion_nueva1 = new tabla.Vinculacion({id:1});  
-    vinculacion_nueva1.fetch({                     
-    success:function(){
-          //  alert('Traigo UNA vinculacion '+ JSON.stringify(vinculacion_nueva1.attributes)); //imprime los atributos
-        }
-    });
-*/
-/*
-///////Creacion de una vinculacion////////////////////////////////////////
-    var vinculacion_nueva = new tabla.Vinculacion({vinculacion:"algo"});
-    vinculacion_nueva.save({                     // se genera GET /usuarios/1
-    success:function(){
-        //alert("Creacion de una nueva vinculacion" + JSON.stringfy(vinculacion_nueva.attributes)); // imprime {"id":1, "nombre": "Alfonso", "apellidos": "Marin Marin"}
-    }
-});*/
 //////////////////////////////////VISTAS////////////////////////
 
 
@@ -113,8 +67,10 @@ var proposito_nueva1 = new tabla.Proposito({id:2});
         this.render();
     },
     render: function(){
+        var variables = { search_label: "Mi busqueda"}
         // Compile the template using underscore
-        var template = _.template( $("#search_template").html(), {} );
+        //var template = _.template( $("#search_template").html(), {} );
+        var template = _.template( $("#search_template").html(), variables );
         // Load the compiled HTML into the Backbone "el"
         this.$el.html( template );
     },
@@ -124,5 +80,39 @@ var proposito_nueva1 = new tabla.Proposito({id:2});
     doSearch: function( event ){
         // Button clicked, you can access the element that was clicked with event.currentTarget
         alert( "Search for " + $("#search_input").val() );
+        vinculacion = new tabla.Vinculacion({nombre:123});
+        alert(vinculacion.nombre)
     }
 });
+
+
+// View for all people
+tabla.ListaVinculacionView = Backbone.View.extend({
+    tagName: 'ul',
+
+    render: function() {
+        this.collection.each(function(vinculacion) {
+            var vinculacionView = new tabla.VinculacionView({ model: vinculacion });
+            this.$el.append(vinculacionView.render().el);
+        }, this);
+
+        return this;
+    }
+});
+
+// The View for a Person
+tabla.VinculacionView = Backbone.View.extend({
+    tagName: 'li',
+
+
+    template: _.template($('#vinculacionTemplate').html() ),
+    
+    render: function() {
+        this.$el.html( this.template(this.model.toJSON()) );
+        return this;
+    }
+});
+
+
+
+  
