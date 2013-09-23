@@ -19,7 +19,7 @@ class UsuarioResource(ModelResource):
         authentication = BasicAuthentication()
         include_resource_uri = False
 class VinculacionResource(ModelResource):
-   # propositos = fields.ToManyField('principal.resource.PropositoResource', 'propositos', full=True)
+    propositos = fields.ToManyField('principal.resource.PropositoResource', 'propositos', full=True)
     
     class Meta:
         # Datos del Modelo:vinculacion

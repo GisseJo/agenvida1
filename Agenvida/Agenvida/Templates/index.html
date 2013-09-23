@@ -9,13 +9,49 @@
 <body>
 <!-- JavaScript -->
 
+<script id="vinculacionTemplate" type="text/template">
 
-<script id="personTemplate" type="text/template">
-    <strong><%= name %></strong> (<%= age %>) - <%= occupation %>
+    <strong><%= vinculacion %>(<%= id %>) </strong> 
 </script>
 
-<script id="vinculacionTemplate" type="text/template">
-    <strong><%= vinculacion %></strong> (<%= id %>) 
+<script id="propositoTemplate" type="text/template">
+    <strong><%= proposito %></strong>  
+           <td><input id="01"  name="elemento1" type="checkbox" value="1" class="ck" /></td>
+          <td><input id="02" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="03" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="04"name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="05" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="06" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="07" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="08" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="09" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="10" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="11" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="12" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="13" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="14" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="15" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="16" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="17" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="18" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="19" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="20" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="21" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="22" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="23" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="24" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="25" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="26" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="27" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="28" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="29" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="30" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="31" name="elemento1" type="checkbox" value="1" class="ck"/></td>
+          
+</script>
+
+<script id="marcacionTemplate" type="text/template">
+    <strong><%= cumplimiento %></strong>  
 </script>
 
 <script type="text/javascript" src="{{STATIC_URL}}js/jquery.js"></script>
@@ -26,17 +62,16 @@
 <script type="text/javascript" src="{{STATIC_URL}}js/proposito.js"></script>
 
 <script type="text/javascript" src="{{STATIC_URL}}js/prueba.js"></script>
-<script type="text/javascript" src="{{STATIC_URL}}js/person.js"></script>
-
-<div id="search_container"></div>
-<div id="sidebar-nuevo"> </div>
 
 
-<script type="text/template" id="search_template">
-    <label><%= search_label %></label>
-    <input type="text" id="search_input" />
-    <input type="button" id="search_button" value="Search" />
-</script>
+<table>
+
+
+</table>
+<div id="vinculaciones"></div>
+
+
+<div id="propositos"></div>
 
 
 

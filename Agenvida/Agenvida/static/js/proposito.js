@@ -11,47 +11,67 @@ tabla.Proposito = Backbone.RelationalModel.extend({
             type: Backbone.HasMany,
             key: 'marcaciones',
             relatedModel: 'tabla.Marcacion',
+            collectionType: 'tabla.MarcacionCollection', 
             reverseRelation: {
                 key: 'proposito',
                 includeInJSON: 'id',
             },
         }]
     });
-tabla.Vinculacion = Backbone.Model.extend({
+tabla.Vinculacion = Backbone.RelationalModel.extend({
         urlRoot: 'http://localhost:8000/api/vinculacion/',
         idAttribute: 'id',
         defaults: {
                     vinculacion: ""       
                 },
-       initialize:function() {
-                 this.on("change:vinculacion", function(model){
+        relations: [{
+            type: Backbone.HasMany,
+            key: 'propositos',
+            relatedModel: 'tabla.Proposito',
+            collectionType: 'tabla.PropositoCollection',
+            reverseRelation: {
+                key: 'vinculacion',
+                includeInJSON: 'id',
+            },
+        }],
+        initialize:function() {
+                this.on("change:vinculacion", function(model){
                 vinculacion_nueva = model.get("vinculacion")
-                alert("El nombre de la vinculacion es " + vinculacion_nueva );
+                //alert("El nombre de la vinculacion es " + vinculacion_nueva );
             });
 
        }
 
-        });
-    //////////////collections/////////////////////////////////
-tabla.PropositoCollection = Backbone.Collection.extend({
-        url: 'http://localhost:8000/api/proposito/',
+});
+//////////////COLLECTIONS/////////////////////////////////
+tabla.MarcacionCollection = Backbone.Collection.extend({
+        url: 'http://localhost:8000/api/marcacion/',
         model: tabla.Marcacion,
         meta: {},
-         parse: function(response) {
+        parse: function(response) {
+            this.meta = response.meta;
+            return response.objects;
+        }   
+}); 
+ 
+
+
+tabla.PropositoCollection = Backbone.Collection.extend({
+        url: 'http://localhost:8000/api/proposito/',
+        model: tabla.Proposito,
+        meta: {},
+        parse: function(response) {
             this.meta = response.meta;
             return response.objects;
         }   
 }); 
  
 tabla.VinculacionCollection = Backbone.Collection.extend({
-        model: tabla.Vinculacion,
-        
+        model: tabla.Vinculacion,        
         // A catcher for the meta object TastyPie will return.
         meta: {},
-
         // Set the (relative) url to the API for the item resource.
         url: "http://localhost:8000/api/vinculacion/",
-
         // Our API will return an object with meta, then objects list.
         parse: function(response) {
             this.meta = response.meta;
@@ -60,59 +80,112 @@ tabla.VinculacionCollection = Backbone.Collection.extend({
     });
 
 //////////////////////////////////VISTAS////////////////////////
-
-
- SearchView = Backbone.View.extend({
-    initialize: function(){
-        this.render();
-    },
-    render: function(){
-        var variables = { search_label: "Mi busqueda"}
-        // Compile the template using underscore
-        //var template = _.template( $("#search_template").html(), {} );
-        var template = _.template( $("#search_template").html(), variables );
-        // Load the compiled HTML into the Backbone "el"
-        this.$el.html( template );
-    },
-    events: {
-        "click input[type=button]": "doSearch"  
-    },
-    doSearch: function( event ){
-        // Button clicked, you can access the element that was clicked with event.currentTarget
-        alert( "Search for " + $("#search_input").val() );
-        vinculacion = new tabla.Vinculacion({nombre:123});
-        alert(vinculacion.nombre)
-    }
-});
-
-
-// View for all people
+////////////////////VINCULACIONES/////////
+// Vista para todas las vinculaciones
 tabla.ListaVinculacionView = Backbone.View.extend({
-    tagName: 'ul',
+    tagName: 'table',
 
     render: function() {
-        this.collection.each(function(vinculacion) {
-            var vinculacionView = new tabla.VinculacionView({ model: vinculacion });
-            this.$el.append(vinculacionView.render().el);
-        }, this);
-
+        this.collection.each(
+            function(vinculacion) {
+                var vinculacionView = new tabla.VinculacionView({ model: vinculacion });
+                this.$el.append(vinculacionView.render().el);
+                var propositos = vinculacion.get( 'propositos' );
+                console.log(propositos.toJSON());
+                listaPropositoView = new tabla.ListaPropositoView({ collection: propositos});
+                this.$el.append(listaPropositoView.render().el);
+            }, this);
         return this;
     }
 });
-
-// The View for a Person
+// vista para cada vinculacion en particular
 tabla.VinculacionView = Backbone.View.extend({
-    tagName: 'li',
-
-
-    template: _.template($('#vinculacionTemplate').html() ),
-    
+    tagName: 'tbody',
+    template: _.template($('#vinculacionTemplate').html() ),  
     render: function() {
+
+        this.$el.html(this.template(this.model.toJSON()) ); 
+        this.$el.addClass("loqui");
+        return this;
+    }
+});
+///////////////PROPOSITOS//////////////
+// Vista para todas los propositos
+tabla.ListaPropositoView = Backbone.View.extend({
+    tagName: 'tbody',
+    render: function() {
+        this.collection.each(
+            function(proposito) {
+                var propositoView = new tabla.PropositoView({ model: proposito });
+                this.$el.append(propositoView.render().el);
+           }, this);
+        return this;
+    }
+});
+// vista para cada proposito en particular
+tabla.PropositoView = Backbone.View.extend({
+    tagName: 'tr',
+    template: _.template($('#propositoTemplate').html() ),    
+    render: function() {
+
         this.$el.html( this.template(this.model.toJSON()) );
+
+        marcaciones_collection = this.model.get('marcaciones');
+        
+
+        marcaciones_collection.each(
+            function(marcacion) {
+                var dia = marcacion.get('dia');
+                var  solodia = dia.substring(8);
+                id = "#" + solodia;
+                console.log(id);
+                //$("#01",this.$el).addClass("checked");
+                //$("#01",this.$el).addattr("checked");
+               $(id,this.$el).attr("checked","checked");
+
+                console.log(solodia);
+                var marcacionView = new tabla.MarcacionView({ model: marcacion });
+                this.$el.append(marcacionView.render().el);
+
+                
+            }, this);
+
+
+
         return this;
     }
 });
 
+//////////MARCACIONES///////////////////////
+tabla.MarcacionView = Backbone.View.extend({
+    tagName: 'td',
+    template: _.template($('#marcacionTemplate').html() ),  
+    render: function() {
 
+        this.$el.html(this.template(this.model.toJSON()) ); 
+        return this;
+    }
+});
 
+// Router
+var AppRouter = Backbone.Router.extend({
+
+    routes:{
+        "":"list"        
+    },
+
+    list:function () {
+        vinculacion_collection = new tabla.VinculacionCollection();
+        listaVinculacionView = new tabla.ListaVinculacionView({ collection: vinculacion_collection});
+        vinculacion_collection.fetch({
+            success:function(){
+                $('#vinculaciones').html(listaVinculacionView.render().el);                 
+
+            } 
+        });
+    }   
+});
+
+var app = new AppRouter();
+Backbone.history.start();
   
