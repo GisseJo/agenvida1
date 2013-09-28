@@ -22,7 +22,7 @@ class Vinculacion(models.Model):
     
 class Proposito(models.Model):
     usuario = models.ForeignKey(User,related_name='propositos' )
-    vinculacion = models.ForeignKey(Vinculacion,related_name='propositos' )
+    vinculacion = models.ForeignKey(Vinculacion,related_name='propositos', blank=True, null=True )
     mes_ano = models.DateField()
     proposito = models.TextField()
     
