@@ -1,0 +1,582 @@
+<!DOCTYPE HTML> <!-- Creado por @GisseJo y @RodriValdez5 para @Agenvida -->
+<html lang='es'>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="css/reset.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="css/table4.css" type="text/css" media="screen" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+	</script>
+	
+	<script type="text/javascript">
+		function toggle_visibility(id) {
+           			var e = document.getElementById(id);
+           			if(e.style.display == '')
+              			e.style.display = 'none';
+           			else
+              			e.style.display = '';
+        		}
+    </script>
+</head>
+
+<body>
+	<body background="./img/fondos14.jpg" class="bg">
+	<nav class="clearfix">  
+		<ul class="clearfix">  
+			<li class="logo" ><img class='imagen-logo' src="./img/agenvidaicono.png" alt="Agenvida"></li>
+		    <li><a href="#">Registrarse</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Facebook</a></li>  
+			<li><a href="#">Twitter</a></li>  
+			<li><a href="#">Contacto</a></li>
+		    <li><a href="#">About</a></li>     
+		</ul>  
+		<a href="#" id="pull">Menu</a>  
+	</nav>  
+
+	<section id="main">
+		<div id="contenido1"> 
+			<div class="menu-izq">
+				<h3>Menu Izq</h3>
+					<ul>
+						<li><a href="#">Horario Espiritual</a></li>
+						<li><a href="#">Mes</a></li>
+						<li><a href="#">Año</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">Mensual</a></li>
+						<li><a href="#">Semanal</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">Ofrecimientos</a></li>
+						<li><a href="#">Reflexion diaria</a></li>
+					</ul>
+			</div>
+		</div>
+
+		<div id="sidebar1">
+			<section>
+				<div class="datagrid">
+					<table class="cabecera">
+						<tr>
+						<th>Ideal Personal</th>
+						<td> IF </td>
+						</tr>
+
+						<tr><th>Proposito Particular</th>
+						<td>alegria</td>
+						</tr>
+					</table>
+				
+				    <table class"tvinculaciones">
+				      <thead>
+				        <tr>       
+				          <th class='vinculacion'>Vinculacion</th> 
+				          <th>01</th>           
+				          <th>02</th>
+				          <th>03</th>
+				          <th>04</th>
+				          <th>05</th>
+				          <th>06</th>
+				          <th>07</th>
+				          <th>08</th>                   
+				          <th>09</th>
+				          <th>10</th>
+				          <th>11</th>
+				          <th>10</th>
+				          <th>11</th> 
+				          <th>12</th>
+				          <th>13</th> 
+				          <th>14</th>
+				          <th>15</th> 
+				          <th>16</th>
+				          <th>17</th> 
+				          <th>18</th>
+				          <th>19</th> 
+				          <th>20</th> 
+				          <th>21</th> 
+				          <th>22</th> 
+				          <th>23</th> 
+				          <th>24</th> 
+				          <th>25</th> 
+				          <th>26</th> 
+				          <th>27</th>
+				          <th>28</th>
+				          <th>29</th>
+				          <th>30</th>
+				          <th>31</th>
+				        </tr>
+				      </thead>
+
+					   <tbody >
+					        <tr id="alt">
+					            <th class='vinculacion' scope="rowgroup" colspan="4">
+					            	<a href="#" onclick="toggle_visibility('Diosproposito')">Con Dios</a>
+					            </th> 
+					        </tr>
+			      	    </tbody>
+			      		
+			      		<tbody id="Diosproposito" style='display:none;'>    
+					        <tr>
+					          <th class='vinculacion'>Proposito 1</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+			        
+					        <tr>
+					          <th class='vinculacion'>Proposito 2</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+			        
+					        <tr>
+					          <th class='vinculacion'>Proposito 3</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+			      		</tbody>
+
+			      		<tbody>
+					        <tr>
+					          <th class='vinculacion' scope="rowgroup" colspan="4">
+					          	<a href="#" onclick="toggle_visibility('yoproposito')">Conmigo</a>
+					          </th> 
+					        </tr>
+			      		</tbody>
+
+			    		<tbody id="yoproposito" style='display:none;'>
+					        <tr>
+					          <th class='vinculacion'>Proposito 1</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+					        
+					        <tr>
+					          <th class='vinculacion'>Proposito 2</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+					        
+					        <tr>
+					          <th class='vinculacion'>Proposito 3</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+			      		</tbody>
+
+			      		<tbody >
+					        <tr>
+					          <th class='vinculacion' scope="rowgroup" colspan="4">
+					          	<a href="#" onclick="toggle_visibility('demasproposito')">Con los demas</a>
+					          </th> 
+					        </tr>
+			      		</tbody>
+			    		
+			    		<tbody id="demasproposito" style='display:none;'>
+					        <tr>
+					          <th>Proposito 1</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+			        
+					        <tr>
+					          <th class='vinculacion'>Proposito 2</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+			        
+					        <tr>
+					          <th class='vinculacion'>Proposito 3</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+			      		</tbody>
+
+			      		<tbody >
+					        <tr>
+					          <th class='vinculacion' scope="rowgroup" colspan="4">
+					          	<a href="#" onclick="toggle_visibility('cosasproposito')">Con las cosas</a>
+					          	</th> 
+					        </tr>
+			      		</tbody>
+			    
+			    		<tbody id="cosasproposito" style='display:none;'>
+					        <tr>
+					          <th>Proposito 1</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+					        
+					        <tr>
+					          <th class='vinculacion'>Proposito 2</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+					        
+					        <tr>
+					          <th class='vinculacion'>Proposito 3</th>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					          <td><input name="elemento1" type="checkbox" value="1" class="ck"/></td>
+					        </tr>
+			      		</tbody>
+					</table>  
+				</div>
+			</section>
+		</div>
+	</section>
+
+	<div id="footer">
+	  <p>Agenvida - el horario espiritual online</p>
+	    <p>Creado por <a id="link" href="http://twitter.com/GisseJo">@GisseJo</a> y <a id="link" href="http://twitter.com/rodrivaldez5">@rodrivaldez5</a>
+	    </p>
+	    <p>Copyright (c) 2013</p>
+	</div>
+
+</body>
+</html>
+

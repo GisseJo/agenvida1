@@ -19,7 +19,7 @@ class UsuarioResource(ModelResource):
         allowed_methods = ['get']
         authentication = BasicAuthentication()
         include_resource_uri = False
-   # def dehydrate(self, bundle): #para enviar solo el id y nada mas
+    #def dehydrate(self, bundle): #para enviar solo el id y nada mas
     #    return bundle.data['name']
 
 
@@ -34,8 +34,9 @@ class VinculacionResource(ModelResource):
         queryset = Vinculacion.objects.all()
         resource_name = 'vinculacion'
         #authentication = BasicAuthentication()
+        #authorization = Authorization()
         authorization = DjangoAuthorization()
-        allowed_methods = ['get', 'post', 'put']
+        allowed_methods = ['get']
         always_return_data = True
         filtering = { "vinculacion" : ALL, 
                         "propositos" : ALL_WITH_RELATIONS
@@ -44,12 +45,12 @@ class VinculacionResource(ModelResource):
         #fields = ['vinculacion'] #campos a mostrar
         #include_resource_uri = False # si muestro o no la url del recurso
         #excludes = ['id']
-       # include_resource_uri = False
+        # include_resource_uri = False
 
       
 
 
-   # def dehydrate(self, bundle): #para enviar solo el id y nada mas
+    #def dehydrate(self, bundle): #para enviar solo el id y nada mas
     #    return bundle.data['id']
    
         
@@ -60,15 +61,17 @@ class PropositoResource(ModelResource):
                        
                                                                 #y no solo el link donde se encuentra la informacion
         marcaciones = fields.ToManyField('principal.resource.MarcacionResource', 'marcaciones', full=True,readonly=True)
-       # usuario = fields.ForeignKey('principal.resource.UsuarioResource',
+        #usuario = fields.ForeignKey('principal.resource.UsuarioResource',
         #                             'usuario', full=True)
         class Meta:
             queryset = Proposito.objects.all()
             resource_name = 'proposito'
+            #authentication = BasicAuthentication()
             authorization = DjangoAuthorization()
+            #authorization = Authorization()
             allowed_methods = ['get', 'post', 'delete', 'put','patch']
             always_return_data = True
-           # excludes = ['id']
+            #excludes = ['id']
             #include_resource_uri = False
             filtering = { "proposito" : ALL,
                             "mes_ano":ALL                            
@@ -86,11 +89,12 @@ class MarcacionResource(ModelResource):
     # Datos del Modelo:proposito , dia , cumplimiento
     proposito = fields.ForeignKey('principal.resource.PropositoResource',
                                      'proposito')
-   # usuario = fields.ForeignKey('principal.resource.UsuarioResource',
+    #usuario = fields.ForeignKey('principal.resource.UsuarioResource',
     #                                 'usuario')
     class Meta:
         queryset = Marcacion.objects.all()
         resource_name = 'marcacion'
+        #authentication = BasicAuthentication()
         authorization = DjangoAuthorization()        
         allowed_methods = ['get', 'post', 'delete', 'put']
         always_return_data = True

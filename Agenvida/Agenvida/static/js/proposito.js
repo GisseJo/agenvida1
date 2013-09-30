@@ -333,9 +333,9 @@ tabla.PropositoView = Backbone.View.extend({
                                $(id,this.$el).attr("checked","true");
                 
                                // console.log(solodia);
-                                var marcacionView = new tabla.MarcacionView({ model: marcacion });
+                              //  var marcacionView = new tabla.MarcacionView({ model: marcacion });
                                 //console.log(marcacionView.render().el);
-                                this.$el.append(marcacionView.render().el);
+                              //  this.$el.append(marcacionView.render().el);
                 }
                 
             }, this);
@@ -348,6 +348,8 @@ tabla.PropositoView = Backbone.View.extend({
 });
 
 //////////MARCACIONES///////////////////////
+
+/*
 tabla.MarcacionView = Backbone.View.extend({
     tagName: 'td',
     template: _.template($('#marcacionTemplate').html() ),  
@@ -356,7 +358,7 @@ tabla.MarcacionView = Backbone.View.extend({
         this.$el.html(this.template(this.model.toJSON()) ); 
         return this;
     }
-});
+});*/
 
 // Router
 var AppRouter = Backbone.Router.extend({

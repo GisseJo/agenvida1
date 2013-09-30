@@ -106,6 +106,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'Agenvida.urls'
@@ -132,8 +133,48 @@ INSTALLED_APPS = (
     'principal',
     'south',
     'tastypie',
+ ###DeBUG
+     'debug_toolbar',
+###django-registration
+      'registration',
+##### allauth############ 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.twitter',
         
 )
+
+#allauth
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.static",
+    "django.core.context_processors.tz",
+    "django.contrib.messages.context_processors.messages",
+    'django.core.context_processors.request',
+    'django.contrib.auth.context_processors.auth',
+    "allauth.socialaccount.context_processors.socialaccount",
+    
+    'allauth.account.context_processors.account',  
+    
+)
+AUTHENTICATION_BACKENDS = (
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+   
+)
+
+
+
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -165,3 +206,33 @@ LOGGING = {
 }
 ### TASTYPIE
 TASTYPIE_FULL_DEBUG=True
+
+###TOOLBAR
+DEBUG_TOOLBAR_PANELS = (
+    'debug_toolbar.panels.version.VersionDebugPanel',
+    'debug_toolbar.panels.timer.TimerDebugPanel',
+    'debug_toolbar.panels.settings_vars.SettingsVarsDebugPanel',
+    'debug_toolbar.panels.headers.HeaderDebugPanel',
+    'debug_toolbar.panels.request_vars.RequestVarsDebugPanel',
+    'debug_toolbar.panels.template.TemplateDebugPanel',
+    'debug_toolbar.panels.sql.SQLDebugPanel',
+    'debug_toolbar.panels.signals.SignalDebugPanel',
+    'debug_toolbar.panels.logger.LoggingPanel',
+    
+)
+
+
+
+
+INTERNAL_IPS = ('127.0.0.1',)
+
+
+#Django REgistration
+REGISTRATION_DEFAULT_GROUP_NAME= 'Usuarios'
+ACCOUNT_ACTIVATION_DAYS = 7 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'yankex5@gmail.com'
+EMAIL_HOST_PASSWORD = 'elhacker07'
+EMAIL_PORT = 587
+
