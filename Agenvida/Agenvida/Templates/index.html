@@ -1,1 +1,112 @@
+{% extends "dashboard.html" %}
+	<!-- JavaScript -->
+{%block vinculaciones %}
 
+
+<script id='vinculacionesCabeceraTemplate' type="text/javascript">
+
+<thead>
+                            <tr>       
+                              <th class='vinculacion'>Vinculacion</th> 
+                              <th>01</th>           
+                              <th>02</th>
+                              <th>03</th>
+                              <th>04</th>
+                              <th>05</th>
+                              <th>06</th>
+                              <th>07</th>
+                              <th>08</th>                   
+                              <th>09</th>
+                              <th>10</th>
+                              <th>11</th>                              
+                              <th>12</th>
+                              <th>13</th> 
+                              <th>14</th>
+                              <th>15</th> 
+                              <th>16</th>
+                              <th>17</th> 
+                              <th>18</th>
+                              <th>19</th> 
+                              <th>20</th> 
+                              <th>21</th> 
+                              <th>22</th> 
+                              <th>23</th> 
+                              <th>24</th> 
+                              <th>25</th> 
+                              <th>26</th> 
+                              <th>27</th>
+                              <th>28</th>
+                              <th>29</th>
+                              <th>30</th>
+                              <th>31</th>
+
+                            </tr>
+                          </thead>
+
+</script>
+
+
+	<script id="vinculacionTemplate" type="text/template">
+
+    <strong><%= vinculacion %>(<%= id %>) </strong>  <button class="create">Create</button>
+</script>
+
+	<script id="propositoTemplate" type="text/template">
+    <th><%= proposito %><button class="delete">X</button></th>  
+          <td><input id="01"  name="elemento1" type="checkbox" value="1" class="ck" /></td>
+          <td><input id="02" name="elemento2" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="03" name="elemento3" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="04"name="elemento4" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="05" name="elemento5" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="06" name="elemento6" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="07" name="elemento7" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="08" name="elemento8" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="09" name="elemento9" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="10" name="elemento10" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="11" name="elemento11" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="12" name="elemento12" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="13" name="elemento13" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="14" name="elemento14" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="15" name="elemento15" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="16" name="elemento16" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="17" name="elemento17" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="18" name="elemento18" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="19" name="elemento19" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="20" name="elemento20" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="21" name="elemento21" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="22" name="elemento22" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="23" name="elemento23" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="24" name="elemento24" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="25" name="elemento25" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="26" name="elemento26" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="27" name="elemento27" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="28" name="elemento28" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="29" name="elemento29" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="30" name="elemento30" type="checkbox" value="1" class="ck"/></td>
+          <td><input id="31" name="elemento31" type="checkbox" value="1" class="ck"/></td>
+          
+</script>
+
+	<script id="marcacionTemplate" type="text/template">
+    <strong><%= cumplimiento %></strong>  
+</script>
+
+	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/underscore.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/backbone.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/backbone-relational.js"></script>
+
+	<script type="text/javascript" src="{{STATIC_URL}}js/proposito.js"></script>
+
+	<script type="text/javascript" src="{{STATIC_URL}}js/prueba.js"></script>
+
+
+ <a href='/cerrar'>cerrar</a>
+	<div id="vinculaciones"></div>
+
+
+	<div id="propositos"></div>
+	<table id="vinculaciones2"></table>
+
+
+{% endblock %}

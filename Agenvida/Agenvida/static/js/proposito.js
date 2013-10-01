@@ -106,6 +106,8 @@ tabla.VinculacionCollection = Backbone.Collection.extend({
 // Vista para todas las vinculaciones
 tabla.ListaVinculacionView = Backbone.View.extend({
     tagName: 'table',
+    className: 'tvinculaciones',
+    template: _.template($('#vinculacionesCabeceraTemplate').html() ),
     initialize: function(){
         this.collection.on('change', this.render, this);
          this.collection.on('add', this.render, this); 
@@ -113,6 +115,8 @@ tabla.ListaVinculacionView = Backbone.View.extend({
 
     render: function() {
         this.$el.empty();//esto es para que no se duplique la lista, vacio el dom
+         
+         this.$el.append(this.template());
         this.collection.each(
             function(vinculacion) {
 
@@ -128,6 +132,7 @@ tabla.ListaVinculacionView = Backbone.View.extend({
 });
 // vista para cada vinculacion en particular
 tabla.VinculacionView = Backbone.View.extend({
+     id: 'vinculacion',
     tagName: 'tbody',
     template: _.template($('#vinculacionTemplate').html() ), 
    

@@ -1,0 +1,115 @@
+<!DOCTYPE HTML> <!-- Creado por @GisseJo y @RodriValdez5 para @Agenvida -->
+<html lang='es'>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="stylesheet" href="{{STATIC_URL}}css/reset.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{STATIC_URL}}css/main.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="{{STATIC_URL}}css/table4.css" type="text/css" media="screen" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+	</script>
+	
+	<script type="text/javascript">
+		function toggle_visibility(id) {
+           			var e = document.getElementById(id);
+           			if(e.style.display == '')
+              			e.style.display = 'none';
+           			else
+              			e.style.display = '';
+        		}
+    </script>
+</head>
+
+<body>
+	<body background="{{STATIC_URL}}img/fondos14.jpg" class="bg">
+	<nav class="clearfix">  
+		<ul class="clearfix">  
+			<li class="logo" ><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
+		    <li><a href="/cerrar">Cerrar</a></li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Facebook</a></li>  
+			<li><a href="#">Twitter</a></li>  
+			<li><a href="#">Contacto</a></li>
+		    <li><a href="#">About</a></li>     
+		</ul>  
+		<a href="#" id="pull">Menu</a>  
+	</nav>  
+
+	<section id="main">
+		<div id="contenido1"> 
+			<div class="menu-izq">
+				<h3>Menu Izq</h3>
+					<ul>
+						<li><a href="#">Horario Espiritual</a></li>
+						<li><a href="#">Mes</a></li>
+						<li><a href="#">Año</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">Mensual</a></li>
+						<li><a href="#">Semanal</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">Ofrecimientos</a></li>
+						<li><a href="#">Reflexion diaria</a></li>
+					</ul>
+			</div>
+		</div>
+
+		<div id="sidebar1">
+			<section>
+				<div class="datagrid">
+					<table class="cabecera">
+						<tr>
+						<th>Ideal Personal</th>
+						<td> IF </td>
+						</tr>
+
+						<tr><th>Proposito Particular</th>
+						<td>alegria</td>
+						</tr>
+					</table>
+				
+				    
+				      
+
+				      {% block vinculaciones%}
+
+				      {%endblock%}
+
+
+				
+				</div>
+			</section>
+		</div>
+	</section>
+
+	<div id="footer">
+	  <p>Agenvida - el horario espiritual online</p>
+	    <p>Creado por <a id="link" href="http://twitter.com/GisseJo">@GisseJo</a> y <a id="link" href="http://twitter.com/rodrivaldez5">@rodrivaldez5</a>
+	    </p>
+	    <p>Copyright (c) 2013</p>
+	</div>
+
+</body>
+</html>
+

@@ -17,15 +17,15 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$','principal.views.login_user'),
     (r'^login/$', 'principal.views.login_user'),
-    (r'^he/','principal.views.inicio' ),
-    (r'^privado/','principal.views.inicio' ),
+    (r'^he/','principal.views.dashboard' ),
+    (r'^privado/','principal.views.dashboard' ),
    (r'^cerrar/$','principal.views.cerrar'),
     (r'^api/', include(marcacion_resource.urls)),
     (r'^api/', include(vinculacion_resource.urls)),
     (r'^api/', include(proposito_resource.urls)),  
     (r'^accounts/', include('registration.urls')),
      (r'^accounts/', include('allauth.urls')), 
-      url(r'^accounts/profile/', 'principal.views.privado'),
+      url(r'^accounts/profile/', include('userprofile.urls')),
     
 
     

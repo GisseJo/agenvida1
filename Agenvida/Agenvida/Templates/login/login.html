@@ -1,5 +1,7 @@
+
+{% extends "login/login_base.html" %}
  
-{% block main %}
+{% block sidebar %}
     <div id="login">
         <form class="form-horizontal" name="LoginForm" action="/login/" method="post">
         {% csrf_token %}
@@ -24,5 +26,7 @@
             </div>
         </div>
         </form>
+        {% load socialaccount %}
+    <p> Ingresar con  <a href="{%  provider_login_url 'twitter' %}">Twitter</a> </p>
     </div>
 {% endblock %}

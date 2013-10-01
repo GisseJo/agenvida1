@@ -1,18 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-class UserProfile(models.Model):
-    avatar = models.ImageField("Profile Pic", upload_to="images/", blank=True, null=True)
-    ideal_personal = models.TextField()
-    user = models.ForeignKey(User, unique=True)
-    fecha_nacimiento = models.DateField()
-    sexo = models.CharField(max_length=50) ## poder elegir a traves de choices
-    pais = models.CharField(max_length=50)
-    grupo_de_vida = models.CharField(max_length=140)
-    contrato_pedagogico = models.TextField() ## podria ser el atributo: unique_for_year
-    
-    def __unicode__(self):
-        return unicode(self.user)
+
     
 class Vinculacion(models.Model):
     vinculacion = models.CharField(max_length=50)

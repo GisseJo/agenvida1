@@ -38,7 +38,7 @@ TIME_ZONE = 'America/Asuncion'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'es-py'
+LANGUAGE_CODE = 'en-us'
 
 SITE_ID = 1
 
@@ -114,12 +114,16 @@ ROOT_URLCONF = 'Agenvida.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'Agenvida.wsgi.application'
 
+
+
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(RUTA_PROYECTO, 'Templates'),
 )
+
+AUTH_PROFILE_MODULE = "userprofile.UserProfile"
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -131,7 +135,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'principal',
-    'south',
+    
+    
     'tastypie',
  ###DeBUG
      'debug_toolbar',
@@ -144,6 +149,8 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
+    'userprofile',
+    
         
 )
 
@@ -221,7 +228,7 @@ DEBUG_TOOLBAR_PANELS = (
     
 )
 
-
+DEBUG_TOOLBAR_CONFIG = { 'INTERCEPT_REDIRECTS': False, }
 
 
 INTERNAL_IPS = ('127.0.0.1',)
