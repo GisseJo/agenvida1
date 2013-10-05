@@ -207,8 +207,8 @@ tabla.ListaVinculacionView = Backbone.View.extend({
     className: 'tvinculaciones',
     template: _.template($('#vinculacionesCabeceraTemplate').html() ),
     initialize: function(){
-        this.collection.on('change', this.render, this);
-         this.collection.on('add', this.render, this); 
+       // this.collection.on('change', this.render, this);
+        // this.collection.on('add', this.render, this); 
 },
 events: {
      'dblclick' : 'Cambiar',
@@ -228,7 +228,7 @@ events: {
                 this.$el.append(vinculacionView.render().el);
                 var propositos = vinculacion.get( 'propositos' );
    //             console.log(propositos.toJSON());
-                listaPropositoView = new tabla.ListaPropositoView({ collection: propositos});
+                listaPropositoView = new tabla.ListaPropositoView({ collection: propositos , vinculacion: vinculacion.get('vinculacion')});
                 this.$el.append(listaPropositoView.render().el);
             }, this);
         return this;
@@ -306,9 +306,11 @@ tabla.VinculacionView = Backbone.View.extend({
 tabla.ListaPropositoView = Backbone.View.extend({
     tagName: 'tbody',
 
-    initialize: function(){
+    initialize: function( attr){
         this.collection.on('change', this.render, this);
-        this.collection.on('add', this.render, this); 
+        this.collection.on('add', this.render, this);
+        this.vinculacion=attr.vinculacion;
+         this.$el.addClass(this.vinculacion);
 },
 
       events: {
@@ -323,11 +325,13 @@ tabla.ListaPropositoView = Backbone.View.extend({
 
     render: function() {
           this.$el.empty();//esto es para que no se duplique la lista, vacio el dom
+          
         this.collection.each(
             function(proposito) {
                 var propositoView = new tabla.PropositoView({ model: proposito });
                // console.log(propositoView.render().el);
-
+                //this.$el.addClass(proposito.get('vinculacion'));
+               // console.log(proposito.toJSON());
                 this.$el.append(propositoView.render().el);
            }, this);
         return this;
@@ -347,7 +351,7 @@ tabla.PropositoView = Backbone.View.extend({
 },
       events: {
         'dblclick th' : 'editProp',
-        'click td' : 'showAlert',
+        'click td' : 'editarMarcacion',
         'click .delete' : 'DestroyProposito' 
     },
 
@@ -357,16 +361,13 @@ tabla.PropositoView = Backbone.View.extend({
     if (!nombre)return;
     
     this.model.save({proposito: nombre},{patch: true});
-    
-
-
-    },
+        },
 
     DestroyProposito: function(){
         this.model.destroy();  
     },
 
-    showAlert: function(event){
+    editarMarcacion: function(event){
         //alert("Click en marcacion");
         //alert(event.target.id);
         //alert(this.model.get('resource_uri'));
