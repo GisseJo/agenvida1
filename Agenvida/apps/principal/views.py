@@ -12,8 +12,8 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/login')
 def dashboard(request):
-    
-    return render_to_response('index.html',context_instance=RequestContext(request))
+    ideal_personal= request.user.profile.ideal_personal
+    return render_to_response('index.html',{'ideal_personal':ideal_personal},context_instance=RequestContext(request))
 
 
 
@@ -32,9 +32,9 @@ def login_user(request):
                 login(request, user)
                 return HttpResponseRedirect('/he')
             else:
-                    return render_to_response('noactivo.html', context_instance=RequestContext(request))
+                    return render_to_response('login/noactivo.html', context_instance=RequestContext(request))
         else:
-                return render_to_response('nousuario.html', context_instance=RequestContext(request))
+                return render_to_response('login/nousuario.html', context_instance=RequestContext(request))
     else:
         return render_to_response('login/login.html', context_instance=RequestContext(request))
  

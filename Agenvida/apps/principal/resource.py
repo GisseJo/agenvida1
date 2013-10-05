@@ -6,7 +6,7 @@ from tastypie.constants import ALL , ALL_WITH_RELATIONS
 from tastypie import fields
 from tastypie.bundle import Bundle
 from tastypie.exceptions import NotFound
-from principal.models import Vinculacion,Proposito, Marcacion
+from principal.models import Vinculacion,Proposito, Marcacion, PropositoParticular
 from django.contrib.auth.models import User
 from datetime import date
 
@@ -106,4 +106,25 @@ class MarcacionResource(ModelResource):
     def obj_create(self, bundle, **kwargs):
             return super(MarcacionResource, self).obj_create(bundle, usuario=bundle.request.user)
 
+
+class PParticularResource(ModelResource):
+
+        class Meta:
+            queryset = PropositoParticular.objects.all()
+            resource_name = 'pparticular'
+            #authentication = BasicAuthentication()
+            authorization = DjangoAuthorization()
+            #authorization = Authorization()
+            allowed_methods = ['get', 'post', 'delete', 'put','patch']
+            always_return_data = True
+            #excludes = ['id']
+            #include_resource_uri = False
+            filtering = { "nombre" : ALL,
+                            "mes_ano":ALL                            
+            }
         
+        def apply_authorization_limits(self, request, object_list):
+            return object_list.filter(usuario=request.user)
+        def obj_create(self, bundle, **kwargs):
+            return super(PropositoResource, self).obj_create(bundle, usuario=bundle.request.user)
+    

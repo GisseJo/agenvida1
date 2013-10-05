@@ -142,6 +142,10 @@ INSTALLED_APPS = (
      'debug_toolbar',
 ###django-registration
       'registration',
+      
+
+    # only add crispy_forms if you aren't already using it
+    
 ##### allauth############ 
     'allauth',
     'allauth.account',

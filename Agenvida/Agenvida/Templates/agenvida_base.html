@@ -8,30 +8,28 @@
 	<link rel="stylesheet" href="{{STATIC_URL}}css/main.css" type="text/css" media="screen" />
 	<link rel="stylesheet" href="{{STATIC_URL}}css/table4.css" type="text/css" media="screen" />
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+		$(function() {
+			var pull 		= $('#pull');
+				menu 		= $('nav ul');
+				menuHeight	= menu.height();
+
+			$(pull).on('click', function(e) {
+				e.preventDefault();
+				menu.slideToggle();
+			});
+
+			$(window).resize(function(){
+        		var w = $(window).width();
+        		if(w > 320 && menu.is(':hidden')) {
+        			menu.removeAttr('style');
+        		}
+    		});
+		});
+	</script>
 	
-
-
-	
-<!--/////////////// PARA CAMBIAR EL MES////////////////////////////////////-->	
-
-
-<style>
-.ui-datepicker-calendar {
-    display: none;
-   
-    }
-
-      #fecha {visibility:hidden;}
-
-      .ui-datepicker-inline{
-
-      	 position: relative;
-      }
-</style>
-
-
-<!-- ////////////////////////////////////////////////// -->	
-
+	   
 </head>
 
 
@@ -62,27 +60,6 @@
 	<script type="text/javascript" src="{{STATIC_URL}}js/backbone-relational.js"></script>
 
 	<script type="text/javascript" src="{{STATIC_URL}}js/proposito.js"></script>
-
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
-<script type="text/javascript">
-$(function() {
-    $('.date-picker').datepicker( {
-        changeMonth: false,
-        changeYear: false,
-        showButtonPanel: false,
-        dateFormat: 'mm-yy',
-            onChangeMonthYear:function(y, m, i){                                
-        var d = i.selectedDay;
-        $(this).datepicker('setDate', new Date(y, m-1, d));
-        $('#fecha').html(y+'/'+m);
-       // window.location.replace("/#algo");
-		window.location.hash = 'fecha/'+ y +'/'+m;
-    }
-
-    });
-});
-</script>
 	
 
 
@@ -94,7 +71,10 @@ $(function() {
 	</section>
 
 	<div id="footer">
-
+		<label for="startDate">Date :</label>
+    <div name="startDate" id="startDate" class="date-picker" ></div>
+    <div id='fecha' ></div>
+    
 	  <p>Agenvida - el horario espiritual online</p>
 	    <p>Creado por <a id="link" href="http://twitter.com/GisseJo">@GisseJo</a> y <a id="link" href="http://twitter.com/rodrivaldez5">@rodrivaldez5</a>
 	    </p>

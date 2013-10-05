@@ -1,5 +1,58 @@
 {% extends "dashboard.html" %}
 	<!-- JavaScript -->
+	
+	{% block sidebar %}
+
+				      
+	<section id="main">
+		<div id="contenido1"> 
+			<div class="menu-izq">
+				<h3>Menu Izq</h3>
+					<ul>
+						<li><a href="#">Horario Espiritual</a></li>
+						<li><a href="#">Mes</a></li>
+						<li><a href="#">Año</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">Mensual</a></li>
+						<li><a href="#">Semanal</a></li>
+					</ul>
+					<ul>
+						<li><a href="#">Ofrecimientos</a></li>
+						<li><a href="#">Reflexion diaria</a></li>
+					</ul>
+			</div>
+		</div>
+		
+		{%endblock%}
+		
+		{% block topbar%}
+ 
+				      
+		<div id="sidebar1">
+			<section>
+				<div class="datagrid">
+                         
+					<table class="cabecera">
+						<tr>
+						<th>Ideal Personal</th>
+						<td> {{ideal_personal}} </td>
+						</tr>
+
+						<tr><th>Proposito Particular</th>
+						<td id='pparticular'></td>
+						</tr>
+
+                              <tr>   
+                                   
+                                   <div name="startDate" id="startDate" class="date-picker" ></div>
+                                   <div id='fecha' ></div>                         
+                              </tr>
+					</table>
+
+
+
+					{%endblock%}
 {%block vinculaciones %}
 
 
@@ -41,7 +94,7 @@
                               <th>31</th>
 
                             </tr>
-                          </thead>
+</thead>
 
 </script>
 
@@ -52,7 +105,7 @@
 </script>
 
 	<script id="propositoTemplate" type="text/template">
-    <th><%= proposito %><button class="delete">X</button></th>  
+          <th><%= proposito %><button class="delete">X</button></th>  
           <td><input id="01"  name="elemento1" type="checkbox" value="1" class="ck" /></td>
           <td><input id="02" name="elemento2" type="checkbox" value="1" class="ck"/></td>
           <td><input id="03" name="elemento3" type="checkbox" value="1" class="ck"/></td>
@@ -91,14 +144,13 @@
     <strong><%= cumplimiento %></strong>  
 </script>
 
-	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.js"></script>
-	<script type="text/javascript" src="{{STATIC_URL}}js/underscore.js"></script>
-	<script type="text/javascript" src="{{STATIC_URL}}js/backbone.js"></script>
-	<script type="text/javascript" src="{{STATIC_URL}}js/backbone-relational.js"></script>
+</script>
 
-	<script type="text/javascript" src="{{STATIC_URL}}js/proposito.js"></script>
+     <script id="pparticularTemplate" type="text/template">
+    <strong><%= nombre %></strong> 
+</script>
 
-	<script type="text/javascript" src="{{STATIC_URL}}js/prueba.js"></script>
+
 
 
  <a href='/cerrar'>cerrar</a>

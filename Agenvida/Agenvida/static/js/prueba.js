@@ -1,8 +1,31 @@
 $( document ).ready(function() {    
-/*
-proposito_collection1 = new tabla.PropositoCollection();
-proposito_collection1.fetch({data:{"mes_ano_":"2013-09"}});
-*/
+
+
+    $('.date-picker').datepicker( {
+        changeMonth: false,
+        changeYear: false,
+        showButtonPanel: false,
+        dateFormat: 'mm-yy',
+            onChangeMonthYear:function(y, m, i){                                
+        var d = i.selectedDay;
+        $(this).datepicker('setDate', new Date(y, m-1, d));
+        $('#fecha').html(y+'/'+m);
+       // window.location.replace("/#algo");
+window.location.hash = y+'-'+m;
+    }
+
+    });
+
+
+//proposito_collection1 = new tabla.PropositoCollection();
+//proposito_collection1.fetch({data:{"mes_ano_":"2013-09"}});
+
+
+ //pparticular_collection= new tabla.PParticularCollection();
+//pparticular_collection.fetch();
+
+
+
 
 
 

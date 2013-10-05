@@ -12,14 +12,14 @@ def user_profile(request):
 		form = UserProfileForm(request.POST, instance= request.user.profile)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/accounts/loggedin')
+			return HttpResponseRedirect('/accounts/profile')
 	else:
 		user= request.user
 		profile = user.profile
 		form = UserProfileForm(instance=profile)
-		args = ()
-		args.update(csrf(request))
-		agrs['form']= form
-		return render_to_response('userprofile/profile.html', args)
+	args = {}
+	args.update(csrf(request))
+	args['form']= form
+	return render_to_response('userprofile/profile.html', args)
 
 

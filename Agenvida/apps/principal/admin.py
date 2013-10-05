@@ -17,8 +17,10 @@ class MarcacionAdmin(admin.ModelAdmin):
     list_display = ["proposito", "cumplimiento"]
     search_fields = ["proposito"]
     
-
-
+class PropositoParticularAdmin(admin.ModelAdmin):
+    list_display = [ "nombre", "mes_ano"]
+    search_fields = [ "proposito"]
+admin.site.register(PropositoParticular, PropositoParticularAdmin)
 admin.site.register(Vinculacion, VinculacionAdmin)
 admin.site.register(Proposito, PropositoAdmin)
 admin.site.register(Marcacion, MarcacionAdmin)

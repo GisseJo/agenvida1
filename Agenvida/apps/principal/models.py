@@ -24,7 +24,8 @@ class Marcacion(models.Model):
     
     dia = models.DateField()
     cumplimiento = models.IntegerField()
-    
+   
+   
     def __unicode__(self):
         return unicode(self.cumplimiento)
     
@@ -37,6 +38,13 @@ class Tipo_marcacion(models.Model):
         return unicode(self.tipo)
     
     
+class PropositoParticular(models.Model):
+    usuario = models.ForeignKey(User,related_name='pparticulares' )   
+    mes_ano = models.DateField()
+    nombre = models.TextField()
+    
+    def __unicode__(self):
+        return unicode(self.nombre) 
     
     
 

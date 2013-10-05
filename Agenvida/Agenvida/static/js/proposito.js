@@ -65,6 +65,33 @@ tabla.Vinculacion = Backbone.RelationalModel.extend({
        }
 
 });
+
+
+    tabla.PParticularModel = Backbone.Model.extend({
+        urlRoot: 'http://localhost:8000/api/pparticular/',
+         idAttribute: 'id',
+         base_url: function() {
+      var temp_url = Backbone.Model.prototype.url.call(this);
+      return (temp_url.charAt(temp_url.length - 1) == '/' ? temp_url : temp_url+'/');
+    },
+
+    url: function() {
+      return this.base_url();
+    },
+
+
+       
+    });
+
+      tabla.PParticularCollection = Backbone.Collection.extend({
+            model: tabla.PParticularModel,
+             url: 'http://localhost:8000/api/pparticular/',
+             meta: {},
+             parse: function(response) {
+                    this.meta = response.meta;
+                    return response.objects;
+                }   
+  });
 //////////////COLLECTIONS/////////////////////////////////
 tabla.MarcacionCollection = Backbone.Collection.extend({
         url: 'http://localhost:8000/api/marcacion/',
@@ -102,6 +129,77 @@ tabla.VinculacionCollection = Backbone.Collection.extend({
     });
 
 //////////////////////////////////VISTAS////////////////////////
+tabla.ListaPparticularView = Backbone.View.extend({
+    tagName: 'div',
+   
+    
+    initialize: function(){
+       // this.collection.on('change', this.render, this);
+        // this.collection.on('add', this.render, this); 
+},
+events: {
+     'dblclick' : 'alert',
+    'click .edit': 'editarPparticular',
+     //'click .create': 'crearProposito',
+     
+    },
+
+    alert: function() {
+       alert('asfdas');
+    },
+
+    render: function() {
+     //   this.$el.empty();//esto es para que no se duplique la lista, vacio el dom
+         console.log(this.collection);
+        // this.$el.append(this.template());
+        this.collection.each(
+            function(pparticular) {
+           //     console.log(pparticular.toJSON());
+         //        console.log(this.$el) 
+                var pparticularView = new tabla.PparticularView({ model: pparticular });
+                this.$el.html(pparticularView.render().el);
+              
+                
+            }, this);
+        return this;
+    }
+});
+
+tabla.PparticularView = Backbone.View.extend({
+    tagName:'div',
+    template: _.template($('#pparticularTemplate').html() ),
+    initialize: function(){
+        this.model.on('change', this.render, this);
+        this.model.on('add', this.render, this); 
+},
+ events: {
+     'dblclick' : 'editarPparticular',
+    'click .edit': 'editarPparticular',
+     //'click .create': 'crearProposito',
+     
+    },
+
+render: function() {
+        this.$el.empty();//esto es para que no se duplique la lista, vacio el dom
+         
+        // this.$el.append(this.template());
+        
+        this.$el.html( this.template(this.model.toJSON()) );
+        return this;
+    },
+
+     editarPparticular: function(){
+    var nombre = prompt("Cambiar el nombre del PP");
+     if (!nombre)return;
+
+    this.model.set('nombre', nombre);
+   // console.log(this.model.toJSON());
+    this.model.save();
+
+    },
+
+    });
+
 ////////////////////VINCULACIONES/////////
 // Vista para todas las vinculaciones
 tabla.ListaVinculacionView = Backbone.View.extend({
@@ -112,6 +210,12 @@ tabla.ListaVinculacionView = Backbone.View.extend({
         this.collection.on('change', this.render, this);
          this.collection.on('add', this.render, this); 
 },
+events: {
+     'dblclick' : 'Cambiar',
+     'click .edit': 'editarVinculacion',
+     'click .create': 'crearProposito',
+     
+    },
 
     render: function() {
         this.$el.empty();//esto es para que no se duplique la lista, vacio el dom
@@ -149,12 +253,18 @@ tabla.VinculacionView = Backbone.View.extend({
      crearProposito: function(){
     var nombre = prompt("Please enter the new name");
     if (!nombre)return;
-    console.log(this.model.get('resource_uri'));
-    console.log(this.model.get('resource_uri'));
-    console.log('holaa');
+    //console.log(this.model.get('resource_uri'));
+    //console.log(this.model.get('resource_uri'));
+    console.log(location.hash);
+    var mes_ano=location.hash;
+    var  ano = mes_ano.substring(7,11);
+    var  mes = mes_ano.substring(12,14);
+    console.log(mes);
+    console.log(ano);
     var nuevoProposito = new tabla.Proposito( {  proposito: nombre 
                                                 //, vinculacion: this.model.get('resource_uri')
-                                                ,mes_ano:'2013-09-01' } );//
+                                                ,mes_ano:ano+'-'+mes +'-01' } );//
+  
     propositos = this.model.get('propositos');
     propositos.add(nuevoProposito);
     nuevoProposito.save();
@@ -269,7 +379,7 @@ tabla.PropositoView = Backbone.View.extend({
 
         if($('#'+event.target.id,this.$el).is(':checked'))//si no esta marcado hacer
         {
-            console.log('NO esta marcado, Marcar');
+           // console.log('NO esta marcado, Marcar');
             cumplimiento=1;
             //console.log(cumplimiento);
             //console.log(this.model.get('resource_uri'));
@@ -299,7 +409,7 @@ tabla.PropositoView = Backbone.View.extend({
         }
         else//si esta marcado entonces desmarcar
         {
-             console.log('SIIII esta marcado, DesMarcar');
+            // console.log('SIIII esta marcado, DesMarcar');
             cumplimiento=0;
           //  console.log(cumplimiento);
             var marcaciones =this.model.get('marcaciones');
@@ -369,19 +479,35 @@ tabla.MarcacionView = Backbone.View.extend({
 var AppRouter = Backbone.Router.extend({
 
     routes:{
-        "":"list"        
+        "":"list" ,
+        "fecha/:ano/:mes" : "list"       
     },
 
-    list:function () {
+    list:function (ano,mes) {
         vinculacion_collection = new tabla.VinculacionCollection();
         listaVinculacionView = new tabla.ListaVinculacionView({ collection: vinculacion_collection});
-        vinculacion_collection.fetch({  //data:{"year":"2014","month":"12"},
+        vinculacion_collection.fetch({  data:{"year":ano,"month":mes},
 
             success:function(){
                 $('#vinculaciones').html(listaVinculacionView.render().el);                 
 
             } 
+
         });
+        pparticular_collection= new tabla.PParticularCollection();
+        listaPparticularView = new tabla.ListaPparticularView({ collection: pparticular_collection});
+        pparticular_collection.fetch({  data:{"mes_ano__contains": ano +'-'+mes},//"2013-10"
+
+                 success:function(){                    
+                     $('#pparticular').html(listaPparticularView.render().el);
+
+                } 
+
+
+    });
+
+
+
 
        /* proposito_collection = new tabla.PropositoCollection();
         listaPropositoView = new tabla.ListaPropositoView({ collection: proposito_collection});
