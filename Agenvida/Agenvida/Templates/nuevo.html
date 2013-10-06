@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<!-- Creado por @GisseJo y @Rodrivaldez5 2013 -->
+<html lang="es">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Horario espiritual online">
+    <title>Agenvida - El Horario Espiritual Online</title>
+
+    <link rel="stylesheet" href="./css/pure/marketing.css" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="./css/pure/pure.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/main4.css" type="text/css" media="screen" />
+    <script async="" src="./layout pure_files/analytics.js"></script><script src="./layout pure_files/gis6vng.js"></script>
+        <style type="text/css">.header h1,.hero h1,.hero h2,.tk-omnes-pro{font-family:"omnes-pro",sans-serif;}</style>
+    <link rel="stylesheet" href="./fonts.css" type="text/css" media="screen" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>  
+<script>
+        $(function() {
+            var pull        = $('#pull');
+                menu        = $('nav ul');
+                menuHeight  = menu.height();
+
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>       
+</head>
+<body>
+    
+    <nav class="clearfix">  
+        <ul class="clearfix">  
+            <li class="logo"><img class='imagen-logo' src="./img/agenvidaicono.png" alt="Agenvida"></li>
+            
+            <li><a href="#">Sobre</a></li>  
+            <li><a href="#slider">Blog</a></li>
+            <li><a href="#suscripcion">Suscripcion</a></li>  
+            <li><a href="#suscripcion">Contacto</a></li>  
+            <li><a href="#">Entrar</a></li>  
+        </ul>  
+        <a href="#" id="pull">Menu</a>
+    </nav>
+
+
+    <div class="splash" background="./img/fondos14.jpg" class="bg">
+            <div class="pure-g-r">
+                <div class="pure-u-1-2">
+                    <div class="videointro"> <!-- buscasr class de iframe o embed-->
+                        <iframe width="430" height="290"src="http://www.youtube.com/embed/XGSy3_Czz8k?autoplay=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        <!--<img src="./agenvida-definicion.jpg" alt="Definicion">-->
+                    </div>
+                </div>
+
+    
+                <div class="pure-u-1-2">
+                    <div class="l-box splash-text">
+                        <h1 class="splash-head">
+                            Agenvida.
+                        </h1>
+
+                        <h2 class="splash-subhead">
+                            El horario espiritual al alcance de un clic. La herramienta ideal para la autoeducacion. 
+                            Prepara tu proyecto de vida, decide cuales son tus propositos del mes y a controlarlos dia a dia.
+                            No te preocupes te ayudaremos, pero vos tenes que cumplir, eh?
+                        </h2>
+
+                        <p>
+                            <a href="#" class="pure-button primary-button">Quiero saber mas!</a>
+                        </p>
+                    </div>
+                </div>   
+            </div>
+        </div>
+       <div class="content">
+            <div class="pure-g-r content-ribbon">
+                <div class="pure-u-1">
+
+                        <h1>Como usar Agenvida</h1>
+                    
+                </div>
+            </div>
+
+            <div class="pure-g-r content-ribbon">
+                <div class="pure-u-1">
+                    
+                        <section class="slider" name="slider">
+                            <center><iframe src="file:///C:/Users/user/Google%20Drive/AgenVida/slider.html"></iframe></center>
+                        </section>
+                </div>
+            </div>
+        </div>
+        <div class="l-box ribbon" >
+                <h2>Ya quiero comenzar a usar agenvida</h2>
+
+                <form class="pure-form">
+    <fieldset>
+        <p>Recien lanzamos la version alpha del proyecto,</p><p>sin embargo si te suscribis te vamos a avisar cuando habilitemos mas cupos.</p>
+
+        
+        
+
+        <input id="first-name" type="text" placeholder="Tu nombre">
+        <input type="email" placeholder="Email">
+        <button type="submit" class="pure-button pure-button-primary">Suscribirme</button>
+    </fieldset>
+</form>
+            </div>
+        </div>
+
+        <div class="footer">
+            Agenvida - Creado por <a href="http://twitter.com/gissejo">@GisseJo</a> y <a href="http://twitter.com/rodrivaldez5">@rodrivaldez5</a>..
+        </div>
+    </div>
+
+
+
+
+
+        
+</body>

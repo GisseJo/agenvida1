@@ -98,8 +98,8 @@ class MarcacionResource(ModelResource):
         authorization = DjangoAuthorization()        
         allowed_methods = ['get', 'post', 'delete', 'put']
         always_return_data = True
-        excludes = ['usuario']
-        include_resource_uri = True
+       # excludes = ['proposito']
+        include_resource_uri = False
         
     def apply_authorization_limits(self, request, object_list):
             return object_list.filter(usuario=request.user)

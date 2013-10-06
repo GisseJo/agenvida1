@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!-- Creado por @GisseJo y @Rodrivaldez5 2013 -->
+<html lang="es">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Horario espiritual online">
+    <title>Agenvida - El Horario Espiritual Online</title>
+
+    <link rel="stylesheet" href="./css/pure/marketing.css" type="text/css" media="screen" />
+
+    <link rel="stylesheet" href="./css/pure/pure.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/main4.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen" />
+    
+
+    <script async="" src="./layout pure_files/analytics.js"></script><script src="./layout pure_files/gis6vng.js"></script>
+        <style type="text/css">.header h1,.hero h1,.hero h2,.tk-omnes-pro{font-family:"omnes-pro",sans-serif;}</style>
+    <link rel="stylesheet" href="./fonts.css" type="text/css" media="screen" />        
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>  
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
+<script>
+        $(function() {
+            var pull        = $('#pull');
+                menu        = $('nav ul');
+                menuHeight  = menu.height();
+
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>    
+
+    
+<style>
+.ui-datepicker-calendar {
+    display: none;
+
+    }
+
+.ui-datepicker-inline {
+    z-index: -1;
+}
+
+      #fecha {visibility:hidden;}
+
+.img-sing {
+  float: right;
+  width: 50%;
+  margin-left: 2%;
+  margin-right: 4%;
+}
+  /**600**/
+    @media screen and (max-width: 600px) {  
+      .img-sing {
+        display: none;
+      }       
+
+      .pure-form-stacked {
+       margin-top: 10%; 
+      }
+      
+    }  
+
+/**480px o menos**/
+
+    @media only screen and (max-width : 480px) {  
+      .img-sing {
+        display: none;
+      }        
+
+      .pure-form-stacked {
+        
+      }
+    
+    } 
+
+
+    @media only screen and (max-width : 320px) {  
+       .img-sing {
+        display: none;
+      }       
+    }  
+}
+</style>
+</head>
+<body>
+    
+    <nav class="clearfix">  
+        <ul class="clearfix">  
+            <li class="logo"><img class='imagen-logo' src="./img/agenvidaicono.png" alt="Agenvida"></li>
+            
+            <li><a href="#">Sobre</a></li>  
+            <li><a href="#slider">Blog</a></li>
+            <li><a href="#suscripcion">Suscripcion</a></li>  
+            <li><a href="#suscripcion">Contacto</a></li>  
+            <li><a href="#">Entrar</a></li>  
+        </ul>  
+        <a href="#" id="pull">Menu</a>
+    </nav>
+
+
+    <div class="splash">
+            <div class="pure-g-r">
+              <div class="pure-u-1-2">
+
+
+                <img class="img-sing" src="./img/singings.jpg" >
+                
+              </div>
+              <div class="pure-u-1-2">
+              <form class="pure-form pure-form-stacked">
+                <fieldset>
+                  <legend>Cambiar Contraseña</legend>
+
+                      
+                      <label for="password">Contraseña</label>
+                      <input id="password" type="password" placeholder="Password">
+
+                      <label for="password">Repite la contraseña</label>
+                      <input id="password" type="password" placeholder="Password">
+
+                      <div class="pure-controls">
+                        
+                      <button type="submit" class="pure-button pure-button-primary">Registrarme</button>
+                      
+                </fieldset>
+              </form>
+              </div>
+
+    
+                
+            </div>
+    </div>
+       
+
+    <div class="footer">
+            Agenvida - Creado por @GisseJo y @Rodrivaldez5
+        </div>
+    </div>
+</body>
+</html>

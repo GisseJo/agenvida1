@@ -2,104 +2,161 @@
 <html lang='es'>
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<link rel="stylesheet" href="{{STATIC_URL}}css/reset.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{STATIC_URL}}css/main.css" type="text/css" media="screen" />
-	<link rel="stylesheet" href="{{STATIC_URL}}css/table4.css" type="text/css" media="screen" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Horario espiritual online">
+    <title>Agenvida - El Horario Espiritual Online</title>
+    <!--<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">-->
+    <link rel="stylesheet" href="{{STATIC_URL}}css/pure/marketing.css" type="text/css" media="screen" />
+    <!--<link rel="stylesheet" href="http://purecss.io/combo/1.6.3?/css/layouts/marketing.css">-->
+    <link rel="stylesheet" href="{{STATIC_URL}}css/pure/pure.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/main4.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" media="screen" />    
+    <link rel="stylesheet" href="{{STATIC_URL}}css/table4.css" type="text/css" media="screen" />
 
-	
-
-
-	
-<!--/////////////// PARA CAMBIAR EL MES////////////////////////////////////-->	
-
-
-<style>
+    <style type="text/css">.header h1,.hero h1,.hero h2,.tk-omnes-pro{font-family:"omnes-pro",sans-serif;}</style>
+       <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
+    <style>
 .ui-datepicker-calendar {
     display: none;
-   
+    padding: 0;
+
     }
+
+.ui-datepicker {
+    width: 100%;
+    padding: 0;
+}
+
+.ui-datepicker-inline {
+   z-index: 2;
+
+}
 
       #fecha {visibility:hidden;}
 
-      .ui-datepicker-inline{
-      	z-index:-1;
-      	 position: relative;
-      }
-</style>
+      .create-button {
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 2px;
+            padding-bottom: 2px;
 
+}
+
+/**600**/
+    @media screen and (max-width: 600px) {  
+        .menu-izq {
+          display: none;
+        }
+        .datagrid {
+          margin-top: 10%;
+        }
+      
+    }  
+
+/**480px o menos**/
+
+    @media only screen and (max-width : 480px) {  
+        .menu-izq {
+          display: none;
+        }       
+        .datagrid {
+          margin-top: 1%;
+        }
+    
+    } 
+
+
+    @media only screen and (max-width : 320px) {  
+       .menu-izq {
+          display: none;
+        }
+    }  
+
+   .he{
+    margin-top: 0px;
+   }
+
+</style>
 
 <!-- ////////////////////////////////////////////////// -->	
 
 </head>
-
-
-
    
-				      
-	<body background="{{STATIC_URL}}img/fondos14.jpg" class="bg">
-	<nav class="clearfix">  
-		<ul class="clearfix">  
-			<li class="logo" ><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
-		    <li><a href="/cerrar">Cerrar</a></li>
-			<li><a href="/accounts/profile">Profile</a></li>
-			<li><a href="#">Facebook</a></li>  
-			<li><a href="#">Twitter</a></li>  
-			<li><a href="#">Contacto</a></li>
-		    <li><a href="#">About</a></li>     
-		</ul>  
-		<a href="#" id="pull">Menu</a>  
-	</nav>  
+<body>
+	 <nav class="clearfix">  
+        <ul class="clearfix">  
+            <li class="logo"><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
+            
+            <li><a href="">Hola {{nombre}}</a></li>  
+            <li><a href="#">Sugerencias</a></li>
+            <li><a href="#">Reporte</a></li>  
+            <li><a href="/accounts/profile">Profile</a></li>  
+            <li><a href="/cerrar">Cerrar</a></li>  
+        </ul>  
+        <a href="#" id="pull">Menu</a>
+    </nav>
 
 
-{% block sidebar %} {%endblock%}
-{% block topbar%}{%endblock%}
+
+{% block contenido %} {%endblock%}
+
 {% block vinculaciones%}  {%endblock%}
 	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}js/underscore.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}js/backbone.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}js/backbone-relational.js"></script>
 
-	<script type="text/javascript" src="{{STATIC_URL}}js/proposito.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/proposito.js"></script>   
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
-    <link rel="stylesheet" type="text/css" media="screen" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/themes/base/jquery-ui.css">
-<script type="text/javascript">
-$(function() {
-    $('.date-picker').datepicker( {
-        changeMonth: false,
-        changeYear: false,
-        showButtonPanel: false,
-        dateFormat: 'mm-yy',
-            onChangeMonthYear:function(y, m, i){                                
-        var d = i.selectedDay;
-        $(this).datepicker('setDate', new Date(y, m-1, d));
-        $('#fecha').html(y+'/'+m);
-       // window.location.replace("/#algo");
-		window.location.hash = 'fecha/'+ y +'/'+m;
-    }
+ 
+<script>
+        $(function() {
+            var pull        = $('#pull');
+                menu        = $('nav ul');
+                menuHeight  = menu.height();
 
-    });
-});
+            $(pull).on('click', function(e) {
+                e.preventDefault();
+                menu.slideToggle();
+            });
+
+            $(window).resize(function(){
+                var w = $(window).width();
+                if(w > 320 && menu.is(':hidden')) {
+                    menu.removeAttr('style');
+                }
+            });
+        });
+    </script>    
+   
+    <script type="text/javascript">
+        $(function() {
+            $('.date-picker').datepicker( {
+                changeMonth: false,
+                changeYear: false,
+                showButtonPanel: false,
+                dateFormat: 'mm-yy',
+                    onChangeMonthYear:function(y, m, i){                                
+                var d = i.selectedDay;
+                $(this).datepicker('setDate', new Date(y, m-1, d));
+                $('#fecha').html(y+'/'+m);
+               // window.location.replace("/#algo");
+        window.location.hash = y+'/'+m;
+            }
+
+            });
+        });
 </script>
-	
 
 
 
-				
-				</div>
-			</section>
-		</div>
-	</section>
-
-	<div id="footer">
-
-	  <p>Agenvida - el horario espiritual online</p>
-	    <p>Creado por <a id="link" href="http://twitter.com/GisseJo">@GisseJo</a> y <a id="link" href="http://twitter.com/rodrivaldez5">@rodrivaldez5</a>
-	    </p>
-	    <p>Copyright (c) 2013</p>
-	</div>
+		
+	<div class="footer" >
+            Agenvida - Creado por @GisseJo y @Rodrivaldez5
+        </div>
 
 </body>
 </html>

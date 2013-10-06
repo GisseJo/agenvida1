@@ -13,7 +13,8 @@ from django.contrib.auth.decorators import login_required
 @login_required(login_url='/login')
 def dashboard(request):
     ideal_personal= request.user.profile.ideal_personal
-    return render_to_response('index.html',{'ideal_personal':ideal_personal},context_instance=RequestContext(request))
+    nombre= request.user.first_name
+    return render_to_response('index.html',{'ideal_personal':ideal_personal, 'nombre':nombre},context_instance=RequestContext(request))
 
 
 

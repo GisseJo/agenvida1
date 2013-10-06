@@ -9,14 +9,10 @@ tabla.Marcacion = Backbone.RelationalModel.extend({
         url: function() {//este codigo es para que le agregue un slash al final
           return this.base_url();
         },
-
         idAttribute: 'id',
     });
 tabla.Proposito = Backbone.RelationalModel.extend({
-
-
-        urlRoot: 'http://localhost:8000/api/proposito/',
-
+    urlRoot: 'http://localhost:8000/api/proposito/',
     base_url: function() {
       var temp_url = Backbone.Model.prototype.url.call(this);
       return (temp_url.charAt(temp_url.length - 1) == '/' ? temp_url : temp_url+'/');
@@ -37,6 +33,7 @@ tabla.Proposito = Backbone.RelationalModel.extend({
             reverseRelation: {
                 key: 'proposito',
                includeInJSON: 'resource_uri',
+                //includeInJSON: 'id',
             },
         }]
     });
@@ -228,7 +225,7 @@ events: {
                 this.$el.append(vinculacionView.render().el);
                 var propositos = vinculacion.get( 'propositos' );
    //             console.log(propositos.toJSON());
-                listaPropositoView = new tabla.ListaPropositoView({ collection: propositos , vinculacion: vinculacion.get('vinculacion')});
+                listaPropositoView = new tabla.ListaPropositoView({ collection: propositos , vinculacion: vinculacion.get('id')});
                 this.$el.append(listaPropositoView.render().el);
             }, this);
         return this;
@@ -244,10 +241,29 @@ tabla.VinculacionView = Backbone.View.extend({
       //  this.model.on('change', this.render, this);
 },
        events: {
-     'dblclick' : 'showAlert',
-     'click .edit': 'editarVinculacion',
-     'click .create': 'crearProposito',
      
+     'click #vinc':'mostrarPropositos',
+     'click .edit': 'editarVinculacion',
+     'click .create-button': 'crearProposito',
+     
+    },
+    mostrarPropositos: function(){
+
+    //  alert('mostrarPropositos');
+     id = '.proposito'+ this.model.get('id')
+      //alert('mostrarPropositos   '+ id);
+       $(id).addClass('hecho');
+       display = $(id).css('display');
+       console.log(display);
+      if(display=='none'){
+             $(id).css('display','') ;
+                    }
+      else
+       {
+         // alert('asfd');
+            $(id).css('display','none') ;
+            $(id).addClass('nomostrar');
+   }
     },
 
      crearProposito: function(){
@@ -257,8 +273,9 @@ tabla.VinculacionView = Backbone.View.extend({
     //console.log(this.model.get('resource_uri'));
     console.log(location.hash);
     var mes_ano=location.hash;
-    var  ano = mes_ano.substring(7,11);
-    var  mes = mes_ano.substring(12,14);
+    var  ano = mes_ano.substring(1,5);
+   // alert('ano'+ ano);
+    var  mes = mes_ano.substring(6);
     console.log(mes);
     console.log(ano);
     var nuevoProposito = new tabla.Proposito( {  proposito: nombre 
@@ -291,9 +308,7 @@ tabla.VinculacionView = Backbone.View.extend({
     },
       
 
-    showAlert: function(){
-        alert("Click en vinculacion");
-    }, 
+  
     render: function() {
 
         this.$el.html(this.template(this.model.toJSON()) ); 
@@ -305,12 +320,13 @@ tabla.VinculacionView = Backbone.View.extend({
 // Vista para todas los propositos
 tabla.ListaPropositoView = Backbone.View.extend({
     tagName: 'tbody',
+    className:'propositos',
 
     initialize: function( attr){
         this.collection.on('change', this.render, this);
         this.collection.on('add', this.render, this);
         this.vinculacion=attr.vinculacion;
-         this.$el.addClass(this.vinculacion);
+         this.$el.addClass('proposito'+this.vinculacion);
 },
 
       events: {
@@ -352,6 +368,7 @@ tabla.PropositoView = Backbone.View.extend({
       events: {
         'dblclick th' : 'editProp',
         'click td' : 'editarMarcacion',
+
         'click .delete' : 'DestroyProposito' 
     },
 
@@ -481,10 +498,11 @@ var AppRouter = Backbone.Router.extend({
 
     routes:{
         "":"list" ,
-        "fecha/:ano/:mes" : "list"       
+        ":ano/:mes" : "list"       
     },
 
     list:function (ano,mes) {
+      console.log('estoy-adentro')
         vinculacion_collection = new tabla.VinculacionCollection();
         listaVinculacionView = new tabla.ListaVinculacionView({ collection: vinculacion_collection});
         vinculacion_collection.fetch({  data:{"year":ano,"month":mes},

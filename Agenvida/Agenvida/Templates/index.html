@@ -1,63 +1,60 @@
 {% extends "dashboard.html" %}
-	<!-- JavaScript -->
 	
-	{% block sidebar %}
+	
+	{% block contenido %}  
+     <div class="splash">
+            <div class="pure-g-r">
+                <div class="pure-u-1-5">
+                    <div id="contenido1"> 
+                        <div class="menu-izq">
+                            <h3>Menu Izq</h3>
+                                <ul>
+                                    <li><a href="#">Horario Espiritual</a></li>
+                                    <li><a href="#">Mes</a></li>
+                                    <li><a href="#">Año</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">Mensual</a></li>
+                                    <li><a href="#">Semanal</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#">Ofrecimientos</a></li>
+                                    <li><a href="#">Reflexion diaria</a></li>
+                                </ul>
+                        </div>
+                    </div>
+                </div>
 
-				      
-	<section id="main">
-		<div id="contenido1"> 
-			<div class="menu-izq">
-				<h3>Menu Izq</h3>
-					<ul>
-						<li><a href="#">Horario Espiritual</a></li>
-						<li><a href="#">Mes</a></li>
-						<li><a href="#">Año</a></li>
-					</ul>
-					<ul>
-						<li><a href="#">Mensual</a></li>
-						<li><a href="#">Semanal</a></li>
-					</ul>
-					<ul>
-						<li><a href="#">Ofrecimientos</a></li>
-						<li><a href="#">Reflexion diaria</a></li>
-					</ul>
-			</div>
-		</div>
-		
-		{%endblock%}
-		
-		{% block topbar%}
- 
-				      
-		<div id="sidebar1">
-			<section>
-				<div class="datagrid">
-                         
-					<table class="cabecera">
-						<tr>
-						<th>Ideal Personal</th>
-						<td> {{ideal_personal}} </td>
-						</tr>
+    
+                <div class="pure-u-4-5">
+                    
+                            <div class="datagrid">
+                                <div class="pure-u-1">
+                                    <table class="cabecera">
+                                        <tr>
+                                        <th>Ideal Personal</th>
+                                        <td> {{ ideal_personal}} </td>
+                                        </tr>
 
-						<tr><th>Proposito Particular</th>
-						<td id='pparticular'></td>
-						</tr>
-
-                              <tr>   
-                                   
-                                   <div name="startDate" id="startDate" class="date-picker" ></div>
-                                   <div id='fecha' ></div>                         
-                              </tr>
-					</table>
-
-
-
-					{%endblock%}
+                                        <tr><th>Proposito Particular</th>
+                                        <td id='pparticular'></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="pure-u-1">
+                                    <div name="startDate" id="startDate" class="date-picker" ></div>                                        
+                                </div>
+                                <div class='datagrid he' id='vinculaciones'>                                                          
+                                </div>
+                            </div>
+                    
+                </div>   
+            </div>
+    </div>{%endblock%}
 {%block vinculaciones %}
 
 
 <script id='vinculacionesCabeceraTemplate' type="text/javascript">
-
 <thead>
                             <tr>       
                               <th class='vinculacion'>Vinculacion</th> 
@@ -95,17 +92,18 @@
 
                             </tr>
 </thead>
-
 </script>
-
-
-	<script id="vinculacionTemplate" type="text/template">
-
-    <strong><%= vinculacion %>(<%= id %>) </strong>  <button class="create">Create</button>
+<script id="vinculacionTemplate" type="text/template">
+     <tr id="alt">
+         <th class='vinculacion' scope="rowgroup" colspan="32">
+               <strong id='vinc'><%= vinculacion %></strong>
+               <button class="pure-button create-button">+</button>
+         </th> 
+     </tr>
+    
 </script>
-
 	<script id="propositoTemplate" type="text/template">
-          <th><%= proposito %><button class="delete">X</button></th>  
+          <th><%= proposito %><button class="pure-button create-button delete">x</button></th>  
           <td><input id="01"  name="elemento1" type="checkbox" value="1" class="ck" /></td>
           <td><input id="02" name="elemento2" type="checkbox" value="1" class="ck"/></td>
           <td><input id="03" name="elemento3" type="checkbox" value="1" class="ck"/></td>
