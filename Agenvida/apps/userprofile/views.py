@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.core.context_processors import csrf
 from forms  import UserProfileForm
 from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
 
 @login_required
 def user_profile(request):
@@ -20,6 +21,6 @@ def user_profile(request):
 	args = {}
 	args.update(csrf(request))
 	args['form']= form
-	return render_to_response('userprofile/profile.html', args)
+	return render_to_response('userprofile/profile.html', args, context_instance=RequestContext(request))
 
 

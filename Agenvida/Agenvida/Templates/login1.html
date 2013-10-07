@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Horario espiritual online">
     <title>Agenvida - El Horario Espiritual Online</title>
-    <link rel="stylesheet" href="./css/pure/marketing.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="./css/pure/pure.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="./css/main4.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/pure/marketing.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/pure/pure.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/main4.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" media="screen" />
     
     <script async="" src="./layout pure_files/analytics.js"></script><script src="./layout pure_files/gis6vng.js"></script>
         <style type="text/css">.header h1,.hero h1,.hero h2,.tk-omnes-pro{font-family:"omnes-pro",sans-serif;}</style>
@@ -43,58 +43,48 @@
 
     
 <style>
-.ui-datepicker-calendar {
-    display: none;
 
-    }
+  .login {
+    margin-left: 8%;
 
-.ui-datepicker-inline {
-    z-index: -1;
-}
+  }
 
-      #fecha {visibility:hidden;}
+  .login legend {
+    width: 50%;
 
-.login {
-  margin-left: 8%;
+  }
+    /**600**/
+      @media screen and (max-width: 600px) {  
+        .img-sing {
+          display: none;
+        }       
 
-}
-
-.login legend {
-  width: 50%;
-
-}
-  /**600**/
-    @media screen and (max-width: 600px) {  
-      .img-sing {
-        display: none;
-      }       
-
-      .pure-form-stacked {
-       margin-top: 10%; 
-      }
-      
-    }  
-
-/**480px o menos**/
-
-    @media only screen and (max-width : 480px) {  
-      .img-sing {
-        display: none;
-      }        
-
-      .pure-form-stacked {
+        .pure-form-stacked {
+         margin-top: 10%; 
+        }
         
-      }
-    
-    } 
+      }  
+
+  /**480px o menos**/
+
+      @media only screen and (max-width : 480px) {  
+        .img-sing {
+          display: none;
+        }        
+
+        .pure-form-stacked {
+          
+        }
+      
+      } 
 
 
-    @media only screen and (max-width : 320px) {  
-       .img-sing {
-        display: none;
-      }       
-    }  
-}
+      @media only screen and (max-width : 320px) {  
+         .img-sing {
+          display: none;
+        }       
+      }  
+  }
 </style>
 </head>
 <body>
@@ -116,7 +106,7 @@
     <div class="splash">
             <div class="pure-g-r">
               <div class="pure-u-1-3"></div>
-              <div class="pure-u-1-3 login">
+              <!--<div class="pure-u-1-3 login">
               <form class="pure-form">
                   <fieldset class="pure-group">
                     <legend>Login</legend>
@@ -126,6 +116,10 @@
                   </fieldset>
 
                   <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Entrar</button>
+                -->
+                {%block sidebar %}
+      
+          {%endblock%}
               </form>
               </div>
               

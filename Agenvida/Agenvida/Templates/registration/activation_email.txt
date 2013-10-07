@@ -1,9 +1,14 @@
-Your activation key: {{ activation_key }}
+Hola!
 
-Please use this link to activate your account:
+Estas a un paso de poder usar tu horario espiritual.
+
+Esta es tu clave de activacion: {{ activation_key }}
+
+Para activar tu cuenta hace click aca:
 
 http://localhost:8000/accounts/activate/{{ activation_key }}/
 
-After activation you can login to the site:
+Despues de la activacion vas a poder entrar desde:
 
 http://localhost:8000/accounts/login/
+

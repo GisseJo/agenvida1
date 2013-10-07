@@ -94,16 +94,16 @@
 </thead>
 </script>
 <script id="vinculacionTemplate" type="text/template">
-     <tr id="alt">
-         <th class='vinculacion' scope="rowgroup" colspan="32">
+     <tr id="alt" class="pure-table-odd">
+         <td class='vinculacion' scope="rowgroup" colspan="32">
                <strong id='vinc'><%= vinculacion %></strong>
-               <button class="pure-button create-button">+</button>
-         </th> 
+               <button class="pure-button" id="create-button">+</button>
+         </td> 
      </tr>
     
 </script>
 	<script id="propositoTemplate" type="text/template">
-          <th><%= proposito %><button class="pure-button create-button delete">x</button></th>  
+          <th><%= proposito %><button class="pure-button" id="delete-button">x</button></th>  
           <td><input id="01"  name="elemento1" type="checkbox" value="1" class="ck" /></td>
           <td><input id="02" name="elemento2" type="checkbox" value="1" class="ck"/></td>
           <td><input id="03" name="elemento3" type="checkbox" value="1" class="ck"/></td>

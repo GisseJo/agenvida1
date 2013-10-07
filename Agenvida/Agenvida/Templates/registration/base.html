@@ -7,71 +7,136 @@
     {% endblock %}
     <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="{{STATIC_URL}}css/reset.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="{{STATIC_URL}}css/main.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="{{STATIC_URL}}css/table4.css" type="text/css" media="screen" />
-
+  <link rel="stylesheet" href="{{STATIC_URL}}css/pure/marketing.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/pure/pure.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/main4.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" media="screen" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  </head>
-  <body  background="{{STATIC_URL}}img/fondos14.jpg" class="bg">
-    <nav class="clearfix">  
-    <ul class="clearfix">  
-      <li class="logo" ><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
-        <li><a href="/cerrar">Cerrar</a></li>
-      <li><a href="/accounts/profile">Profile</a></li>
-      <li><a href="#">Facebook</a></li>  
-      <li><a href="#">Twitter</a></li>  
-      <li><a href="#">Contacto</a></li>
-        <li><a href="#">About</a></li>     
-    </ul>  
-    <a href="#" id="pull">Menu</a>  
-  </nav>  
+  <script>
+    $(function() {
+      var pull    = $('#pull');
+        menu    = $('nav ul');
+        menuHeight  = menu.height();
 
+      $(pull).on('click', function(e) {
+        e.preventDefault();
+        menu.slideToggle();
+      });
 
-   
-<section id="main">
-    <div id="contenido"> 
-      <section class="wrapper">
+      $(window).resize(function(){
+            var w = $(window).width();
+            if(w > 320 && menu.is(':hidden')) {
+              menu.removeAttr('style');
+            }
+        });
+    });
+  </script>
+  <style>
+.menuprofile{
+  width: 50%;
+  margin-left: 35%;
+}
+
+.img-sing {
+  float: right;
+  width: 50%;
+  margin-left: 2%;
+  margin-right: 4%;
+}
+  /**600**/
+    @media screen and (max-width: 600px) {  
+      .img-sing {
+        display: none;
+      }       
+
+      .pure-form-stacked {
+       margin-top: 10%; 
+      }
+      
+    }  
+
+/**480px o menos**/
+
+    @media only screen and (max-width : 480px) {  
+      .img-sing {
+        display: none;
+      }        
+
+      .pure-form-stacked {
         
-             {% block body %}
+      }
+    
+    } 
 
-    {% if messages %}
-    <div>
-      <strong>Messages:</strong>
-      <ul>
-  {% for message in messages %}
-  <li>{{message}}</li>
-  {% endfor %}
-      </ul>
+
+    @media only screen and (max-width : 320px) {  
+       .img-sing {
+        display: none;
+      }       
+    }  
+}
+</style>
+  </head>
+  
+    <nav class="clearfix">  
+        <ul class="clearfix">  
+            <li class="logo"><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
+            
+            <li><a href="#">Sobre</a></li>  
+            <li><a href="#slider">Blog</a></li>
+            <li><a href="#suscripcion">Suscripcion</a></li>  
+            <li><a href="#suscripcion">Contacto</a></li>  
+            <li><a href="#">Entrar</a></li>  
+        </ul>  
+        <a href="#" id="pull">Menu</a>
+    </nav>
+
+    <div class="splash">
+            <div class="pure-g-r">
+              <div class="pure-u-1 menuprofile">
+
+
+                {% block body %}
+                    {% if messages %}
+                    <div>
+                        <strong>Messages:</strong>
+                          <ul>
+                            {% for message in messages %}
+                              <li>{{message}}</li>
+                            {% endfor %}
+                          </ul>
+                    </div>
+                    {% endif %}
+
+                    <div>
+                      <strong>Menu:</strong>
+                      <ul>
+                  {% if user.is_authenticated %}
+                  
+                  <a class="pure-button pure-button-primary" href="{% url 'account_email' %}">Cambiar E-mail</a>
+                  <a class="pure-button pure-button-primary" href="{% url 'account_logout' %}">Cerrar Sesion</a>
+                  {% else %}
+                  <li><a class="pure-button pure-button-primary" href="{% url 'account_login' %}">Ingresar</a></li>
+                  <li><a class="pure-button pure-button-primary" href="{% url 'account_signup' %}">Registrarse</a></li>
+                  {% endif %}
+                      </ul>
+                    </div>
+                    {% block content %}
+                    {% endblock %}
+                    {% endblock %}
+                    {% block extra_body %}
+                    {% endblock %}
+              </div>
+          </div>
     </div>
-    {% endif %}
-
-    <div>
-      <strong>Menu:</strong>
-      <ul>
-  {% if user.is_authenticated %}
-  <li><a href="{% url 'account_email' %}">Cambiar Email E-mail</a></li>
-  <li><a href="{% url 'account_logout' %}">Cerrar Sesion</a></li>
-  {% else %}
-  <li><a href="{% url 'account_login' %}">Ingresar</a></li>
-  <li><a href="{% url 'account_signup' %}">Registrarse</a></li>
-  {% endif %}
-      </ul>
-    </div>
-    {% block content %}
-    {% endblock %}
-    {% endblock %}
-    {% block extra_body %}
-    {% endblock %}
-
        
-      </section>      
+
+    <div class="footer">
+            Agenvida - Creado por @GisseJo y @Rodrivaldez5
+        </div>
+    </div>  
+
+
    
-    <div id="footer">
-    <p>Agenvida - el horario espiritual online</p>
-      <p>Creado por <a id="link" href="http://twitter.com/GisseJo">@GisseJo</a> y <a id="link" href="http://twitter.com/rodrivaldez5">@rodrivaldez5</a>
-      </p>
-      <p>Copyright (c) 2013</p>
-  </div>
   </body>
 </html>

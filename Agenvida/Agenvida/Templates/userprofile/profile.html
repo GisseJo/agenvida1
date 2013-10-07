@@ -1,3 +1,4 @@
+{% extends "userprofile/login_base1.html" %}
 {%block content%}
 
 <h2>Profile</h2>
@@ -8,11 +9,14 @@
 
 {%endfor %}
 
-<form action="/accounts/profile/" method="post">
+<form class="pure-form pure-form-aligned" action="/accounts/profile/" method="post">
 {% csrf_token%}
 
 {{form.as_ul}}
+<div class="pure-controls">
+                        
+                        <input type="submit" class="pure-button pure-button-primary" value="Actualizar"/>
+                    </div>
 
-<input type="submit" value="Update"/>
 </form>
 {%endblock%}

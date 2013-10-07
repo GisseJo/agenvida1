@@ -2,7 +2,7 @@
 {% extends "login/login_base.html" %}
  
 {% block sidebar %}
-    <div id="login">
+    <!--<div id="login">
         <form class="form-horizontal" name="LoginForm" action="/login/" method="post">
         {% csrf_token %}
         {% if next %}
@@ -29,4 +29,22 @@
         {% load socialaccount %}
     <p> Ingresar con  <a href="{%  provider_login_url 'twitter' %}">Twitter</a> </p>
     </div>
+-->
+
+              <form class="pure-form" name="LoginForm" action="/login/" method="post">
+        {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+                  <fieldset class="pure-group">
+                    <legend>Login</legend>
+                      <input type="text" class="pure-input-1-2" id="username" name="username" placeholder="Username">
+                      <input type="password" class="pure-input-1-2" name="password" id="password" placeholder="Password">
+                      
+                  </fieldset>
+
+                  <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Entrar</button>
+              </form>
+
 {% endblock %}
+

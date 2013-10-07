@@ -201,7 +201,7 @@ render: function() {
 // Vista para todas las vinculaciones
 tabla.ListaVinculacionView = Backbone.View.extend({
     tagName: 'table',
-    className: 'tvinculaciones',
+    className: 'tvinculaciones pure-table',
     template: _.template($('#vinculacionesCabeceraTemplate').html() ),
     initialize: function(){
        // this.collection.on('change', this.render, this);
@@ -244,7 +244,7 @@ tabla.VinculacionView = Backbone.View.extend({
      
      'click #vinc':'mostrarPropositos',
      'click .edit': 'editarVinculacion',
-     'click .create-button': 'crearProposito',
+     'click #create-button': 'crearProposito',
      
     },
     mostrarPropositos: function(){
@@ -369,9 +369,22 @@ tabla.PropositoView = Backbone.View.extend({
         'dblclick th' : 'editProp',
         'click td' : 'editarMarcacion',
 
-        'click .delete' : 'DestroyProposito' 
+        'click #delete-button' : 'DestroyProposito',
+        'mouseenter th': 'motrarBotones',
+       'mouseleave th': 'noMotrarBotones'
     },
 
+  noMotrarBotones: function(){
+      // alert('asfd');
+             $('#delete-button',this.$el).css('visibility','hidden') ;
+    
+         },
+
+     motrarBotones: function(){
+      // alert('asfd');
+             $('#delete-button',this.$el).css('visibility','visible') ;
+    
+         },
 
     editProp: function(){
     var nombre = prompt("Please enter the new name");
