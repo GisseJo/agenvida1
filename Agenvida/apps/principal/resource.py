@@ -1,6 +1,6 @@
 from tastypie.resources import ModelResource
 from tastypie.authorization import Authorization
-from tastypie.authentication import BasicAuthentication
+from tastypie.authentication import BasicAuthentication,Authentication
 from tastypie.authorization import DjangoAuthorization
 from tastypie.constants import ALL , ALL_WITH_RELATIONS
 from tastypie import fields
@@ -33,9 +33,9 @@ class VinculacionResource(ModelResource):
         # Datos del Modelo:vinculacion
         queryset = Vinculacion.objects.all()
         resource_name = 'vinculacion'
-        #authentication = BasicAuthentication()
+        authentication = Authentication()
         #authorization = Authorization()
-        authorization = DjangoAuthorization()
+        authorization = Authorization()
         allowed_methods = ['get']
         always_return_data = True
         filtering = { "vinculacion" : ALL, 
@@ -66,9 +66,9 @@ class PropositoResource(ModelResource):
         class Meta:
             queryset = Proposito.objects.all()
             resource_name = 'proposito'
-            #authentication = BasicAuthentication()
-            authorization = DjangoAuthorization()
-            #authorization = Authorization()
+            authentication = Authentication()
+            #authorization = DjangoAuthorization()
+            authorization = Authorization()
             allowed_methods = ['get', 'post', 'delete', 'put','patch']
             always_return_data = True
             #excludes = ['id']
@@ -95,7 +95,7 @@ class MarcacionResource(ModelResource):
         queryset = Marcacion.objects.all()
         resource_name = 'marcacion'
         #authentication = BasicAuthentication()
-        authorization = DjangoAuthorization()        
+        authorization = Authorization()        
         allowed_methods = ['get', 'post', 'delete', 'put']
         always_return_data = True
        # excludes = ['proposito']
@@ -113,7 +113,7 @@ class PParticularResource(ModelResource):
             queryset = PropositoParticular.objects.all()
             resource_name = 'pparticular'
             #authentication = BasicAuthentication()
-            authorization = DjangoAuthorization()
+            authorization = Authorization()
             #authorization = Authorization()
             allowed_methods = ['get', 'post', 'delete', 'put','patch']
             always_return_data = True
@@ -126,5 +126,5 @@ class PParticularResource(ModelResource):
         def apply_authorization_limits(self, request, object_list):
             return object_list.filter(usuario=request.user)
         def obj_create(self, bundle, **kwargs):
-            return super(PropositoResource, self).obj_create(bundle, usuario=bundle.request.user)
+            return super(PParticularResource, self).obj_create(bundle, usuario=bundle.request.user)
     

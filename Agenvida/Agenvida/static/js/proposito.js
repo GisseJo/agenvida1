@@ -128,26 +128,50 @@ tabla.VinculacionCollection = Backbone.Collection.extend({
 //////////////////////////////////VISTAS////////////////////////
 tabla.ListaPparticularView = Backbone.View.extend({
     tagName: 'div',
+    templateVacio:_.template($('#pparticularVacioTemplate').html() ),
    
     
     initialize: function(){
-       // this.collection.on('change', this.render, this);
-        // this.collection.on('add', this.render, this); 
+        //this.collection.on('change', this.render, this);
+         this.collection.on('add', this.render, this); 
 },
 events: {
-     'dblclick' : 'alert',
-    'click .edit': 'editarPparticular',
+    // 'dblclick' : 'alert',
+     'click #create-button-pparticular':'agregar',
+    //'click .edit': 'editarPparticular',
      //'click .create': 'crearProposito',
      
     },
 
-    alert: function() {
-       alert('asfdas');
+    agregar: function() {
+      // alert('asfdas');
+        var nombre = prompt("Please enter the new name");
+              if (!nombre)return;
+              var mes_ano=location.hash;
+              var  ano = mes_ano.substring(1,5);
+             // alert('ano'+ ano);
+              var  mes = mes_ano.substring(6);
+              pparticular = new tabla.PParticularModel( { nombre: nombre ,
+                                                          mes_ano:ano+'-'+mes +'-01' });
+              this.collection.add(pparticular);
+              pparticular.save();
     },
 
     render: function() {
      //   this.$el.empty();//esto es para que no se duplique la lista, vacio el dom
-         console.log(this.collection);
+         console.log(this.collection);  
+         if(this.collection.length==0){
+             // alert('vacio');
+              this.$el.html(this.templateVacio());          
+
+
+                    }
+        else
+       {
+         //alert('lleno');
+         
+
+         }
         // this.$el.append(this.template());
         this.collection.each(
             function(pparticular) {
