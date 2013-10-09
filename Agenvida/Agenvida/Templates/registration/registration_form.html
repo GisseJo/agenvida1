@@ -27,7 +27,23 @@
         });
     });
   </script>
+  <script type="text/javascript">
+<!--
 
+//Accept terms & conditions script (by InsightEye www.insighteye.com)
+//Visit JavaScript Kit (http://javascriptkit.com) for this script & more.
+
+function checkCheckBox(f){
+if (f.agree.checked == false )
+{
+alert('Please check the box to continue.');
+return false;
+}else
+return true;
+}
+//-->
+</SCRIPT>
+  
     
 <style>
 .ui-datepicker-calendar {
@@ -102,11 +118,11 @@
               <div class="pure-u-1-2">
 
 
-                <img class="img-sing" src="{{STATIC_URL}}img/singings.jpg" >
+                <img class="img-sing" src="{{STATIC_URL}}img/singings1.jpg" >
                 
               </div>
               <div class="pure-u-1-2">
-              <form class="pure-form pure-form-stacked" action="/accounts/register/" method="POST">{% csrf_token %}
+              <form class="pure-form pure-form-stacked" action="/accounts/register/" method="POST" action="/yourscript.cgi-or-your-page.html" method="GET" onsubmit="return checkCheckBox(this)">{% csrf_token %}
                 <fieldset>
                   <legend>Registro</legend>
                   <table>
@@ -125,7 +141,8 @@
 
                       <div class="pure-controls">
                         <label for="cb" class="pure-checkbox">
-                            <input id="cb" type="checkbox">Lei los terminos y condiciones <!--Hacer que sea VERDAD!-->
+
+                            <input id="cb" type="checkbox" value="0" name="agree">Lei los <a href="#">terminos y condiciones</a> <!--Hacer que sea VERDAD!-->
                         </label>
 
 
