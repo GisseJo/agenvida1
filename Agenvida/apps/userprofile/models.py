@@ -18,8 +18,14 @@ class UserProfile(models.Model):
     sexo = models.CharField(max_length=15,null=True, choices=SEXO_CHOICES) ## poder elegir a traves de choices
     pais = CountryField()
     grupo_de_vida = models.CharField(max_length=140,null=True)
-    contrato_pedagogico = models.TextField(null=True) ## podria ser el atributo: unique_for_year
+    
 
 
 User.profile = property(lambda u: UserProfile.objects.get_or_create(user=u)[0])
+
+class ContratoAutoeducacion(models.Model):
+    user = models.ForeignKey(User, unique=True)
+    afirmar = models.TextField(null=True)
+    liberar = models.TextField(null=True)
+    adquirir = models.TextField(null=True)
 

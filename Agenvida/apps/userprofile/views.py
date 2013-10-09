@@ -4,6 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404 
 from django.core.context_processors import csrf
 from forms  import UserProfileForm
+from forms import ContratoAutoeducacionForm
+from models import ContratoAutoeducacion
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 
@@ -13,7 +15,7 @@ def user_profile(request):
 		form = UserProfileForm(request.POST, instance= request.user.profile)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/accounts/profile')
+			return HttpResponseRedirect('/he')
 	else:
 		user= request.user
 		profile = user.profile
@@ -22,5 +24,24 @@ def user_profile(request):
 	args.update(csrf(request))
 	args['form']= form
 	return render_to_response('userprofile/profile.html', args, context_instance=RequestContext(request))
+
+@login_required
+def contrato_autoeducacion(request):
+	contratoAutoeducacionUser = ContratoAutoeducacion(user=request.user)
+	if request.method == 'POST':
+		form = ContratoAutoeducacionForm(request.POST, instance=contratoAutoeducacionUser)
+		if form.is_valid():
+			form.save()
+			return HttpResponseRedirect('/he/')
+	else:
+		form =ContratoAutoeducacionForm()
+	args = {}
+	args.update(csrf(request))
+	args['form']= form
+	return render_to_response('userprofile/contrato.html', args, context_instance=RequestContext(request))
+
+
+
+
 
 
