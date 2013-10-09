@@ -4,12 +4,18 @@ from django.contrib.auth.models import User
 from django_countries import CountryField
 
 # Create your models here.
+
+SEXO_CHOICES=(
+('FEMENINO', 'Femenino'),
+('MASCULINO', 'Masculino'),
+)
+
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     #avatar = AvatarField(upload_to="images/avatars/", width=100, height=100, blank=True, null=True)
     ideal_personal = models.CharField(max_length=50,null=True)
     fecha_nacimiento = models.DateField(null=True)
-    sexo = models.CharField(max_length=50,null=True) ## poder elegir a traves de choices
+    sexo = models.CharField(max_length=15,null=True, choices=SEXO_CHOICES) ## poder elegir a traves de choices
     pais = CountryField()
     grupo_de_vida = models.CharField(max_length=140,null=True)
     contrato_pedagogico = models.TextField(null=True) ## podria ser el atributo: unique_for_year
