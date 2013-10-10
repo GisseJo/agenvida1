@@ -25,7 +25,7 @@ urlpatterns = patterns('',
     (r'^api/', include(vinculacion_resource.urls)),
     (r'^api/', include(proposito_resource.urls)),
     (r'^api/', include(pparticular_resource.urls)),  
-    (r'^accounts/', include('registration.urls')),
+   # (r'^accounts/', include('registration.urls')),
      (r'^accounts/', include('allauth.urls')), 
       url(r'^accounts/', include('userprofile.urls')),
     

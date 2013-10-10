@@ -121,6 +121,7 @@ TEMPLATE_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     os.path.join(RUTA_PROYECTO, 'Templates'),
+    os.path.join(RUTA_PROYECTO, 'Templates/allauth'),
 )
 
 AUTH_PROFILE_MODULE = "userprofile.UserProfile"
@@ -141,7 +142,7 @@ INSTALLED_APPS = (
  ###DeBUG
      'debug_toolbar',
 ###django-registration
-      'registration',
+    #  'registration',
       
 
     # only add crispy_forms if you aren't already using it
@@ -150,13 +151,10 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
+   # 'allauth.socialaccount.providers.facebook',
+   # 'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
     'userprofile',
-
-##### FORMS #####
-    'crispy_forms',
     
         
 )
