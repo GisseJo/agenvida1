@@ -154,6 +154,9 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
     'userprofile',
+
+##### FORMS #####
+    'crispy_forms',
     
         
 )
