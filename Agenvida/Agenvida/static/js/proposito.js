@@ -145,7 +145,7 @@ events: {
 
     agregar: function() {
       // alert('asfdas');
-        var nombre = prompt("Please enter the new name");
+        var nombre = prompt("Ingresa tu nuevo proposito particular");
               if (!nombre)return;
               var mes_ano=location.hash;
               var  ano = mes_ano.substring(1,5);
@@ -210,7 +210,7 @@ render: function() {
     },
 
      editarPparticular: function(){
-    var nombre = prompt("Cambiar el nombre del PP");
+    var nombre = prompt("Cambiar el nombre del Proposito particular");
      if (!nombre)return;
 
     this.model.set('nombre', nombre);
@@ -291,7 +291,7 @@ tabla.VinculacionView = Backbone.View.extend({
     },
 
      crearProposito: function(){
-    var nombre = prompt("Please enter the new name");
+    var nombre = prompt("Ingresa tu nuevo proposito");
     if (!nombre)return;
     //console.log(this.model.get('resource_uri'));
     //console.log(this.model.get('resource_uri'));
@@ -322,7 +322,7 @@ tabla.VinculacionView = Backbone.View.extend({
     },
 
      editarVinculacion: function(){
-    var nombre = prompt("Please enter the new name");
+    var nombre = prompt("Editar vinculacion");
      if (!nombre)return;
 
     this.model.set('vinculacion', nombre);
@@ -380,13 +380,15 @@ tabla.ListaPropositoView = Backbone.View.extend({
 ///////////////// vista para CADA PROPOSITO PARTICULAR///////////////////////
 tabla.PropositoView = Backbone.View.extend({
     tagName: 'tr',
-
+    
     template: _.template($('#propositoTemplate').html() ),    
 
       initialize: function(){
         this.model.on('change', this.render, this);
         this.model.on('destroy', this.remove, this); // 3. Adding a destroy announcer..
         //this.model.on('add:marcaciones',this.actualizar,this);
+        this.$el.attr('title',"Doble click para editar");
+
             
 },
       events: {
@@ -411,7 +413,7 @@ tabla.PropositoView = Backbone.View.extend({
          },
 
     editProp: function(){
-    var nombre = prompt("Please enter the new name");
+    var nombre = prompt("Ingresa tu nuevo proposito");
     if (!nombre)return;
     
     this.model.save({proposito: nombre},{patch: true});

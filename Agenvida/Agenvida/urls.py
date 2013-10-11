@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from principal.resource import MarcacionResource, VinculacionResource,PropositoResource,PParticularResource
+from django.views.generic.simple import direct_to_template
 
 admin.autodiscover()
 
@@ -28,7 +29,7 @@ urlpatterns = patterns('',
    # (r'^accounts/', include('registration.urls')),
      (r'^accounts/', include('allauth.urls')), 
       url(r'^accounts/', include('userprofile.urls')),
-    
+    (r'^sugerencias/', direct_to_template, {'template': 'sugerencias.html'}),
+    (r'^hep/', direct_to_template, {'template': 'hep.html'}),
 
-    
 )

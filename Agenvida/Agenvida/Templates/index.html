@@ -7,19 +7,15 @@
                 <div class="pure-u-1-5">
                     <div id="contenido1"> 
                         <div class="menu-izq">
-                            <h3>Menu Izq</h3>
+                            <h3>Menu</h3>
                                 <ul>
-                                    <li><a href="#">Horario Espiritual</a></li>
-                                    <li><a href="#">Mes</a></li>
-                                    <li><a href="#">Año</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#">Mensual</a></li>
-                                    <li><a href="#">Semanal</a></li>
-                                </ul>
-                                <ul>
-                                    <li><a href="#">Ofrecimientos</a></li>
-                                    <li><a href="#">Reflexion diaria</a></li>
+                                    <li><a href="#" title="Tu horario Espiritual">Horario Espiritual</a></li>
+                                    <li><a href="http://evangeliodeldia.org/" title="Alimento para el alma" target="_blank">Evangelio del dia</a></li>
+                                    <li><a href="http://blog.agenvida.com" title="En el blog de Agenvida" target="_blank">Meditacion del evangelio</a></li>
+                                    <li><a href="http://www.schoenstatt.org/es/?page=p-kentenich-tel" title="Frases del PJK" target="_blank">Telefono del Padre</a></li>
+                                    <li><a href="/hep/" title="Hacia el Padre" target="_blank">Oraciones</a></li>
+                                    <li><a href="#" title="Aporta tu granito de arena">Capitalario Agenvida</a></li>
+                                    
                                 </ul>
                         </div>
                     </div>
@@ -37,12 +33,12 @@
                                         </tr>
 
                                         <tr><th>Proposito Particular</th>
-                                        <td id='pparticular'></td>
+                                        <td id='pparticular' title="Hace click/dobleclick para agregar/editar tu proposito particular"></td>
                                         </tr>
                                     </table>
                                 </div>
                                 <div class="pure-u-1">
-                                    <div name="startDate" id="startDate" class="date-picker" ></div>                                        
+                                    <div name="startDate" id="startDate" class="date-picker" title="Podes ver tu he de todos los meses" ></div>                                        
                                 </div>
                                 <div class='datagrid he' id='vinculaciones'>                                                          
                                 </div>
@@ -97,13 +93,13 @@
      <tr id="alt" class="pure-table-odd">
          <td class='vinculacion' scope="rowgroup" colspan="32">
                <strong id='vinc'><%= vinculacion %></strong>
-               <button class="pure-button" id="create-button">+</button>
+               <button class="pure-button" id="create-button" title="Agregar proposito">+</button>
          </td> 
      </tr>
     
 </script>
-	<script id="propositoTemplate" type="text/template">
-          <th><%= proposito %><button class="pure-button" id="delete-button">x</button></th>  
+	<script id="propositoTemplate" type="text/template" >
+          <th><%= proposito %><button class="pure-button" id="delete-button" title="Eliminar proposito">x</button></th>  
           <td><input id="01"  name="elemento1" type="checkbox" value="1" class="ck" /></td>
           <td><input id="02" name="elemento2" type="checkbox" value="1" class="ck"/></td>
           <td><input id="03" name="elemento3" type="checkbox" value="1" class="ck"/></td>
