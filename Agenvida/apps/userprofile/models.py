@@ -13,11 +13,11 @@ SEXO_CHOICES=(
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     #avatar = AvatarField(upload_to="images/avatars/", width=100, height=100, blank=True, null=True)
-    ideal_personal = models.CharField(max_length=50,null=True)
+    ideal_personal = models.CharField(max_length=50,null=True, blank=True)
     fecha_nacimiento = models.DateField(null=True)
     sexo = models.CharField(max_length=15,null=True, choices=SEXO_CHOICES) ## poder elegir a traves de choices
     pais = CountryField()
-    grupo_de_vida = models.CharField(max_length=140,null=True)
+    grupo_de_vida = models.CharField(max_length=140,null=True, blank=True)
     
 
 
