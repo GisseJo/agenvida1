@@ -1,4 +1,4 @@
-!DOCTYPE HTML> <!-- Creado por @GisseJo y @RodriValdez5 para @Agenvida -->
+<!DOCTYPE HTML> <!-- Creado por @GisseJo y @RodriValdez5 para @Agenvida -->
 <html lang='es'>
 <head>
     <meta charset="UTF-8">
@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="{{STATIC_URL}}css/pure/pure.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="{{STATIC_URL}}css/main4.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" media="screen" />
+ 
 
     <title>Agenvida - El Horario Espiritual Online</title>
 
-    <script async="" src="./layout pure_files/analytics.js"></script><script src="./layout pure_files/gis6vng.js"></script>
+    <script src="./layout pure_files/gis6vng.js"></script>
         <style type="text/css">.header h1,.hero h1,.hero h2,.tk-omnes-pro{font-family:"omnes-pro",sans-serif;}</style>
     <link rel="stylesheet" href="./fonts.css" type="text/css" media="screen" />        
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>  
@@ -32,19 +33,19 @@
                 }
             });
         });
-    </script>       
+    </script>     
 </head>
 <body>
     
     <nav class="clearfix">  
         <ul class="clearfix">  
-            <li class="logo"><img class='imagen-logo' src="./img/agenvidaicono.png" alt="Agenvida"></li>
+            <li class="logo"><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
             
             <li><a href="#">Sobre</a></li>  
             <li><a href="#slider">Blog</a></li>
             <li><a href="#suscripcion">Suscripcion</a></li>  
             <li><a href="#suscripcion">Contacto</a></li>  
-            <li><a href="#">Entrar</a></li>  
+            <li><a href="/login/">Entrar</a></li>  
         </ul>  
         <a href="#" id="pull">Menu</a>
     </nav>
@@ -54,7 +55,7 @@
             <div class="pure-g-r">
                 <div class="pure-u-1-2">
                     <div class="videointro"> <!-- buscasr class de iframe o embed-->
-                        <iframe width="430" height="290"src="http://www.youtube.com/embed/XGSy3_Czz8k?autoplay=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="430" height="290"src="http://www.youtube.com/embed/_qr09lOYjFs?autoplay=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
                         <!--<img src="./agenvida-definicion.jpg" alt="Definicion">-->
                     </div>
                 </div>
@@ -79,7 +80,7 @@
                 </div>   
             </div>
         </div>
-       <div class="content">
+       <!--<div class="content">
             <div class="pure-g-r content-ribbon">
                 <div class="pure-u-1">
 
@@ -89,14 +90,21 @@
             </div>
 
             <div class="pure-g-r content-ribbon">
-                <div class="pure-u-1">
+                <div class="pure-u-1 wrapper">
                     
                         <section class="slider" name="slider">
                             <center><iframe src="file:///C:/Users/user/Google%20Drive/AgenVida/slider.html"></iframe></center>
                         </section>
                 </div>
             </div>
-        </div>
+        </div>-->
+        <script type="text/javascript" src="{{STATIC_URL}}js/nivo-slider/demo/scripts/jquery-1.9.0.min.js"></script>
+            <script type="text/javascript" src="{{STATIC_URL}}js/nivo-slider/themes/jquery.nivo.slider.js"></script>
+            <script type="text/javascript">
+            $(window).load(function() {
+                $('#slider').nivoSlider();
+            });
+        </script>
         <div class="l-box ribbon" >
                 <h2>Ya quiero comenzar a usar agenvida</h2>
 

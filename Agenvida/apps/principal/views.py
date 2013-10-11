@@ -39,7 +39,10 @@ def login_user(request):
     else:
         return render_to_response('login/login.html', context_instance=RequestContext(request))
  
-
+def portada(request):
+    return render_to_response('nuevo.html', context_instance=RequestContext(request))
+ 
+     
 
 
 def privado(request):

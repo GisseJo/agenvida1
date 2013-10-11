@@ -17,7 +17,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$','principal.views.login_user'),
+    url(r'^$','principal.views.portada'),
     (r'^login/$', 'principal.views.login_user'),
    (r'^he/','principal.views.dashboard' ),
     (r'^privado/','principal.views.dashboard' ),
@@ -31,5 +31,5 @@ urlpatterns = patterns('',
       url(r'^accounts/', include('userprofile.urls')),
     (r'^sugerencias/', direct_to_template, {'template': 'sugerencias.html'}),
     (r'^hep/', direct_to_template, {'template': 'hep.html'}),
-
+    
 )
