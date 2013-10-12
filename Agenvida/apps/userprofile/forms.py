@@ -19,6 +19,8 @@ class ContratoAutoeducacionForm(forms.ModelForm):
         fields = ('afirmar', 'liberar', 'adquirir')
 
 class UserForm(forms.ModelForm):
+    username= forms.CharField(help_text="")
+
     class Meta:
         model = User
         fields = ('username', 'first_name', 'last_name')
