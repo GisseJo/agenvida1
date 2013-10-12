@@ -33,14 +33,24 @@
     </script>    
     <style>
       .about {
-        width: 90%;
+        width: 65%;
+        margin-left: 20%;
+        text-align: justify;
+        
       }
 
       .img-sing {
-        float: right;
-        width: 50%;
-        margin-left: 2%;
-        margin-right: 4%;
+        width: 60%;
+        margin-left: 22%;
+      }
+        
+      .fotoperfil {
+        width: 40%;
+      }
+
+      .pasos {
+        
+      }
       }
         /**600**/
           @media screen and (max-width: 600px) {  
@@ -94,41 +104,174 @@
 
     <div class="splash">
             <div class="pure-g-r">
-              <div class="pure-u-1-2">
-                <img class="img-sing" src="{{STATIC_URL}}img/singings.jpg" >
-                
-              </div>
-              <div class="pure-u-1-2">
-              <div class="about">
+              <div class="pure-u-1 about">
+                <div class="pure-u-1 l-centered">
+                        <img src="{{STATIC_URL}}img/agenvidaabout.jpg">
+                </div>
+                <div class="1-box">
                   <h1>Agenvida</h1>
-                  <h4>Es el horario espiritual online, como el horario espiritual que viniste usando hasta ahora pero en la comodidad de tu pc, notebook o celular.</h4>
-                  <h3>Un poco de historia</h3>
-                  <p>Vimos que entre nuestros conocidos y nosotros también hay una necesidad de tener el horario espiritual (herramienta popular entre los miembros del Movimiento de Schoenstatt) en una versión web. Ya que uno de los mayores "problemas" para completarlo es acordarse y tener el "cuadernito" consigo todo el tiempo.
+                  <h4>Es el horario espiritual online, así como el que venías usando hasta ahora pero en la comodidad de tu pc, notebook o celular.</h4>
+                </div>
+                <div class="1-box">
+                  <h3>¿Qué es un horario espiritual?</h3>
+                  <p>Es una herramienta de <b title="Acción de hacerse cargo uno mismo de la formación de la propia personalidad" style="cursor:help; color:red; text-decoration:underline;">autoeducación</b> a través del "control" de <b title="Intenciones concretas que pueden ser acciones que cuestan, sacrificios u ofrecimientos" style="cursor:help; color:red; text-decoration:underline;">propósitos</b> ordenados en <b title="Dimensiones baásicas por las que aseguramos el desarrollo de nuestra personalidad" style="cursor:help; color:red; text-decoration:underline;">vinculaciones</b>.</p>
+                  <p>Básicamente consiste en una "planilla" en donde se listan las cuatro vinculaciones:
+                    <ul>
+                      <li>Con Dios</li>
+                      <li>Conmigo mismo</li>
+                      <li>Con los demas</li>
+                      <li>Con la naturaleza, las cosas, el estudio y el trabajo</li>
+                    </ul>
                   </p>
-                  <p>Esta necesidad más el deseo mutuo de aprender a programar decidimos emprender este proyecto: Agenvida, el horario espiritual en la web.</p>
-                  <h3>Como funciona</h3>
-                  <p>Al registrarte configuras tu "contrato pedagogico" y entras a tu escritorio o dashboard que es el horario espiritual en si.</p>
-                  <p>Ahi podras encontrar la "planilla" lista para que agregues tus propositos del mes ordenados por vinculaciones.</p>
-                  <p>Si queres podes programar un recordatorio para que te ayudemos a acordarte de controlar tu horario espiritual todos los dias, a la hora que nos pidas.</p>
-                  <h3>Preguntas frecuentes</h1>
-                  <h4>Van a poder ver mis propositos y mis marcaciones?</h4>
-                  <p>Los demas usuarios de Agenvida no podran ver ni tus propositos, ni tus marcaciones, ni siquiera podran saber que estas usando Agenvida. Pero en cuanto a nosotros, la respuesta sincera es si, de poder podemos, sin embargo Gmail tambien puede ver todas tus conversaciones y lo mismo ocurre con Facebook. Tendras que confiar en nosotros.</p>
-                  <h4>Voy a poder hacer un reporte online de cada mes?</h4>
-                  <p>La respuesta a esta pregunta</p>
-                  <h4>Que pasa si olvido mi contrasena?</h4>
-                  <p>Bla bla bla</p>
-                  <h4>Que pasa si olvido mi contrasena?</h4>
-                  <p>Bla bla bla</p>
-                  <h4>Que pasa si olvido mi contrasena?</h4>
-                  <p>Bla bla bla</p>
-                  <h4>Que pasa si olvido mi contrasena?</h4>
-                  <p>Bla bla bla</p>
+                  <p>Algo así:</p>
+                    <div class="pure-u-1 l-centered">
+                        <img src="{{STATIC_URL}}img/screenabout.png">
+                    </div>
+                </div>
 
-              </div>
-              </div>
+                <div clas="1-box">
+                  <h3>Un poco de historia</h3>
+                  <p>Vimos que nuestros conocidos y nosotros también teniamos una necesidad de tener el horario espiritual (herramienta utilizada por los miembros del <b title="Es un movimiento mariano de la Iglesia Católica, difundido en todos los continentes. Tiene como objetivo principal la renovación religiosa moral del hombre y de la sociedad. De Schoenstatt surge el horario espiritual" style="cursor:help; color:red; text-decoration:underline;">Movimiento de Schoenstatt</b>) en una versión web. Ya que uno de los mayores "problemas" para completarlo es acordarse y tener el "<b title="La forma tradicional de llevar el control del horario espiritual es un cuadernito con las 'planillas' por mes" style="cursor:help; color:red; text-decoration:underline;">cuadernito</b>" consigo todo el tiempo.
+                  </p>
+                  <p>Esta necesidad, más el deseo mutuo de aprender a programar, decidimos emprender este proyecto: <b>Agenvida, el horario espiritual en la web</b>.</p>
+                </div>
+                <div class="pure-grid grid-example">
+                  <h3>¿Quienes somos?</h3>
+                  <p>El equipo esta conformado por:</p>
+                            <img class="fotoperfil" src="{{STATIC_URL}}img/rodriav.jpg">
+                            <img class="fotoperfil" src="{{STATIC_URL}}img/gisseav.jpg">
+                </div>
+                <div>
+                    <h3>Como funciona</h3>
 
-    
                 
+                  <div>
+                    <div class="pure-g-r grid-example">
+                    <div class="pure-u-2-5">
+                        <div class="l-box">
+                            <h3>Registro</h3>
+                            <p>El primer paso es registrarte. Podés hacerlo con tu email o con Twitter.</p>
+                        </div>
+                    </div>
+                    <div class="pure-u-3-5">
+                        <div class="l-box">
+                          <img class="pasos" src="{{STATIC_URL}}img/paso1.jpg">
+                        </div>
+                    </div>
+                    <div class="pure-u-3-5">
+                        <div class="l-box">
+                          <img class="pasos" src="{{STATIC_URL}}img/paso2.jpg">
+                        </div>
+                    </div>
+                    <div class="pure-u-2-5">
+                        <div class="l-box">
+                            <h3>Contrato</h3>
+                            <p>Luego es hora de completar tu contrato pedagógico, que es el compromiso anual donde se reflexiona sobre qué valores y actitudes se quieren afirmar, liberar y adquirir cada año.</p>
+                        </div>
+                    </div>
+                    <div class="pure-u-2-5">
+                        <div class="l-box">
+                            <h3>Horario Espiritual</h3>
+                            <p>Y es hora de configurar la "planilla", agregando el propósito particular, los propósitos correspondientes a cada vinculación y finalmente.. a completar cada día tu horario espiritual!</p>
+                        </div>
+                    </div>
+                    <div class="pure-u-3-5">
+                        <div class="l-box">
+                          <img class="pasos" src="{{STATIC_URL}}img/paso3.jpg">
+                        </div>
+                    </div>
+                  </div>
+                  <div class="pure-g-r grid-example">
+                    <div class="pure-1-1 1-centered">
+                      <img class="g" src="{{STATIC_URL}}img/faq.jpg" >
+
+                    </div>
+
+                      <div class="pure-u-1-2">
+                        <div class="l-box">
+                            <h3>Voy a poder hacer un reporte online de cada mes?</h3>
+                            <p>
+                                Respuesta
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pure-u-1-2">
+                        <div class="l-box">
+                            <h3>Van a poder ver mis propositos y mis marcaciones?</h3>
+                            <p>
+                                Los demas usuarios de Agenvida no podran ver ni tus propositos, ni tus marcaciones, ni siquiera podran saber que estas usando Agenvida. Pero en cuanto a nosotros, la respuesta sincera es si, de poder podemos, sin embargo Gmail tambien puede ver todas tus conversaciones y lo mismo ocurre con Facebook. Tendras que confiar en nosotros.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="pure-u-1-2">
+                        <div class="l-box">
+                            <h3>Que pasa si olvido mi contrasena?</h3>
+                            <p>
+                                Respuesta
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pure-u-1-2">
+                        <div class="l-box">
+                            <h3>Como edito mi perfil?</h3>
+                            <p>
+                                Respuesta
+                        </div>
+                    </div>
+                    <div class="pure-u-1-2">
+                        <div class="l-box">
+                            <h3>Como agrego un proposito?</h3>
+                            <p>
+                               Respuesta
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="pure-u-1-2">
+                        <div class="l-box">
+                            <h3>Como agrego mi ideal personal?</h3>
+                            <p>
+                                Respuesta
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                    <div class="pure-u-1 l-centered">
+                        <center><a href="http://blog.agenvida.com/ask" target="_blank"><img src="{{STATIC_URL}}img/preguntanos.jpg"></a></center>
+                    </div>
+                  </div>
+                  <div class="pure-g-r grid-example">
+
+                    
+                       <div class="pure-u-1-2">
+                        <div class="l-box">
+                            <h3>Contacto</h3>
+                            <h4>Mails</h4>
+                              <a href="mailto:agenvida@gmail.com" target="_top"><p>agenvida@gmail.com</p></a>
+                              <p>Gisse: <a href="mailto:gisse.peralta@gmail.com" target="_top">gisse.peralta@gmail.com</a></p>
+                              <p>Rodri: <a href="mailto:rodri.valdez@gmail.com" target="_top">rodri.valdez@gmail.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="pure-u-1-2">
+                        <div class="l-box">
+                            <a href="http://www.facebook.com/agenvida"><img class='img-redes'src="{{STATIC_URL}}img/logofb.png"></a>
+                            <a href="http://www.twitter.com/agenvida"><img class='img-redes' src="{{STATIC_URL}}img/logotw.png"></a>
+                            
+                        </div>
+                    </div>
+                    
+                      
+
+                  </div>
+
+              </div>
+              </div>
+             
             </div>
     </div>
        

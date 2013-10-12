@@ -11,6 +11,10 @@ right: 25px;
 width: 3%;
 }
 
+a {
+    color: #9e9e9e;
+}
+
 
 /*Scrollbar*/
 
@@ -275,7 +279,7 @@ width: 3%;
         position: fixed;
     }
 
-    a {
+    #clearfix a {
     	color: white;
 
     }
