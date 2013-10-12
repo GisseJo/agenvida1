@@ -34,6 +34,7 @@
             });
         });
     </script>     
+    
 </head>
 <body>
     
@@ -41,11 +42,11 @@
         <ul class="clearfix">  
             <li class="logo"><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
             
-            <li><a href="#">Sobre</a></li>  
-            <li><a href="#slider">Blog</a></li>
-            <li><a href="#suscripcion">Suscripcion</a></li>  
-            <li><a href="#suscripcion">Contacto</a></li>  
-            <li><a href="/login/">Entrar</a></li>  
+            <li><a href="/about">Sobre</a></li>  
+            <li><a href="http://blog.agenvida.com">Blog</a></li>
+            <li><a href="http://www.facebook.com/agenvida"><img class='img-redes'src="{{STATIC_URL}}img/logofb.png"></a></li>
+            <li><a href="http://www.twitter.com/agenvida"><img class='img-redes' src="{{STATIC_URL}}img/logotw.png"></a></li>  
+            <li><a href="/contacto">Contacto</a></li>  
         </ul>  
         <a href="#" id="pull">Menu</a>
     </nav>
@@ -74,7 +75,7 @@
                         </h2>
 
                         <p>
-                            <a href="#" class="pure-button primary-button">Quiero saber mas!</a>
+                            <a href="/about/" class="pure-button primary-button">Quiero saber mas!</a>
                         </p>
                     </div>
                 </div>   
@@ -98,28 +99,26 @@
                 </div>
             </div>
         </div>-->
-        <script type="text/javascript" src="{{STATIC_URL}}js/nivo-slider/demo/scripts/jquery-1.9.0.min.js"></script>
+        <!--<script type="text/javascript" src="{{STATIC_URL}}js/nivo-slider/demo/scripts/jquery-1.9.0.min.js"></script>
             <script type="text/javascript" src="{{STATIC_URL}}js/nivo-slider/themes/jquery.nivo.slider.js"></script>
             <script type="text/javascript">
             $(window).load(function() {
                 $('#slider').nivoSlider();
             });
-        </script>
+        </script>-->
         <div class="l-box ribbon" >
                 <h2>Ya quiero comenzar a usar agenvida</h2>
 
-                <form class="pure-form">
-    <fieldset>
-        <p>Recien lanzamos la version alpha del proyecto,</p><p>sin embargo si te suscribis te vamos a avisar cuando habilitemos mas cupos.</p>
+                <form class="pure-form validate" action="http://gmail.us7.list-manage1.com/subscribe/post?u=e71a41b71fa7d4eba53905503&amp;id=bb904b580a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                    <fieldset>
+                        <p>Recien lanzamos la version alpha del proyecto,</p><p>sin embargo si te suscribis te vamos a avisar cuando habilitemos mas cupos.</p>
 
-        
-        
 
-        <input id="first-name" type="text" placeholder="Tu nombre">
-        <input type="email" placeholder="Email">
-        <button type="submit" class="pure-button pure-button-primary">Suscribirme</button>
-    </fieldset>
-</form>
+                        <input id="mce-FNAME" type="text" name="FNAME" placeholder="Tu nombre">
+                        <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL">
+                        <button type="submit" class="pure-button pure-button-primary" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Suscribirme</button>
+                    </fieldset>
+                </form>
             </div>
         </div>
 

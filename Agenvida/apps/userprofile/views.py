@@ -3,7 +3,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404 
 from django.core.context_processors import csrf
-from forms  import UserProfileForm
+from forms  import UserProfileForm, UserForm
 from forms import ContratoAutoeducacionForm
 from models import ContratoAutoeducacion
 from django.contrib.auth.decorators import login_required
@@ -27,19 +27,30 @@ def user_profile(request):
 
 @login_required
 def contrato_autoeducacion(request):
-	contratoAutoeducacionUser = ContratoAutoeducacion(user=request.user)
+    contratoAutoeducacionUser,created = ContratoAutoeducacion.objects.get_or_create(user=request.user, defaults={'user': request.user})
+    if request.method == 'POST':
+        form = ContratoAutoeducacionForm(request.POST, instance=contratoAutoeducacionUser)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/he/')
+    else:
+        form =ContratoAutoeducacionForm(instance=contratoAutoeducacionUser)
+    args = {}
+    args.update(csrf(request))
+    args['form']= form
+    return render_to_response('userprofile/contrato.html', args, context_instance=RequestContext(request))
+
+@login_required
+def settings(request):
 	if request.method == 'POST':
-		form = ContratoAutoeducacionForm(request.POST, instance=contratoAutoeducacionUser)
+		form = UserForm(request.POST, instance= request.user)
 		if form.is_valid():
 			form.save()
-			return HttpResponseRedirect('/he/')
+			return HttpResponseRedirect('/he')
 	else:
-		form =ContratoAutoeducacionForm()
-	args = {}
-	args.update(csrf(request))
-	args['form']= form
-	return render_to_response('userprofile/contrato.html', args, context_instance=RequestContext(request))
-
+		form = UserForm(instance=request.user)
+        
+	return render_to_response('userprofile/settings.html', { 'user_form': form}, context_instance=RequestContext(request))
 
 
 

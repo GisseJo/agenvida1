@@ -31,5 +31,7 @@ urlpatterns = patterns('',
       url(r'^accounts/', include('userprofile.urls')),
     (r'^sugerencias/', direct_to_template, {'template': 'sugerencias.html'}),
     (r'^hep/', direct_to_template, {'template': 'hep.html'}),
+    (r'^about/', direct_to_template, {'template': 'about.html'}),
+    (r'^contacto/', direct_to_template, {'template': 'contacto.html'}),
     
 )

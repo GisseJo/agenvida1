@@ -71,6 +71,10 @@
 
   }
 
+  .pure-button-primary {
+    margin-bottom: 0.5%;
+  }
+
 
 
   #id_fecha_nacimiento {
@@ -131,11 +135,11 @@
             <li class="logo"><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
             
             <li><a href="">Hola {{nombre}}</a></li>  
-            <li><a href="/he" >HE</a></li>
-            <li><a href="/sugerencias" title="Ayudanos a seguir mejorando.">Sugerencias</a></li>  
-            <li><a href="/accounts/settings" title="Configura tu cuenta">Configuracion</a></li>
+            <li><a href="#" >HE</a></li>
+            <li><a href="/accounts/sugerencias" title="Ayudanos a seguir mejorando.">Sugerencias</a></li>  
             <li><a href="/accounts/profile" title="Para editar tu perfil">Mi Perfil</a></li>  
-            <li><a href="/cerrar">Cerrar</a></li>  
+            <li><a href="/accounts/settings" title="Configura tu cuenta"><img class='img-redes'src="{{STATIC_URL}}img/settings.png"></a></li>
+            <li><a href="/cerrar">Cerrar</a></li>   
         </ul>  
         <a href="#" id="pull">Menu</a>
     </nav>
@@ -156,6 +160,16 @@
 
                 {%block content%}
                 {%endblock%}
+                <ul>
+                <li><a class="pure-button pure-button-primary" href="/accounts/email/">Cambiar E-mail</a></li>
+                <li><a class="pure-button pure-button-primary" href="/accounts/password/change/">Cambiar contraseña</a></li>
+                </ul>
+                <h3>Proximamente</h3>
+                <ul>
+                  <li><a class="pure-button pure-button-primary" href="">Recordatorio por mail</a></li>
+                  <li><a class="pure-button pure-button-primary" href="">Checkbox personalizado</a></li>
+                  <li><a class="pure-button pure-button-primary" href="">Plantilla personalizada</a></li>
+                </ul>
               </div>
     </div>
        

@@ -1,6 +1,7 @@
 #encoding:utf-8
 from django import forms
 from models import UserProfile, ContratoAutoeducacion
+from django.contrib.auth.models import User
 
 
 class UserProfileForm(forms.ModelForm):
@@ -16,4 +17,9 @@ class ContratoAutoeducacionForm(forms.ModelForm):
     class Meta:
         model = ContratoAutoeducacion
         fields = ('afirmar', 'liberar', 'adquirir')
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name')
 

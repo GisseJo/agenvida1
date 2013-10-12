@@ -355,6 +355,13 @@ nav li:last-child a {
     display: none;  
 } 
 
+.img-redes {
+        width: 25%;
+        margin-top: 8%;
+        margin-bottom: -8%;
+        
+    }
+
 /**600**/
     @media screen and (max-width: 600px) {  
         nav {   
