@@ -17,7 +17,6 @@
     {% include "socialaccount/snippets/provider_list.html" with process="login" %}
   </button>
 
-  <div class="login-or">{% trans 'or' %}</div>
 
 </div>
 
@@ -25,7 +24,7 @@
 
 {% endif %}
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+<div>o completá el formulario:</div>
 
 <form class="pure-form signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
@@ -35,7 +34,7 @@
   {% endif %}
   <button type="submit" class="pure-button pure-button-primary"">{% trans "Sign Up" %} &raquo;</button>
 </form>
-
+<p>{% blocktrans %}¿Ya tenés una cuenta? Entonces ingresá <a href="{{ login_url }}">acá</a>.{% endblocktrans %}</p>
 
 {% endblock %}
 
