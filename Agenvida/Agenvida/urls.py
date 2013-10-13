@@ -33,5 +33,6 @@ urlpatterns = patterns('',
     (r'^hep/', direct_to_template, {'template': 'hep.html'}),
     (r'^about/', direct_to_template, {'template': 'about.html'}),
     (r'^contacto/', direct_to_template, {'template': 'contacto.html'}),
+    (r'^404/', direct_to_template, {'template': '404.html'}),
     
 )

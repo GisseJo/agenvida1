@@ -10,10 +10,15 @@
     <meta name="description" content="Horario espiritual online">
     <title>Agenvida - El Horario Espiritual Online</title>
     
-    <link rel="stylesheet" href="./css/pure/marketing.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="./css/pure/pure.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="./css/main4.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="./css/style.css" type="text/css" media="screen" />
+    <title>Agenvida - El Horario Espiritual Online</title>
+    
+    <link rel="stylesheet" href="{{STATIC_URL}}css/pure/marketing.css" type="text/css" media="screen" />
+    
+    <link rel="stylesheet" href="{{STATIC_URL}}css/pure/pure.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/main4.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" media="screen" />    
+
+
     
     <script async="" src="./layout pure_files/analytics.js"></script><script src="./layout pure_files/gis6vng.js"></script>
         <style type="text/css">.header h1,.hero h1,.hero h2,.tk-omnes-pro{font-family:"omnes-pro",sans-serif;}</style>
@@ -105,13 +110,14 @@
     
     <nav class="clearfix">  
         <ul class="clearfix">  
-            <li class="logo"><img class='imagen-logo' src="./img/agenvidaicono.png" alt="Agenvida"></li>
+            <li class="logo"><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
             
-            <li><a href="#">Sobre</a></li>  
-            <li><a href="#slider">Blog</a></li>
-            <li><a href="#suscripcion">Suscripcion</a></li>  
-            <li><a href="#suscripcion">Contacto</a></li>  
-            <li><a href="#">Entrar</a></li>  
+            <li><a href="" title="Hacé click en la ruedita para configurar tu nombre.">Hola {{nombre}}</a></li>  
+            <li><a href="/he" >HE</a></li>
+            <li><a href="/sugerencias/" title="Ayudanos a seguir mejorando.">Sugerencias</a></li>  
+            <li><a href="/accounts/profile" title="Para editar tu perfil">Mi Perfil</a></li>  
+            <li><a href="/accounts/settings" title="Configura tu cuenta"><img class='img-redes'src="{{STATIC_URL}}img/settings.png"></a></li>
+            <li><a href="/cerrar">Cerrar</a></li>  
         </ul>  
         <a href="#" id="pull">Menu</a>
     </nav>
@@ -122,13 +128,13 @@
               <div class="pure-u-1-2">
 
 
-                <img class="img-sing" src="./img/pjk.jpg" >
+                <img class="img-sing" src="{{STATIC_URL}}img/pjk.jpg" >
                 
               </div>
               <div class="pure-u-1-2">
 
 <h1>UPS! Ese link esta mal</h1>
-<h3>Pero igual el Padre te dice:</h3>
+<h3>Pero igual el <b title="Fundador del Movimiento de Schoenstatt. Impulsor del Horario Espiritual" style="cursor:help;">Padre Kentenich</b> te dice:</h3>
 <form name="random" class="pure-form"><input type="text" name="random" class="pure-input-2-3" style="width=200px;" value=""></form>
 <script type="text/css">
 </script>
@@ -171,12 +177,14 @@ document.random.random.value= ar[sec % 20]
 getMessage()
 //-->
 </SCRIPT>
+
+<br><a href="/he"><button class="pure-button pure-button-primary">Volver</button></a>
               
-<form class="pure-form">
+<!--<form class="pure-form">
   <h3>Proba buscando por aca</h3>
                   <input type="text" class="pure-input-rounded">
                   <button type="submit" class="pure-button">Buscar</button>
-              </form>
+              </form>-->
               </div>
 
     

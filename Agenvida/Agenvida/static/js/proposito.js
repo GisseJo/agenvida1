@@ -132,7 +132,7 @@ tabla.ListaPparticularView = Backbone.View.extend({
    
     
     initialize: function(){
-        //this.collection.on('change', this.render, this);
+        this.collection.bind('reset', this.render, this);
          this.collection.on('add', this.render, this); 
 },
 events: {
@@ -228,13 +228,15 @@ tabla.ListaVinculacionView = Backbone.View.extend({
     className: 'tvinculaciones pure-table',
     template: _.template($('#vinculacionesCabeceraTemplate').html() ),
     initialize: function(){
+    	
        // this.collection.on('change', this.render, this);
         // this.collection.on('add', this.render, this); 
+    	
 },
 events: {
-     'dblclick' : 'Cambiar',
-     'click .edit': 'editarVinculacion',
-     'click .create': 'crearProposito',
+     //'dblclick' : 'Cambiar',
+    // 'click .edit':'editarVinculacion',
+   //  'click .create':'crearProposito',
      
     },
 
@@ -255,6 +257,8 @@ events: {
         return this;
     }
 });
+
+
 // vista para cada vinculacion en particular
 tabla.VinculacionView = Backbone.View.extend({
      id: 'vinculacion',
@@ -263,11 +267,12 @@ tabla.VinculacionView = Backbone.View.extend({
    
     initialize: function(){
       //  this.model.on('change', this.render, this);
+    	this.model.bind('reset', this.render, this);
 },
        events: {
      
      'click #vinc':'mostrarPropositos',
-     'click .edit': 'editarVinculacion',
+     //'click .edit': 'editarVinculacion',
      'click #create-button': 'crearProposito',
      
     },
@@ -291,6 +296,7 @@ tabla.VinculacionView = Backbone.View.extend({
     },
 
      crearProposito: function(){
+    	 //alert('asjkdfahls');
     var nombre = prompt("Ingresa tu nuevo proposito");
     if (!nombre)return;
     //console.log(this.model.get('resource_uri'));
@@ -536,7 +542,7 @@ tabla.MarcacionView = Backbone.View.extend({
 var AppRouter = Backbone.Router.extend({
 
     routes:{
-        "":"list" ,
+        "":"listnull" ,
         ":ano/:mes" : "list"       
     },
 
@@ -559,28 +565,38 @@ var AppRouter = Backbone.Router.extend({
                  success:function(){                    
                      $('#pparticular').html(listaPparticularView.render().el);
 
-                } 
-
-
+                }
     });
+    },
+    
+    listnull:function () {
+        console.log('estoy-adentro')
+          vinculacion_collection = new tabla.VinculacionCollection();
+          listaVinculacionView = new tabla.ListaVinculacionView({ collection: vinculacion_collection});
+          vinculacion_collection.fetch({  //data:{"year":ano,"month":mes},
 
+             
 
+          });
+          $('#vinculaciones').html(listaVinculacionView.render().el);
+          pparticular_collection= new tabla.PParticularCollection();
+          listaPparticularView = new tabla.ListaPparticularView({ collection: pparticular_collection});
+          pparticular_collection.fetch({  //data:{"mes_ano__contains": ano +'-'+mes},//"2013-10"
 
+                   
+      });
+                          
+                       $('#pparticular').html(listaPparticularView.render().el);
 
-       /* proposito_collection = new tabla.PropositoCollection();
-        listaPropositoView = new tabla.ListaPropositoView({ collection: proposito_collection});
-        proposito_collection.fetch({
-            success:function(){
-                console.log(listaPropositoView.render().el);
-                $('#vinculaciones2').html(listaPropositoView.render().el);
-                                // $('#vinculaciones2').html("asfd");
-
-            } 
-        });*/
-
-    }   
+                  
+      }
+    
+    
 });
 
-var app = new AppRouter();
-Backbone.history.start();
+$( document ).ready(function() {
+	var app = new AppRouter();
+	Backbone.history.start();
+	});
+
   
