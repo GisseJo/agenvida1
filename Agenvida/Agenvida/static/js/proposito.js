@@ -595,7 +595,19 @@ var AppRouter = Backbone.Router.extend({
 });
 
 $( document ).ready(function() {
-	var app = new AppRouter();
+	Backbone._sync = Backbone.sync;
+
+         var _sync = Backbone.sync;
+  Backbone.sync = function(method, model, options){
+    options.beforeSend = function(xhr){
+      var token = $('meta[name="csrf-token"]').attr('content');
+      xhr.setRequestHeader('X-CSRFToken', token);
+    };
+    return _sync(method, model, options);
+  };
+  proposito_collection1 = new tabla.PropositoCollection();
+proposito_collection1.fetch();
+  var app = new AppRouter();
 	Backbone.history.start();
 	});
 

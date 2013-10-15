@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
 from principal.resource import MarcacionResource, VinculacionResource,PropositoResource,PParticularResource
-from django.views.generic.simple import direct_to_template
+from django.views.generic import TemplateView
 
 admin.autodiscover()
 
@@ -29,10 +29,13 @@ urlpatterns = patterns('',
    # (r'^accounts/', include('registration.urls')),
      (r'^accounts/', include('allauth.urls')), 
       url(r'^accounts/', include('userprofile.urls')),
-    (r'^sugerencias/', direct_to_template, {'template': 'sugerencias.html'}),
-    (r'^hep/', direct_to_template, {'template': 'hep.html'}),
-    (r'^about/', direct_to_template, {'template': 'about.html'}),
-    (r'^contacto/', direct_to_template, {'template': 'contacto.html'}),
-    (r'^404/', direct_to_template, {'template': '404.html'}),
+    (r'^sugerencias/',TemplateView.as_view(template_name="sugerencias.html")) ,
+    (r'^hep/', TemplateView.as_view(template_name="hep.html") ),
+     (r'^about/', TemplateView.as_view(template_name="about.html") ),
+      (r'^contacto/', TemplateView.as_view(template_name="contacto.html") ),
+       (r'^404/', TemplateView.as_view(template_name="404.html") ),
+    #(r'^about/', direct_to_template, {'template': 'about.html'}),
+    #(r'^contacto/', direct_to_template, {'template': 'contacto.html'}),
+    #(r'^404/', direct_to_template, {'template': '404.html'}),
     
 )
