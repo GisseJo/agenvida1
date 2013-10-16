@@ -30,6 +30,8 @@
     <p> Ingresar con  <a href="{%  provider_login_url 'twitter' %}">Twitter</a> </p>
     </div>
 -->
+{% block mensajes %}
+{% endblock %}
 
               <form class="pure-form" name="LoginForm" action="/login/" method="post">
         {% csrf_token %}
