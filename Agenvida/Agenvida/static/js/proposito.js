@@ -1,7 +1,7 @@
 tabla = {}
 //////////////////Modelos////////////////////
 tabla.Marcacion = Backbone.RelationalModel.extend({
-        urlRoot: 'http://localhost:8000/api/marcacion/',
+        urlRoot: 'http://www.agenvida.com/api/marcacion/',
         base_url: function() {//este codigo es para que le agregue un slash al final
               var temp_url = Backbone.Model.prototype.url.call(this);
               return (temp_url.charAt(temp_url.length - 1) == '/' ? temp_url : temp_url+'/');
@@ -12,7 +12,7 @@ tabla.Marcacion = Backbone.RelationalModel.extend({
         idAttribute: 'id',
     });
 tabla.Proposito = Backbone.RelationalModel.extend({
-    urlRoot: 'http://localhost:8000/api/proposito/',
+    urlRoot: 'http://www.agenvida.com/api/proposito/',
     base_url: function() {
       var temp_url = Backbone.Model.prototype.url.call(this);
       return (temp_url.charAt(temp_url.length - 1) == '/' ? temp_url : temp_url+'/');
@@ -38,7 +38,7 @@ tabla.Proposito = Backbone.RelationalModel.extend({
         }]
     });
 tabla.Vinculacion = Backbone.RelationalModel.extend({
-        urlRoot: 'http://localhost:8000/api/vinculacion/',
+        urlRoot: 'http://www.agenvida.com/api/vinculacion/',
         idAttribute: 'id',
         defaults: {
                     vinculacion: ""       
@@ -65,7 +65,7 @@ tabla.Vinculacion = Backbone.RelationalModel.extend({
 
 
     tabla.PParticularModel = Backbone.Model.extend({
-        urlRoot: 'http://localhost:8000/api/pparticular/',
+        urlRoot: 'http://www.agenvida.com/api/pparticular/',
          idAttribute: 'id',
          base_url: function() {
       var temp_url = Backbone.Model.prototype.url.call(this);
@@ -82,7 +82,7 @@ tabla.Vinculacion = Backbone.RelationalModel.extend({
 
       tabla.PParticularCollection = Backbone.Collection.extend({
             model: tabla.PParticularModel,
-             url: 'http://localhost:8000/api/pparticular/',
+             url: 'http://www.agenvida.com/api/pparticular/',
              meta: {},
              parse: function(response) {
                     this.meta = response.meta;
@@ -91,7 +91,7 @@ tabla.Vinculacion = Backbone.RelationalModel.extend({
   });
 //////////////COLLECTIONS/////////////////////////////////
 tabla.MarcacionCollection = Backbone.Collection.extend({
-        url: 'http://localhost:8000/api/marcacion/',
+        url: 'http://www.agenvida.com/api/marcacion/',
         model: tabla.Marcacion,
         meta: {},
         parse: function(response) {
@@ -103,7 +103,7 @@ tabla.MarcacionCollection = Backbone.Collection.extend({
 
 
 tabla.PropositoCollection = Backbone.Collection.extend({
-        url: 'http://localhost:8000/api/proposito/',
+        url: 'http://www.agenvida.com/api/proposito/',
         model: tabla.Proposito,
         meta: {},
         parse: function(response) {
@@ -117,7 +117,7 @@ tabla.VinculacionCollection = Backbone.Collection.extend({
         // A catcher for the meta object TastyPie will return.
         meta: {},
         // Set the (relative) url to the API for the item resource.
-        url: "http://localhost:8000/api/vinculacion/",
+        url: "http://www.agenvida.com/api/vinculacion/",
         // Our API will return an object with meta, then objects list.
         parse: function(response) {
             this.meta = response.meta;
