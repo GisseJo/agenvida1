@@ -228,7 +228,8 @@ tabla.ListaVinculacionView = Backbone.View.extend({
     className: 'tvinculaciones pure-table',
     template: _.template($('#vinculacionesCabeceraTemplate').html() ),
     initialize: function(){
-    	
+
+    	     this.collection.bind('reset', this.render, this);
        // this.collection.on('change', this.render, this);
         // this.collection.on('add', this.render, this); 
     	
@@ -573,15 +574,13 @@ var AppRouter = Backbone.Router.extend({
         console.log('estoy-adentro')
           vinculacion_collection = new tabla.VinculacionCollection();
           listaVinculacionView = new tabla.ListaVinculacionView({ collection: vinculacion_collection});
-          vinculacion_collection.fetch({  //data:{"year":ano,"month":mes},
+          vinculacion_collection.fetch({  //data:{"year":ano,"month":mes},         
+                             
 
-              success:function(){
-                $('#vinculaciones').html(listaVinculacionView.render().el);                 
-
-            } 
+           
 
           });
-        
+         $('#vinculaciones').html(listaVinculacionView.render().el);   
           pparticular_collection= new tabla.PParticularCollection();
           listaPparticularView = new tabla.ListaPparticularView({ collection: pparticular_collection});
           pparticular_collection.fetch({  //data:{"mes_ano__contains": ano +'-'+mes},//"2013-10"

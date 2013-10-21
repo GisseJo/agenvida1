@@ -152,7 +152,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
    # 'allauth.socialaccount.providers.facebook',
-    #'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
     'userprofile',
     
@@ -184,6 +184,8 @@ AUTHENTICATION_BACKENDS = (
     "allauth.account.auth_backends.AuthenticationBackend",
    
 )
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 
 
 
