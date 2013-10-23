@@ -4,11 +4,11 @@
 {% load account %}
 {% load url from future %}
 
-{% block head_title %}{% trans "Login" %}{% endblock %}
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
-<h1>{% trans "Login" %}</h1>
+<h1>{% trans "Sign In" %}</h1>
 
 {% if socialaccount.providers  %}
 <p>Si no estas registrado, que estas esperando para <a href="{{ signup_url }}">registrarte</a>.
@@ -35,7 +35,7 @@
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
   <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <button class="primaryAction pure-button pure-button-primary" type="submit">{% trans "Login" %}</button>
+  <button class="primaryAction pure-button pure-button-primary" type="submit">{% trans "Sign In" %}</button>
 </form>
 
 {% endblock %}

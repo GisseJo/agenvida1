@@ -1,0 +1,2 @@
+{% load i18n %}
+{% blocktrans %}Has cerrado tu cuenta! Te esperamos de vuelta pronto{% endblocktrans %}

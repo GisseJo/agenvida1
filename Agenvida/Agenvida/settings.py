@@ -4,8 +4,8 @@
 import os
 RUTA_PROYECTO= os.path.dirname(os.path.realpath(__file__))
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
+DEBUG = False
+TEMPLATE_DEBUG =False
 
 ADMINS = (
     ('Gisse', 'gisse.peralta@gmail.com'),
@@ -28,7 +28,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -152,7 +152,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
    # 'allauth.socialaccount.providers.facebook',
-    'allauth.socialaccount.providers.google',
+    #'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
     'userprofile',
     
@@ -238,7 +238,7 @@ DEBUG_TOOLBAR_PANELS = (
 DEBUG_TOOLBAR_CONFIG = { 'INTERCEPT_REDIRECTS': False, }
 
 
-INTERNAL_IPS = ('127.0.0.1',)
+#INTERNAL_IPS = ('127.0.0.1',)
 
 
 #Django REgistration
@@ -246,7 +246,7 @@ REGISTRATION_DEFAULT_GROUP_NAME= 'Usuarios'
 ACCOUNT_ACTIVATION_DAYS = 7 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'yankex5@gmail.com'
-EMAIL_HOST_PASSWORD = 'elhacker07'
+EMAIL_HOST_USER = 'agenvida@gmail.com'
+EMAIL_HOST_PASSWORD = 'horarioespiritual00'
 EMAIL_PORT = 587
 

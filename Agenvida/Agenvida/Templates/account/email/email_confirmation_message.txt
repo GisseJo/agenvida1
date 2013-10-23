@@ -1,0 +1,4 @@
+{% load account %}{% user_display user as user_display %}{% load i18n %}{% autoescape off %}{% blocktrans with current_site.name as site_name %}El usuario {{ user_display }} de Agenvida dio esta dirección como su dirección de mail.
+
+Para confirmar que esto es correcto, ve a {{ activate_url }}
+{% endblocktrans %}{% endautoescape %}

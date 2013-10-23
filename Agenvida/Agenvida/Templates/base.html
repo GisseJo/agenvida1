@@ -1,0 +1,154 @@
+{% load url from future %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="icon" 
+      type="image/png" 
+      href="{{STATIC_URL}}img/agenvidaicono.png">
+
+  <link rel="stylesheet" href="{{STATIC_URL}}css/pure/marketing.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/pure/pure.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/main4.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{{STATIC_URL}}css/style.css" type="text/css" media="screen" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script>
+    $(function() {
+      var pull    = $('#pull');
+        menu    = $('nav ul');
+        menuHeight  = menu.height();
+
+      $(pull).on('click', function(e) {
+        e.preventDefault();
+        menu.slideToggle();
+      });
+
+      $(window).resize(function(){
+            var w = $(window).width();
+            if(w > 320 && menu.is(':hidden')) {
+              menu.removeAttr('style');
+            }
+        });
+    });
+  </script>
+  <style>
+.menuprofile{
+  width: 50%;
+  margin-left: 35%;
+}
+
+.img-sing {
+  float: right;
+  width: 50%;
+  margin-left: 2%;
+  margin-right: 4%;
+}
+
+.pure-button-primary a {
+  color: white;
+
+}
+
+li {
+    list-style-type: none;
+}
+  /**600**/
+    @media screen and (max-width: 600px) {  
+      .img-sing {
+        display: none;
+      }       
+
+      .pure-form-stacked {
+       margin-top: 10%; 
+      }
+      
+    }  
+
+/**480px o menos**/
+
+    @media only screen and (max-width : 480px) {  
+      .img-sing {
+        display: none;
+      }        
+
+      .pure-form-stacked {
+        
+      }
+    
+    } 
+
+
+    @media only screen and (max-width : 320px) {  
+       .img-sing {
+        display: none;
+      }       
+    }  
+}
+</style>
+  </head>
+  
+    <nav class="clearfix">  
+        <ul class="clearfix">  
+            <li class="logo"><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
+            
+            <li><a href="">Hola {{nombre}}</a></li>  
+            <li><a href="#" >HE</a></li>
+            <li><a href="/accounts/sugerencias" title="Ayudanos a seguir mejorando.">Sugerencias</a></li>  
+            <li><a href="/accounts/profile" title="Para editar tu perfil">Mi Perfil</a></li>  
+            <li><a href="/accounts/settings" title="Configura tu cuenta"><img class='img-redes'src="{{STATIC_URL}}img/settings.png"></a></li>
+            <li><a href="/cerrar">Cerrar</a></li>   
+        </ul>  
+        <a href="#" id="pull">Menu</a>
+    </nav>
+
+    <div class="splash">
+            <div class="pure-g-r">
+              <div class="pure-u-1 menuprofile">
+
+
+                {% block body %}
+                    {% if messages %}
+                    <div>
+                        <strong>Messages:</strong>
+                          <ul>
+                            {% for message in messages %}
+                              <li>{{message}}</li>
+                            {% endfor %}
+                          </ul>
+                    </div>
+                    {% endif %}
+
+                    <div>
+            
+                      <ul>
+                  {% if user.is_authenticated %}
+                  
+                  <a class="pure-button pure-button-primary" href="/accounts/settings/">Volver</a>
+            
+                  {% endif %}
+                      </ul>
+                    </div>
+                    {% block content %}
+                    {% endblock %}
+                    {% endblock %}
+                    {% block extra_body %}
+                    {% endblock %}
+              </div>
+          </div>
+    </div>
+       
+
+    <div class="footer">
+            Agenvida - Creado por <a href="http://twitter.com/gissejo">@GisseJo</a> y <a href="http://twitter.com/rodrivaldez5">@Rodrivaldez5</a></br>
+<a href="http://agenvida.com/about">Sobre</a> - <a href="http://agenvida.com/contacto">Contacto</a> - <a href="http://blog.agenvida.com">Blog</a> - <a href="http://facebook.com/agenvida">Facebook</a> - <a href="http://twitter.com/agenvida">Twitter</a>
+        </div>
+    </div>  
+
+
+   
+  </body>
+</html>

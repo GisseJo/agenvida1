@@ -1,0 +1,41 @@
+{% extends "account/base.html" %}
+
+{% load url from future %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Sign Up" %}</h1>
+
+{% if socialaccount.providers  %}
+<p>Puedes registrarte con:</p>
+
+<div class="socialaccount_ballot">
+
+  <button class="pure-button pure-button-primary socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </button>
+
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% endif %}
+
+<div>o completá el formulario:</div>
+
+<form class="pure-form signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit" class="pure-button pure-button-primary"">{% trans "Sign Up" %} &raquo;</button>
+</form>
+<p>{% blocktrans %}¿Ya tenés una cuenta? Entonces ingresá <a href="{{ login_url }}">acá</a>.{% endblocktrans %}</p>
+
+{% endblock %}
+
+
