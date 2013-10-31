@@ -155,7 +155,7 @@ INSTALLED_APPS = (
     #'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.twitter',
     'userprofile',
-    
+    'south',
         
 )
 
