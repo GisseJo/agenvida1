@@ -40,7 +40,14 @@
     
 </head>
 <body>
-    
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
     <nav class="clearfix">  
         <ul class="clearfix">  
             <li class="logo"><img class='imagen-logo' src="{{STATIC_URL}}img/agenvidaicono.png" alt="Agenvida"></li>
@@ -60,31 +67,59 @@
             <div class="pure-g-r">
                 <div class="pure-u-1-2">
                     <div class="videointro"> <!-- buscasr class de iframe o embed-->
-                        <iframe width="430" height="290"src="http://www.youtube.com/embed/K5ak7fQ0-GY?autoplay=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        <iframe width="649" height="345"src="http://www.youtube.com/embed/K5ak7fQ0-GY?autoplay=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
                         <!--<img src="./agenvida-definicion.jpg" alt="Definicion">-->
                     </div>
+                    <center><class="redes-sociales">
+                        <div>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.youtube.com/watch?v=K5ak7fQ0-GY" data-via="agenvida" data-lang="es">Twittear</a>
+                        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                        <div class="fb-like" data-href="http://www.youtube.com/watch?v=K5ak7fQ0-GY" data-width="The pixel width of the plugin" data-height="100px" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
+                        <div class="g-plusone" data-size="medium" data-href="http://www.youtube.com/watch?v=K5ak7fQ0-GY"></div>
+
+<!-- Place this tag after the last +1 button tag. -->
+<script type="text/javascript">
+  window.___gcfg = {lang: 'es-419'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+                    </div></center>
                 </div>
 
     
                 <div class="pure-u-1-2">
-                    <div class="l-box splash-text">
+                    <div class="l-box splash-text" id="pruebaintro">
                         <h1 class="splash-head">
                             Agenvida.
                         </h1>
 
                         <h2 class="splash-subhead">
-                            El horario espiritual al alcance de un clic. La herramienta ideal para la autoeducacion. 
-                            Prepara tu proyecto de vida, decide cuales son tus propositos del mes y a controlarlos dia a dia.
-                            No te preocupes te ayudaremos, pero vos tenes que cumplir, eh?
+                            El horario espiritual al alcance de un clic. </br>
+                            La herramienta ideal para la autoeducacion. </br>
+                            Prepara tu proyecto de vida, decide cuales son tus propositos del mes y a controlarlos dia a dia. 
                         </h2>
 
                         <p>
                             <a href="/about/" class="pure-button primary-button">Quiero saber mas!</a>
-                        </p>
                     </div>
-                </div>   
+                    <div id="pruebaintro1">
+                        <form class="pure-form validate" action="http://gmail.us7.list-manage1.com/subscribe/post?u=e71a41b71fa7d4eba53905503&amp;id=bb904b580a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        <fieldset>
+                            <p>Recien lanzamos la version alpha del proyecto, sin embargo si te suscribis te vamos a avisar cuando habilitemos mas cupos.</p>
+                            <input id="mce-FNAME" type="text" name="FNAME" placeholder="Tu nombre">
+                            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL">
+                            <button type="submit" class="pure-button pure-button-primary" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Suscribirme</button>
+                        </fieldset>
+                        </form>
+                    </div>       
+                </div>
             </div>
-        </div>
+    </div>
+
        <!--<div class="content">
             <div class="pure-g-r content-ribbon">
                 <div class="pure-u-1">
@@ -110,21 +145,7 @@
                 $('#slider').nivoSlider();
             });
         </script>-->
-        <div class="l-box ribbon" >
-                <h2>Ya quiero comenzar a usar agenvida</h2>
 
-                <form class="pure-form validate" action="http://gmail.us7.list-manage1.com/subscribe/post?u=e71a41b71fa7d4eba53905503&amp;id=bb904b580a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-                    <fieldset>
-                        <p>Recien lanzamos la version alpha del proyecto,</p><p>sin embargo si te suscribis te vamos a avisar cuando habilitemos mas cupos.</p>
-
-
-                        <input id="mce-FNAME" type="text" name="FNAME" placeholder="Tu nombre">
-                        <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL">
-                        <button type="submit" class="pure-button pure-button-primary" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Suscribirme</button>
-                    </fieldset>
-                </form>
-            </div>
-        </div>
 
         <div class="footer">
             Agenvida - Creado por <a href="http://twitter.com/gissejo">@GisseJo</a> y <a href="http://twitter.com/rodrivaldez5">@rodrivaldez5</a>..

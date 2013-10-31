@@ -19,6 +19,64 @@ ul li {
     list-style-type: none;
 }
 
+body {
+
+}
+
+.splash { 
+background: 0;
+
+}
+
+.splash .splash-subhead {
+    color: black;
+}
+
+.ribbon {
+    background: 0;
+    color: black;
+}
+
+#pruebaintro {
+    background: white;
+    padding: 24px;
+    margin-right: 3%;
+    -webkit-box-shadow: 0 0 125px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0 0 125px rgba(255,255,255,.35);
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+#pruebaintro1 {
+    background: white;
+    padding: 1%;
+    margin-right: 3%;
+    margin-top: 1%;
+    -webkit-box-shadow: 0 0 125px rgba(0, 0, 0, 1);
+    -moz-box-shadow: 0 0 125px rgba(255,255,255,.35);
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.redes-sociales {
+ background: white;
+padding: 1%;
+margin: 5%;
+margin-top: 1%;
+border: 1px solid #E2D2AE;
+-webkit-box-shadow: 0 0 125px rgba(255,255,255,.35);
+-moz-box-shadow: 0 0 125px rgba(255,255,255,.35);
+box-shadow: 0 0 125px rgba(255,255,255,.35);
+opacity: 0.9;
+border-radius: 10px;
+display: inline-block;
+zoom: 1;
+height: 20px;
+text-align: center;
+width: 150px;
+overflow: hidden;
+}
+
 
 /*Scrollbar*/
 
@@ -40,7 +98,7 @@ ul li {
 /* Generales */
 
     body {  
-        background-color: #ece8e5;  
+        background-image: url('fondos14a.jpg'); 
     }  
         #main {
             overflow:auto;
@@ -49,7 +107,8 @@ ul li {
         }
             .videointro {
             	width: 100%;
-                margin-left: 15%;
+                margin-left: 5%;
+                
             }
 
             .agenvida {
@@ -110,19 +169,20 @@ ul li {
                 transition: 0.5s Ease;
             text-align: center;
             padding-top: 1%;
+
         }
 
 /* VIDEO */
     .videointro iframe {
-        max-width: 80%;
-        margin-top: 3%;
-        border: 10px solid rgba(255, 102, 0, 0.8);;
+        max-width: 90%;
+        border: 10px solid rgba(233, 155, 192, 0.54);
         -o-border-radius: 10px;
         -ms-border-radius: 10px;
         -moz-border-radius: 10px;
         -webkit-border-radius: 10px;
         border-radius: 10px;
         z-index: 1;
+        -webkit-box-shadow: 0 0 125px rgba(0, 0, 0, 1);
     }
 
 /* AGENVIDA */
