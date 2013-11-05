@@ -542,12 +542,12 @@ tabla.MarcacionView = Backbone.View.extend({
 var AppRouter = Backbone.Router.extend({
 
     routes:{
-        "":"listnull" ,
+      //  "":"listnull" ,
         ":ano/:mes" : "list"       
     },
 
     list:function (ano,mes) {
-      console.log('estoy-adentro')
+      console.log('estoy-adentro de list')
         vinculacion_collection = new tabla.VinculacionCollection();
         listaVinculacionView = new tabla.ListaVinculacionView({ collection: vinculacion_collection});
         vinculacion_collection.fetch({  data:{"year":ano,"month":mes},
@@ -567,7 +567,7 @@ var AppRouter = Backbone.Router.extend({
 
                 }
     });
-    },
+    }/*,
     
     listnull:function () {
         console.log('estoy-adentro')
@@ -582,19 +582,20 @@ var AppRouter = Backbone.Router.extend({
           listaPparticularView = new tabla.ListaPparticularView({ collection: pparticular_collection});
           pparticular_collection.fetch({  //data:{"mes_ano__contains": ano +'-'+mes},//"2013-10"
                 success:function(){                    
-                     $('#pparticular').html(listaPparticularView.render().el);
+                    
 
                 }
+                 
                    
       });
                           
-                       
+           $('#pparticular').html(listaPparticularView.render().el);            
 
                   
-      }
+      }*/
     
     
-});
+})
 
 $( document ).ready(function() {
 	Backbone._sync = Backbone.sync;
