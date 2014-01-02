@@ -46,7 +46,14 @@
             });
         });
     </script>     
-    
+    <style type="text/css">
+        .pure-form fieldset {
+            margin: 0;
+            margin-right: -80%;
+            padding: initial;
+            border: 0;
+        }
+    </style>
 </head>
 <body>
     <div id="fb-root"></div>
@@ -85,58 +92,63 @@
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
                         <div class="fb-like" data-href="http://www.youtube.com/watch?v=K5ak7fQ0-GY" data-width="The pixel width of the plugin" data-height="100px" data-colorscheme="light" data-layout="button_count" data-action="like" data-show-faces="false" data-send="false"></div>
                         <div class="g-plusone" data-size="medium" data-href="http://www.youtube.com/watch?v=K5ak7fQ0-GY"></div>
+                        <!-- Place this tag after the last +1 button tag. -->
+                            <script type="text/javascript">
+                              window.___gcfg = {lang: 'es-419'};
 
-<!-- Place this tag after the last +1 button tag. -->
-<script type="text/javascript">
-  window.___gcfg = {lang: 'es-419'};
-
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-                    </div></center>
+                              (function() {
+                                var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+                                po.src = 'https://apis.google.com/js/plusone.js';
+                                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+                              })();
+                            </script>
+                        </div>
+                    </center>
                     </div>
 
     
                 <div class="pure-u-1-2">
-                    <div class="l-box splash-text" id="pruebaintro">
-                        <h1 class="splash-head">
-                            Agenvida.
-                        </h1>
+                    <div class="pure-u-1-2">
+                        <div class="l-box splash-text" id="pruebaintro">
+                            <h1 class="splash-head">
+                                Agenvida.
+                            </h1>
 
-                        <h2 class="splash-subhead">
-                            El horario espiritual al alcance de un clic. </br>
-                            La herramienta ideal para la autoeducación. </br>
-                            Prepara tu proyeto de vida, decide cuáles son tus propósitos del mes y a controlarlos día a día. 
-                        </h2>
+                            <h2 class="splash-subhead">
+                                El horario espiritual al alcance de un clic. </br>
+                                La herramienta ideal para la autoeducación. </br>
+                                Prepara tu proyeto de vida, decide cuáles son tus propósitos del mes y a controlarlos día a día. 
+                            </h2>
 
-                        <p>
-                            <a href="/accounts/signup/" class="pure-button primary-button">Registrarme</a>
+                            <p>
+                                <a href="/accounts/signup/" class="pure-button primary-button">Registrarme</a>
+                        </div>
                     </div>
-                    <div id="pruebaintro1">
-                        
-                        <fieldset>
-                            <p>Ya tenes tu cuenta? Entonces ingresa desde aca</p>
-                            {% block sidebar %}
-                            <form class="pure-form" name="LoginForm" action="/login/" method="post">
-        {% csrf_token %}
-        {% if next %}
-            <input type="hidden" name="next" value="{{ next }}" />
-        {% endif %}
-                  <fieldset class="pure-group">
-                  
-                      <input type="text" class="pure-input-1-2" id="username" name="username" placeholder="Username">
-                      <input type="password" class="pure-input-1-2" name="password" id="password" placeholder="Password">
-                      
-                  </fieldset>
 
-                  <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Entrar</button>
-              </form>
-                        </fieldset>
-                        </form>
-                        {% endblock %}
+                    <div class="pure-u-1-3">
+                        <div id="pruebaintro1">
+                            
+                            <fieldset>
+                                <p>Ya tenes tu cuenta? Entonces ingresá desde acá</p>
+                                {% block sidebar %}
+                                <form class="pure-form" name="LoginForm" action="/login/" method="post">
+                                    {% csrf_token %}
+                                    {% if next %}
+                                        <input type="hidden" name="next" value="{{ next }}" />
+                                    {% endif %}
+                                              <fieldset class="pure-group">
+                                              
+                                                  <input type="text" class="pure-input-1-2" id="username" name="username" placeholder="Username">
+                                                  <input type="password" class="pure-input-1-2" name="password" id="password" placeholder="Password">
+                                                  
+                                              </fieldset>
+
+                                              <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Entrar</button>
+                                </form>
+                            </fieldset>
+                            
+                            {% endblock %}
+                        </div>
                     </div>       
                 </div>
             </div>

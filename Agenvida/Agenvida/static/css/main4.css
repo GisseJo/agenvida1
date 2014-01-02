@@ -63,7 +63,7 @@ background: 0;
 #pruebaintro {
     background: white;
     padding: 24px;
-    margin-right: 3%;
+    margin-right: 5%;
     -webkit-box-shadow: 0 0 125px rgba(0, 0, 0, 1);
     -moz-box-shadow: 0 0 125px rgba(255,255,255,.35);
     opacity: 0.8;
@@ -73,7 +73,7 @@ background: 0;
 #pruebaintro1 {
     background: white;
     padding: 1%;
-    margin-right: 3%;
+    margin-right: -30%;
     margin-top: 1%;
     -webkit-box-shadow: 0 0 125px rgba(0, 0, 0, 1);
     -moz-box-shadow: 0 0 125px rgba(255,255,255,.35);
@@ -545,3 +545,22 @@ nav li:last-child a {
         max-width: 80%;
         margin-left: 10%
     }*/
+
+    .boton-small {
+     padding: 0.2em 0.2em 0.2em 0.2em;
+ }  
+
+ .pure-form label {
+    color: white;
+ }
+
+ .pure-form legend {
+    color: white;
+ }
+ h2 {
+    color: white;
+ }
+
+fieldset {
+ border: 1px solid rgba(192, 192, 192, 0);
+}
