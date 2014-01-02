@@ -4,55 +4,118 @@ from celery.task.schedules import crontab
 from celery.decorators import periodic_task  
 from django.core.mail import send_mail, EmailMultiAlternatives
 from django.template.loader import get_template ,render_to_string
+from userprofile.models import UserProfile
+from django.contrib.auth.models import User
 
 # this will run every minute, see http://celeryproject.org/docs/reference/celery.task.schedules.html#celery.task.schedules.crontab  
-@periodic_task(run_every=crontab(hour="6", minute="*", day_of_week="*"))  
+@periodic_task(run_every=crontab(hour="6", minute="0", day_of_week="*"))  
 def manana():      
-    print "firing test task 1"   
-    send_mail('Subject here', 'Here is the message. 1', 'from@example.com',
-    ['rodri.valdez@gmail.com'], fail_silently=False)
+    print "firing task MANANA"
+    usuarios = User.objects.filter( userprofile__recordatorio='MANANA', userprofile__recordatorio_activo=True )
+    print usuarios.query
+    lista= []
+    for usuario in usuarios:
+        lista.append(usuario.email)
+        
+    subject = 'Acordate de tu Horario espiritual!'
+    from_email =  ''
+    to = '' 
+    text_content = 'Acuertdate de completar tu horario espiritual! entra a www.agenvida.com/he'
     
-@periodic_task(run_every=crontab(hour="12", minute="*/2", day_of_week="*"))      
-def mediodia():      
-    print "firing test task 2"   
-    send_mail('Subject here', 'Here is the message 2.', 'from@example.com',
-    ['rodri.valdez@gmail.com'], fail_silently=False)
+    html = render_to_string('email.html', {})
     
-@periodic_task(run_every=crontab(hour="16", minute="*", day_of_week="*"))      
+    msg = EmailMultiAlternatives(subject, text_content, from_email,[to], lista)
+    msg.attach_alternative(html, 'text/html')
+    msg.send()
+
+    
+@periodic_task(run_every=crontab(hour="12", minute="0", day_of_week="*"))      
+def mediodia(): 
+    print "firing task MEDIODIA"
+    usuarios = User.objects.filter( userprofile__recordatorio='MEDIODIA', userprofile__recordatorio_activo=True )
+    print usuarios.query
+    lista= []
+    for usuario in usuarios:
+        lista.append(usuario.email)
+        
+    subject = 'Acordate de tu Horario espiritual!'
+    from_email =  ''
+    to = '' 
+    text_content = 'Acuertdate de completar tu horario espiritual! entra a www.agenvida.com/he'
+    
+    html = render_to_string('email.html', {})
+    
+    msg = EmailMultiAlternatives(subject, text_content, from_email,[to], lista)
+    msg.attach_alternative(html, 'text/html')
+    msg.send()
+
+    
+@periodic_task(run_every=crontab(hour="16", minute="0", day_of_week="*"))      
 def tarde():
-          
-    print "firing test task 2"   
-    send_mail('Subject here', 'Here is the message 2.', 'from@example.com',
-    ['rodri.valdez@gmail.com'], fail_silently=False)
+    print "firing task TARDE"
+    usuarios = User.objects.filter( userprofile__recordatorio='TARDE', userprofile__recordatorio_activo=True )
+    print usuarios.query
+    lista= []
+    for usuario in usuarios:
+        lista.append(usuario.email)
+        
+    subject = 'Acordate de tu Horario espiritual!'
+    from_email =  ''
+    to = '' 
+    text_content = 'Acuertdate de completar tu horario espiritual! entra a www.agenvida.com/he'
     
+    html = render_to_string('email.html', {})
+    
+    msg = EmailMultiAlternatives(subject, text_content, from_email,[to], lista)
+    msg.attach_alternative(html, 'text/html')
+    msg.send()
+
     
 @periodic_task(run_every=crontab(hour="20", minute="*", day_of_week="*"))      
 def noche():      
-    print "firing test task 2"   
-    send_mail('Subject here', 'Here is the message 2.', 'from@example.com',
-    ['rodri.valdez@gmail.com'], fail_silently=False)
+    print "firing task NOCHE"
+       
+    usuarios = User.objects.filter( userprofile__recordatorio='NOCHE', userprofile__recordatorio_activo=True )
+    print usuarios.query
+    lista= []
+    for usuario in usuarios:
+        lista.append(usuario.email)
+        
+    subject = 'Acordate de tu Horario espiritual!'
+    from_email =  ''
+    to = '' 
+    text_content = 'Acuertdate de completar tu horario espiritual! entra a www.agenvida.com/he'
+    
+    html = render_to_string('email.html', {})
+    
+    msg = EmailMultiAlternatives(subject, text_content, from_email,[to], lista)
+    msg.attach_alternative(html, 'text/html')
+    msg.send()
+
+    
     
 @periodic_task(run_every=crontab(hour="*", minute="*", day_of_week="*"))  
 def test():      
-    print "firing test task de prueba"
+    print "firing prueba"
     
     
-    subject = 'hello'
-    from_email =  'hola@girolabs.com'
+    usuarios = User.objects.filter( userprofile__recordatorio='NOCHE', userprofile__recordatorio_activo=True )
+    print usuarios.query
+    lista= []
+    for usuario in usuarios:
+        lista.append(usuario.email)
+        
+    subject = 'Acordate de tu Horario espiritual!'
+    from_email =  ''
     to = '' 
-    text_content = 'hola que tal! prueba de agenvida'
-    html_content = get_template('email.html')
+    text_content = 'Acuertdate de completar tu horario espiritual! entra a www.agenvida.com/he'
+    
     html = render_to_string('email.html', {})
-    bcc = ['rodri@girolabs.com','gisse@girolabs.com','hola@girolabs']
-    msg = EmailMultiAlternatives(subject, text_content, from_email, [to], bcc)
+    
+    msg = EmailMultiAlternatives(subject, text_content, from_email,[to], lista)
     msg.attach_alternative(html, 'text/html')
     msg.send()
-      
-@periodic_task(run_every=crontab(hour="1", minute="*", day_of_week="*"))      
-def test2():      
-    print "firing test task 2"   
-    send_mail('Subject here', 'Here is the message 2.', 'from@example.com',
-    ['rodri.valdez@gmail.com'], fail_silently=False)   
+
     
     
     
