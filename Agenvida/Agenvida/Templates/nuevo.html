@@ -71,15 +71,15 @@
         <a href="#" id="pull">Menu</a>
     </nav>
 
-
     <div class="splash" background="./img/fondos14.jpg" class="bg">
             <div class="pure-g-r">
                 <div class="pure-u-1-2">
-                    <div class="videointro"> <!-- buscasr class de iframe o embed-->
+                    <div class="videointro"> <!-- buscar class de iframe o embed-->
                         <iframe width="649" height="345"src="http://www.youtube.com/embed/K5ak7fQ0-GY?autoplay=0&controls=0&showinfo=0" frameborder="0" allowfullscreen></iframe>
                         <!--<img src="./agenvida-definicion.jpg" alt="Definicion">-->
                     </div>
-                    <center><class="redes-sociales">
+                    <center>
+                        <class="redes-sociales">
                         <div>
                         <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.youtube.com/watch?v=K5ak7fQ0-GY" data-via="agenvida" data-lang="es">Twittear</a>
                         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
@@ -97,7 +97,7 @@
   })();
 </script>
                     </div></center>
-                </div>
+                    </div>
 
     
                 <div class="pure-u-1-2">
@@ -108,22 +108,35 @@
 
                         <h2 class="splash-subhead">
                             El horario espiritual al alcance de un clic. </br>
-                            La herramienta ideal para la autoeducacion. </br>
-                            Prepara tu proyecto de vida, decide cuales son tus propositos del mes y a controlarlos dia a dia. 
+                            La herramienta ideal para la autoeducación. </br>
+                            Prepara tu proyeto de vida, decide cuáles son tus propósitos del mes y a controlarlos día a día. 
                         </h2>
 
                         <p>
-                            <a href="/about/" class="pure-button primary-button">Quiero saber mas!</a>
+                            <a href="/accounts/signup/" class="pure-button primary-button">Registrarme</a>
                     </div>
                     <div id="pruebaintro1">
-                        <form class="pure-form validate" action="http://gmail.us7.list-manage1.com/subscribe/post?u=e71a41b71fa7d4eba53905503&amp;id=bb904b580a" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                        
                         <fieldset>
-                            <p>Recien lanzamos la version alpha del proyecto, sin embargo si te suscribis te vamos a avisar cuando habilitemos mas cupos.</p>
-                            <input id="mce-FNAME" type="text" name="FNAME" placeholder="Tu nombre">
-                            <input type="email" placeholder="Email" name="EMAIL" class="required email" id="mce-EMAIL">
-                            <button type="submit" class="pure-button pure-button-primary" value="Subscribe" name="subscribe" id="mc-embedded-subscribe">Suscribirme</button>
+                            <p>Ya tenes tu cuenta? Entonces ingresa desde aca</p>
+                            {% block sidebar %}
+                            <form class="pure-form" name="LoginForm" action="/login/" method="post">
+        {% csrf_token %}
+        {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+        {% endif %}
+                  <fieldset class="pure-group">
+                  
+                      <input type="text" class="pure-input-1-2" id="username" name="username" placeholder="Username">
+                      <input type="password" class="pure-input-1-2" name="password" id="password" placeholder="Password">
+                      
+                  </fieldset>
+
+                  <button type="submit" class="pure-button pure-input-1-2 pure-button-primary">Entrar</button>
+              </form>
                         </fieldset>
                         </form>
+                        {% endblock %}
                     </div>       
                 </div>
             </div>

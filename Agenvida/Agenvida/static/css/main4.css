@@ -1,3 +1,16 @@
+@font-face {
+   font-family: 'Glabs';
+    src:url('http://localhost:8000/static/fonts/Glabs.eot');
+    src:url('http://localhost:8000/static/fonts/Glabs.eot?#iefix') format('embedded-opentype'),
+        url('http://localhost:8000/static/fonts/Glabs.woff') format('woff'),
+        url('http://localhost:8000/static/fonts/Glabs.ttf') format('truetype'),
+        url('http://localhost:8000/static/fonts/Glabs.svg#Glabs') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 html, body {height: 100%;}
 #arrow a {
 width: 2%;
@@ -28,14 +41,24 @@ background: 0;
 
 }
 
+.splash .splash-head {
+    
+    font-size: 1.90em;
+    margin: 0.50em 0;
+
+}
+
 .splash .splash-subhead {
     color: black;
+    font-size: 1.25em;
+    margin: 0.60em 0;
 }
 
 .ribbon {
     background: 0;
     color: black;
 }
+
 
 #pruebaintro {
     background: white;
@@ -423,12 +446,14 @@ nav li:last-child a {
     display: none;  
 } 
 
+
 .img-redes {
         width: 25%;
         margin-top: 8%;
         margin-bottom: -8%;
         
     }
+
 
 /**600**/
     @media screen and (max-width: 600px) {  
