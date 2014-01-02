@@ -1,6 +1,7 @@
 # Django settings for Agenvida project.
 #encoding:utf-8
 
+
 import os
 RUTA_PROYECTO= os.path.dirname(os.path.realpath(__file__))
 
@@ -25,6 +26,12 @@ DATABASES = {
         'PORT': '',                      # Set to empty string for default.
     }
 }
+####CELERY
+
+import djcelery
+djcelery.setup_loader() 
+
+BROKER_URL = "amqp://guest:guest@localhost:5672//"
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -156,6 +163,8 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.twitter',
     'userprofile',
     'south',
+    
+    'djcelery',
         
 )
 
@@ -186,6 +195,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
+ACCOUNT_EMAIL_REQUIRED = True
+
+
 
 
 

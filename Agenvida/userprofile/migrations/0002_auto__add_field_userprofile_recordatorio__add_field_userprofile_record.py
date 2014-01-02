@@ -8,35 +8,23 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'UserProfile'
-        db.create_table(u'userprofile_userprofile', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], unique=True)),
-            ('ideal_personal', self.gf('django.db.models.fields.CharField')(max_length=140, null=True, blank=True)),
-            ('fecha_nacimiento', self.gf('django.db.models.fields.DateField')(null=True)),
-            ('sexo', self.gf('django.db.models.fields.CharField')(max_length=15, null=True)),
-            ('pais', self.gf('django_countries.fields.CountryField')(max_length=2)),
-            ('grupo_de_vida', self.gf('django.db.models.fields.CharField')(max_length=140, null=True, blank=True)),
-        ))
-        db.send_create_signal(u'userprofile', ['UserProfile'])
+        # Adding field 'UserProfile.recordatorio'
+        db.add_column(u'userprofile_userprofile', 'recordatorio',
+                      self.gf('django.db.models.fields.CharField')(max_length=15, null=True),
+                      keep_default=False)
 
-        # Adding model 'ContratoAutoeducacion'
-        db.create_table(u'userprofile_contratoautoeducacion', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], unique=True)),
-            ('afirmar', self.gf('django.db.models.fields.TextField')(null=True)),
-            ('liberar', self.gf('django.db.models.fields.TextField')(null=True)),
-            ('adquirir', self.gf('django.db.models.fields.TextField')(null=True)),
-        ))
-        db.send_create_signal(u'userprofile', ['ContratoAutoeducacion'])
+        # Adding field 'UserProfile.recordatorio_activo'
+        db.add_column(u'userprofile_userprofile', 'recordatorio_activo',
+                      self.gf('django.db.models.fields.BooleanField')(default=False),
+                      keep_default=False)
 
 
     def backwards(self, orm):
-        # Deleting model 'UserProfile'
-        db.delete_table(u'userprofile_userprofile')
+        # Deleting field 'UserProfile.recordatorio'
+        db.delete_column(u'userprofile_userprofile', 'recordatorio')
 
-        # Deleting model 'ContratoAutoeducacion'
-        db.delete_table(u'userprofile_contratoautoeducacion')
+        # Deleting field 'UserProfile.recordatorio_activo'
+        db.delete_column(u'userprofile_userprofile', 'recordatorio_activo')
 
 
     models = {
@@ -91,6 +79,8 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'ideal_personal': ('django.db.models.fields.CharField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'}),
             'pais': ('django_countries.fields.CountryField', [], {'max_length': '2'}),
+            'recordatorio': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True'}),
+            'recordatorio_activo': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'sexo': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']", 'unique': 'True'})
         }

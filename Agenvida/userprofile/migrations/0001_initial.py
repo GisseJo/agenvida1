@@ -12,20 +12,31 @@ class Migration(SchemaMigration):
         db.create_table(u'userprofile_userprofile', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], unique=True)),
-            ('avatar', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('ideal_personal', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('fecha_nacimiento', self.gf('django.db.models.fields.DateField')()),
-            ('sexo', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('pais', self.gf('django.db.models.fields.CharField')(max_length=50)),
-            ('grupo_de_vida', self.gf('django.db.models.fields.CharField')(max_length=140)),
-            ('contrato_pedagogico', self.gf('django.db.models.fields.TextField')()),
+            ('ideal_personal', self.gf('django.db.models.fields.CharField')(max_length=140, null=True, blank=True)),
+            ('fecha_nacimiento', self.gf('django.db.models.fields.DateField')(null=True)),
+            ('sexo', self.gf('django.db.models.fields.CharField')(max_length=15, null=True)),
+            ('pais', self.gf('django_countries.fields.CountryField')(max_length=2)),
+            ('grupo_de_vida', self.gf('django.db.models.fields.CharField')(max_length=140, null=True, blank=True)),
         ))
         db.send_create_signal(u'userprofile', ['UserProfile'])
+
+        # Adding model 'ContratoAutoeducacion'
+        db.create_table(u'userprofile_contratoautoeducacion', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('user', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.User'], unique=True)),
+            ('afirmar', self.gf('django.db.models.fields.TextField')(null=True)),
+            ('liberar', self.gf('django.db.models.fields.TextField')(null=True)),
+            ('adquirir', self.gf('django.db.models.fields.TextField')(null=True)),
+        ))
+        db.send_create_signal(u'userprofile', ['ContratoAutoeducacion'])
 
 
     def backwards(self, orm):
         # Deleting model 'UserProfile'
         db.delete_table(u'userprofile_userprofile')
+
+        # Deleting model 'ContratoAutoeducacion'
+        db.delete_table(u'userprofile_contratoautoeducacion')
 
 
     models = {
@@ -65,16 +76,22 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        u'userprofile.contratoautoeducacion': {
+            'Meta': {'object_name': 'ContratoAutoeducacion'},
+            'adquirir': ('django.db.models.fields.TextField', [], {'null': 'True'}),
+            'afirmar': ('django.db.models.fields.TextField', [], {'null': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'liberar': ('django.db.models.fields.TextField', [], {'null': 'True'}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']", 'unique': 'True'})
+        },
         u'userprofile.userprofile': {
             'Meta': {'object_name': 'UserProfile'},
-            'avatar': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
-            'contrato_pedagogico': ('django.db.models.fields.TextField', [], {}),
-            'fecha_nacimiento': ('django.db.models.fields.DateField', [], {}),
-            'grupo_de_vida': ('django.db.models.fields.CharField', [], {'max_length': '140'}),
+            'fecha_nacimiento': ('django.db.models.fields.DateField', [], {'null': 'True'}),
+            'grupo_de_vida': ('django.db.models.fields.CharField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'ideal_personal': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'pais': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
-            'sexo': ('django.db.models.fields.CharField', [], {'max_length': '50'}),
+            'ideal_personal': ('django.db.models.fields.CharField', [], {'max_length': '140', 'null': 'True', 'blank': 'True'}),
+            'pais': ('django_countries.fields.CountryField', [], {'max_length': '2'}),
+            'sexo': ('django.db.models.fields.CharField', [], {'max_length': '15', 'null': 'True'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.User']", 'unique': 'True'})
         }
     }

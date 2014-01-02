@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class UserProfileForm(forms.ModelForm):
 	class Meta:
 		model = UserProfile
-		fields = [  'ideal_personal','fecha_nacimiento', 'sexo','pais','grupo_de_vida'] 
+		fields = [  'ideal_personal','fecha_nacimiento', 'sexo','pais','grupo_de_vida','recordatorio','recordatorio_activo'] 
 
 class ContratoAutoeducacionForm(forms.ModelForm):
     afirmar= forms.CharField(label='¿Qué quiero afirmar en mi este año? - Aspectos positivos y valores que tengo', widget=forms.Textarea({'placeholder': 'Ej: Me consideran alegre entonces mi frase será: Nada me quitará la alegría'}))

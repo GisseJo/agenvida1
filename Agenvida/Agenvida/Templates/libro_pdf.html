@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+</head>    
+<body>
+    <h1>Cosa</h1>
+    <p>kjfaskljdflskaj</p>
+    <ul>
+    {% for elemento in prop_dios %}
+	  <li><strong>{{elemento.vinculacion}}-{{elemento.proposito}}</strong></li>	 	
+	{% endfor %}
+	
+	  {% for elemento in prop_losdemas %}
+	  <li><strong>{{elemento.vinculacion}}-{{elemento.proposito}}</strong></li>	 	
+	{% endfor %}
+	
+	  {% for elemento in prop_conmigo %}
+	  <li><strong>{{elemento.vinculacion}}-{{elemento.proposito}}</strong></li>	 	
+	{% endfor %}
+	  {% for elemento in prop_naturaleza %}
+	  <li><strong>{{elemento.vinculacion}}-{{elemento.proposito}}</strong></li>	 	
+	{% endfor %}
+	
+	</ul>
+</body>
+</html>
