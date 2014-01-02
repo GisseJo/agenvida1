@@ -156,9 +156,16 @@ INSTALLED_APPS = (
     'allauth.socialaccount.providers.twitter',
     'userprofile',
     'south',
+    'djcelery',
         
 )
 
+
+
+import djcelery
+djcelery.setup_loader() 
+
+BROKER_URL = "amqp://guest:guest@localhost:5672//"
 #allauth
 
 TEMPLATE_CONTEXT_PROCESSORS = (
