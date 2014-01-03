@@ -10,33 +10,6 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from principal.models import PropositoParticular, Proposito
-##Pisa
-import ho.pisa as pisa
-import cStringIO as StringIO
-import cgi
-from django.template import RequestContext
-from django.template.loader import render_to_string
-
-
-def generar_pdf(html):
-    # Función para generar el archivo PDF y devolverlo mediante HttpResponse
-    result = StringIO.StringIO()
-    pdf = pisa.pisaDocument(StringIO.StringIO(html.encode("UTF-8")), result)
-    if not pdf.err:
-        return HttpResponse(result.getvalue(), mimetype='application/pdf')
-    return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
-
-@login_required(login_url='/login')
-def libro_pdf(request):
-    # vista de ejemplo con un hipotético modelo Libro
-    usuario = request.user
-    prop_dios = Proposito.objects.filter(usuario=usuario, mes_ano__month='01', vinculacion__id='1')
-    prop_conmigo=Proposito.objects.filter(usuario=usuario, mes_ano__month='01', vinculacion__id='2')
-    prop_losdemas =Proposito.objects.filter(usuario=usuario, mes_ano__month='01', vinculacion__id='3')
-    prop_naturaleza=Proposito.objects.filter(usuario=usuario, mes_ano__month='01', vinculacion__id='4')
-    html = render_to_string('topdf.html',  {'pagesize':'A4', 'prop_dios':prop_dios, 'prop_losdemas':prop_losdemas, 'prop_conmigo':prop_conmigo, 'prop_naturaleza':prop_naturaleza }, context_instance=RequestContext(request))
-    return generar_pdf(html)
-
 
 
 @login_required(login_url='/login')

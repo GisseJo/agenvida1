@@ -9,15 +9,12 @@
     font-style: normal;
 }
 
-
-
 html, body {height: 100%;}
 #arrow a {
 width: 2%;
 background-repeat: no-repeat;
 display: block;
 }
-
 
 #arrow img {
 right: 25px;
@@ -563,4 +560,14 @@ nav li:last-child a {
 
 fieldset {
  border: 1px solid rgba(192, 192, 192, 0);
+}
+
+#icon-menu {
+    color: #fff;
+display: inline-block;
+width: 100px;
+text-align: center;
+text-decoration: none;
+line-height: 40px;
+text-shadow: 1px 1px 0px #283744;
 }
