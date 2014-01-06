@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
+class PropositoManager(models.Manager):
+    def get_marcaciones_positivas(self):
+        return self.filter(marcaciones__cumplimiento=1 ).count()
     
 class Vinculacion(models.Model):
     vinculacion = models.CharField(max_length=50)
@@ -14,6 +16,9 @@ class Proposito(models.Model):
     vinculacion = models.ForeignKey(Vinculacion,related_name='propositos', blank=True, null=True )
     mes_ano = models.DateField()
     proposito = models.TextField()
+    objects =PropositoManager ()
+    def cant_marc_check(self):
+        return self.marcaciones.filter(cumplimiento=1).count()
     
     def __unicode__(self):
         return unicode(self.proposito)
@@ -24,6 +29,8 @@ class Marcacion(models.Model):
     
     dia = models.DateField()
     cumplimiento = models.IntegerField()
+    class Meta:
+        ordering = ['dia'] # ordeno para el reporte del pdf
    
    
     def __unicode__(self):
@@ -45,6 +52,8 @@ class PropositoParticular(models.Model):
     
     def __unicode__(self):
         return unicode(self.nombre) 
+    
+    
     
     
 

@@ -1,7 +1,7 @@
 from tastypie.resources import ModelResource
-from tastypie.authorization import Authorization
+from tastypie.authorization import Authorization,DjangoAuthorization
 from tastypie.authentication import BasicAuthentication,Authentication,SessionAuthentication,ApiKeyAuthentication
-from tastypie.authorization import DjangoAuthorization
+ 
 from tastypie.constants import ALL , ALL_WITH_RELATIONS
 from tastypie import fields
 from tastypie.bundle import Bundle
@@ -9,7 +9,7 @@ from tastypie.exceptions import NotFound
 from principal.models import Vinculacion,Proposito, Marcacion, PropositoParticular
 from django.contrib.auth.models import User
 from datetime import date
-from tastypie.authorization import Authorization
+
 from tastypie.exceptions import Unauthorized
 
 class UserObjectsOnlyAuthorization(Authorization):

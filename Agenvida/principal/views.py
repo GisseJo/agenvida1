@@ -9,7 +9,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
-from principal.models import PropositoParticular, Proposito
+from principal.models import PropositoParticular, Proposito,Marcacion
 ##Pisa
 import ho.pisa as pisa
 import cStringIO as StringIO
@@ -27,14 +27,18 @@ def generar_pdf(html):
     return HttpResponse('Error al generar el PDF: %s' % cgi.escape(html))
 
 @login_required(login_url='/login')
-def libro_pdf(request):
+def libro_pdf(request, mes):
     # vista de ejemplo con un hipotético modelo Libro
     usuario = request.user
-    prop_dios = Proposito.objects.filter(usuario=usuario, mes_ano__month='01', vinculacion__id='1')
-    prop_conmigo=Proposito.objects.filter(usuario=usuario, mes_ano__month='01', vinculacion__id='2')
-    prop_losdemas =Proposito.objects.filter(usuario=usuario, mes_ano__month='01', vinculacion__id='3')
-    prop_naturaleza=Proposito.objects.filter(usuario=usuario, mes_ano__month='01', vinculacion__id='4')
-    html = render_to_string('topdf.html',  {'pagesize':'A4', 'prop_dios':prop_dios, 'prop_losdemas':prop_losdemas, 'prop_conmigo':prop_conmigo, 'prop_naturaleza':prop_naturaleza }, context_instance=RequestContext(request))
+    prop_dios = Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='1')
+    prop_conmigo=Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='2')
+    prop_losdemas =Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='3')
+    prop_naturaleza=Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='4')
+    usuario = request.user
+    print request.user.profile.ideal_personal
+        
+    
+    html = render_to_string('topdf.html',  {'pagesize':'A4', 'prop_dios':prop_dios, 'prop_losdemas':prop_losdemas, 'prop_conmigo':prop_conmigo, 'prop_naturaleza':prop_naturaleza, 'usuario':usuario }, context_instance=RequestContext(request))
     return generar_pdf(html)
 
 

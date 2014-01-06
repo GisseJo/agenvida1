@@ -2,26 +2,237 @@
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-</head>    
+</head>
+
+{% load tags_extras %}    
 <body>
-    <h1>Cosa</h1>
-    <p>kjfaskljdflskaj</p>
-    <ul>
-    {% for elemento in prop_dios %}
-          <li><strong>{{elemento.vinculacion}}-{{elemento.proposito}}</strong></li>                 
-        {% endfor %}
+    <h1 style="text-align:center;" >Reporte Mensual de {{prop_dios.0.mes_ano|date:'F Y'}} de {{usuario.first_name}}</h1>
+    
+    <h2> Ideal Personal: " {{usuario.profile.ideal_personal|upper}} " </h2>
+    
+    <h3>Este es el resumen de los control diario de los propositos del mes</h3>  
         
-          {% for elemento in prop_losdemas %}
-          <li><strong>{{elemento.vinculacion}}-{{elemento.proposito}}</strong></li>                 
-        {% endfor %}
-        
-          {% for elemento in prop_conmigo %}
-          <li><strong>{{elemento.vinculacion}}-{{elemento.proposito}}</strong></li>                 
-        {% endfor %}
-          {% for elemento in prop_naturaleza %}
-          <li><strong>{{elemento.vinculacion}}-{{elemento.proposito}}</strong></li>                 
-        {% endfor %}
-        
-        </ul>
+
+      
+      <h3>{{prop_dios.0.vinculacion}}</h3>
+<table border="1" >
+         
+         
+	<thead >
+	
+	<td style="background-color:white; height:40px; padding:3px;">Proposito </td>
+		{% for i in prop_dios.0|dias_mes_string %}        
+		  
+			<td style="background-color:white; height:40px; padding:1px 1px;">{{forloop.counter}}</td>
+			 
+			  {% if forloop.last %}
+			  <td style="background-color:yellow; height:40px; padding-left:5px; width:40px;">Total</td>
+			  {% endif %}
+			 
+		{% endfor %}
+	
+	</thead>
+
+       
+<tbody>
+ {% for proposito in prop_dios %}
+	 <tr>
+	
+	        
+	       	<td bgcolor="#FF0000"  style="background-color:white; width:90px; padding-left:3px; padding-top:3px;">
+	       			{{proposito.proposito}}
+	       	</td>
+	       	
+	         {% for i in proposito|dias_mes_string %}
+	         
+	         
+	        		  {% if proposito|dia_marcado:forloop.counter == '1' %}
+	        		  
+	        		  	<td style="background-color:#f58634; "></td>
+	        		  	
+	        		  {% else%}
+							<td style="background-color:#c8c5e2; padding:0;"></td>    
+					 {% endif %}
+					 {% if forloop.last %}
+					 	<td style="background-color:white;  padding-left:5px;">{{proposito.cant_marc_check}}/{{proposito|dias_mes}} </td>
+					 {% endif %}
+	        		
+			          
+			 {% endfor %}    
+			        
+	</tr>
+       
+{% endfor %}
+</tbody>
+         
+ </table>
+ 
+ 
+<h3>{{prop_conmigo.0.vinculacion}}</h3>
+<table border="1" >
+         
+         
+	<thead >
+	
+	<td style="background-color:white; height:40px; padding:3px;">Proposito </td>
+		{% for i in prop_conmigo.0|dias_mes_string %}        
+		  
+			<td style="background-color:white; height:40px; padding:1px 1px;">{{forloop.counter}}</td>
+			 
+			  {% if forloop.last %}
+			  <td style="background-color:yellow; height:40px; padding-left:5px; width:40px;">Total</td>
+			  {% endif %}
+			 
+		{% endfor %}
+	
+	</thead>
+
+       
+<tbody>
+ {% for proposito in prop_conmigo %}
+	 <tr>
+	
+	        
+	       	<td bgcolor="#FF0000"  style="background-color:white; width:90px; padding-left:3px; padding-top:3px;">
+	       			{{proposito.proposito}}
+	       	</td>
+	       	
+	         {% for i in proposito|dias_mes_string %}
+	         
+	         
+	        		  {% if proposito|dia_marcado:forloop.counter == '1' %}
+	        		  
+	        		  	<td style="background-color:#f58634; "></td>
+	        		  	
+	        		  {% else%}
+							<td style="background-color:#c8c5e2; padding:0;"></td>    
+					 {% endif %}
+					 {% if forloop.last %}
+					 	<td style="background-color:white;  padding-left:5px;">{{proposito.cant_marc_check}}/{{proposito|dias_mes}} </td>
+					 {% endif %}
+	        		
+			          
+			 {% endfor %}    
+			        
+	</tr>
+       
+{% endfor %}
+</tbody>
+         
+ </table>
+ 
+ 
+ 
+<h3>{{prop_losdemas.0.vinculacion}}</h3>
+<table border="1" >         
+         
+	<thead >
+	
+	<td style="background-color:white; height:40px; padding:3px;">Proposito </td>
+		{% for i in prop_losdemas.0|dias_mes_string %}        
+		  
+			<td style="background-color:white; height:40px; padding:1px 1px;">{{forloop.counter}}</td>
+			 
+			  {% if forloop.last %}
+			  <td style="background-color:yellow; height:40px; padding-left:5px; width:40px;">Total</td>
+			  {% endif %}
+			 
+		{% endfor %}
+	
+	</thead>
+
+       
+<tbody>
+ {% for proposito in prop_losdemas %}
+	 <tr>
+	
+	        
+	       	<td bgcolor="#FF0000"  style="background-color:white; width:90px; padding-left:3px; padding-top:3px;">
+	       			{{proposito.proposito}}
+	       	</td>
+	       	
+	         {% for i in proposito|dias_mes_string %}
+	         
+	         
+	        		  {% if proposito|dia_marcado:forloop.counter == '1' %}
+	        		  
+	        		  	<td style="background-color:#f58634; "></td>
+	        		  	
+	        		  {% else%}
+							<td style="background-color:#c8c5e2; padding:0;"></td>    
+					 {% endif %}
+					 {% if forloop.last %}
+					 	<td style="background-color:white;  padding-left:5px;">{{proposito.cant_marc_check}}/{{proposito|dias_mes}} </td>
+					 {% endif %}
+	        		
+			          
+			 {% endfor %}    
+			        
+	</tr>
+       
+{% endfor %}
+</tbody>
+         
+ </table>
+ 
+ 
+ 
+ <h3>{{prop_naturaleza.0.vinculacion}}</h3>
+<table border="1" >
+         
+         
+	<thead >
+	
+	<td style="background-color:white; height:40px; padding:3px;">Proposito </td>
+		{% for i in prop_naturaleza.0|dias_mes_string %}        
+		  
+			<td style="background-color:white; height:40px; padding:1px 1px;">{{forloop.counter}}</td>
+			 
+			  {% if forloop.last %}
+			  <td style="background-color:yellow; height:40px; padding-left:5px; width:40px;">Total</td>
+			  {% endif %}
+			 
+		{% endfor %}
+	
+	</thead>
+
+       
+<tbody>
+ {% for proposito in prop_naturaleza %}
+	 <tr>
+	
+	        
+	       	<td bgcolor="#FF0000"  style="background-color:white; width:90px; padding-left:3px; padding-top:3px;">
+	       			{{proposito.proposito}}
+	       	</td>
+	       	
+	         {% for i in proposito|dias_mes_string %}
+	         
+	         
+	        		  {% if proposito|dia_marcado:forloop.counter == '1' %}
+	        		  
+	        		  	<td style="background-color:#f58634; "></td>
+	        		  	
+	        		  {% else%}
+							<td style="background-color:#c8c5e2; padding:0;"></td>    
+					 {% endif %}
+					 {% if forloop.last %}
+					 	<td style="background-color:white;  padding-left:5px;">{{proposito.cant_marc_check}}/{{proposito|dias_mes}} </td>
+					 {% endif %}
+	        		
+			          
+			 {% endfor %}    
+			        
+	</tr>
+       
+{% endfor %}
+</tbody>
+         
+ </table>
+ 
+         	
+    	<footer style="margin-top:70px; padding-top:70px;">
+Generado por ©Agenvida 2014
+</footer>
 </body>
 </html>
