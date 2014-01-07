@@ -1,0 +1,201 @@
+  PID TTY      STAT   TIME COMMAND
+    1 ?        Ss     0:00 /sbin/init
+    2 ?        S      0:00 [kthreadd]
+    3 ?        S      0:01 [ksoftirqd/0]
+    6 ?        S      0:00 [migration/0]
+    7 ?        S      0:00 [watchdog/0]
+    8 ?        S      0:00 [migration/1]
+   10 ?        S      0:00 [ksoftirqd/1]
+   11 ?        S      0:00 [watchdog/1]
+   12 ?        S<     0:00 [cpuset]
+   13 ?        S<     0:00 [khelper]
+   14 ?        S      0:00 [kdevtmpfs]
+   15 ?        S<     0:00 [netns]
+   17 ?        S      0:00 [sync_supers]
+   18 ?        S      0:00 [bdi-default]
+   19 ?        S<     0:00 [kintegrityd]
+   20 ?        S<     0:00 [kblockd]
+   21 ?        S<     0:00 [ata_sff]
+   22 ?        S      0:00 [khubd]
+   23 ?        S<     0:00 [md]
+   24 ?        S      0:03 [kworker/0:1]
+   26 ?        S      0:00 [khungtaskd]
+   27 ?        S      0:00 [kswapd0]
+   28 ?        SN     0:00 [ksmd]
+   29 ?        SN     0:00 [khugepaged]
+   30 ?        S      0:00 [fsnotify_mark]
+   31 ?        S      0:00 [ecryptfs-kthrea]
+   32 ?        S<     0:00 [crypto]
+   41 ?        S<     0:00 [kthrotld]
+   44 ?        S      0:00 [scsi_eh_0]
+   45 ?        S      0:00 [scsi_eh_1]
+   48 ?        S<     0:00 [binder]
+   67 ?        S<     0:00 [deferwq]
+   68 ?        S<     0:00 [charger_manager]
+   69 ?        S<     0:00 [devfreq_wq]
+   70 ?        S      0:03 [kworker/0:2]
+  122 ?        S      0:07 [kworker/1:2]
+  189 ?        S<     0:00 [firewire]
+  192 ?        S      0:00 [scsi_eh_2]
+  197 ?        S      0:00 [scsi_eh_3]
+  198 ?        S      0:00 [scsi_eh_4]
+  228 ?        S      0:00 [jbd2/sda6-8]
+  229 ?        S<     0:00 [ext4-dio-unwrit]
+  251 ?        S      0:00 [flush-8:0]
+  320 ?        S      0:00 upstart-udev-bridge --daemon
+  323 ?        Ss     0:00 /sbin/udevd --daemon
+  447 ?        S<     0:00 [cfg80211]
+  533 ?        Sl     0:00 rsyslogd -c5
+  534 ?        Ss     0:06 dbus-daemon --system --fork --activation=upstart
+  550 ?        Ss     0:00 /usr/sbin/bluetoothd
+  564 ?        S      0:00 avahi-daemon: running [agenvida.local]
+  566 ?        S      0:00 avahi-daemon: chroot helper
+  586 ?        S      0:00 /sbin/udevd --daemon
+  606 ?        Ss     0:00 /usr/sbin/cupsd -F
+  624 ?        S<     0:00 [krfcommd]
+  637 ?        Sl     0:00 /usr/lib/i386-linux-gnu/colord/colord
+  653 ?        S<     0:00 [hd-audio0]
+  659 ?        S<     0:00 [tifm]
+  662 ?        S      0:00 /sbin/udevd --daemon
+  687 ?        S<     0:00 [kpsmoused]
+  752 ?        S      0:00 [pccardd]
+  772 ?        Ss     0:00 /usr/sbin/modem-manager
+  777 ?        Ssl    0:02 NetworkManager
+  783 ?        Sl     0:09 /usr/lib/policykit-1/polkitd --no-debug
+  804 ?        S      0:00 upstart-socket-bridge --daemon
+  924 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+  932 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+  938 ?        Ss     0:00 /sbin/wpa_supplicant -B -P /run/sendsigs.omit.d/wpasupplicant.pid -u -s -O /var/run/wpa_supplicant
+  947 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+  950 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+  954 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+  957 ?        Ssl    0:01 /opt/teamviewer8/tv_bin/teamviewerd -f
+  975 ?        Ssl    0:00 whoopsie
+  977 ?        Ss     0:00 acpid -c /etc/acpi/events -s /var/run/acpid.socket
+  980 ?        Ss     0:01 /usr/sbin/irqbalance
+  989 ?        Ss     0:00 cron
+  990 ?        Ss     0:00 atd
+  991 ?        Ssl    0:03 /usr/sbin/mysqld
+ 1032 ?        S      0:00 /usr/lib/postgresql/9.1/bin/postgres -D /var/lib/postgresql/9.1/main -c config_file=/etc/postgresql/9.1/main/postgresql.conf
+ 1034 ?        Ssl    0:00 lightdm
+ 1043 tty7     Ss+    2:59 /usr/bin/X :0 -auth /var/run/lightdm/root/:0 -nolisten tcp vt7 -novtswitch -background none
+ 1059 ?        Sl     0:00 lightdm --session-child 12 15
+ 1062 ?        Sl     0:00 /usr/lib/accountsservice/accounts-daemon
+ 1095 ?        Sl     0:02 /usr/sbin/console-kit-daemon --no-daemon
+ 1172 ?        Ssl    0:00 gnome-session --session=ubuntu
+ 1174 ?        S      0:00 /sbin/dhclient -d -4 -sf /usr/lib/NetworkManager/nm-dhcp-client.action -pf /var/run/sendsigs.omit.d/network-manager.dhclient-wlan0.pid -lf /var/lib/dhcp/dhclient-103a8ceb-4b58-4356-b628-da8168ed4224-wlan0.lease -cf /var/run/nm-dhclient-wlan0.conf wlan0
+ 1247 ?        S      0:00 /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-interfaces --pid-file=/var/run/sendsigs.omit.d/network-manager.dnsmasq.pid --listen-address=127.0.0.1 --conf-file=/var/run/nm-dns-dnsmasq.conf --cache-size=0 --proxy-dnssec --enable-dbus --conf-dir=/etc/NetworkManager/dnsmasq.d
+ 1339 ?        Ss     0:01 postgres: writer process                                                                                                    
+ 1340 ?        Ss     0:01 postgres: wal writer process                                                                                                
+ 1341 ?        Ss     0:00 postgres: autovacuum launcher process                                                                                       
+ 1342 ?        Ss     0:00 postgres: stats collector process                                                                                           
+ 1369 ?        Ss     0:00 /opt/teamviewer8/tv_bin/wine/bin/wineserver
+ 1413 ?        Ss     0:00 /usr/bin/ssh-agent /usr/bin/dbus-launch --exit-with-session gnome-session --session=ubuntu
+ 1416 ?        S      0:00 /usr/bin/dbus-launch --exit-with-session gnome-session --session=ubuntu
+ 1420 ?        Ss     0:05 //bin/dbus-daemon --fork --print-pid 5 --print-address 7 --session
+ 1428 ?        SLl    0:01 /usr/bin/gnome-keyring-daemon --start --components=pkcs11
+ 1437 ?        Sl     0:05 /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+ 1445 ?        Sl     0:00 /usr/lib/upower/upowerd
+ 1496 ?        S      0:00 /usr/lib/gvfs/gvfsd
+ 1507 ?        Sl     0:00 /usr/lib/gvfs//gvfs-fuse-daemon -f /home/rodrigo/.gvfs
+ 1611 ?        Sl     1:42 compiz
+ 1615 ?        S      0:00 /usr/lib/i386-linux-gnu/gconf/gconfd-2
+ 1626 ?        S      0:03 syndaemon -i 2.0 -K -R -t
+ 1631 ?        S<l    0:13 /usr/bin/pulseaudio --start --log-target=syslog
+ 1633 ?        SNl    0:00 /usr/lib/rtkit/rtkit-daemon
+ 1636 ?        Sl     0:00 bluetooth-applet
+ 1637 ?        Sl     0:00 /usr/lib/gnome-settings-daemon/gnome-fallback-mount-helper
+ 1638 ?        Sl     0:01 nautilus -n
+ 1640 ?        Sl     0:01 nm-applet
+ 1643 ?        Sl     0:00 /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+ 1656 ?        S      0:00 /usr/lib/pulseaudio/pulse/gconf-helper
+ 1703 ?        S      0:00 /usr/lib/erlang/erts-5.8.5/bin/epmd -daemon
+ 1711 ?        S      0:00 /usr/lib/gvfs/gvfs-gdu-volume-monitor
+ 1715 ?        Sl     0:00 /usr/lib/udisks/udisks-daemon
+ 1716 ?        S      0:00 udisks-daemon: not polling any devices
+ 1721 ?        S      0:00 /usr/lib/gvfs/gvfs-gphoto2-volume-monitor
+ 1723 ?        Sl     0:00 /usr/lib/gvfs/gvfs-afc-volume-monitor
+ 1757 ?        S      0:00 /usr/lib/gvfs/gvfsd-trash --spawner :1.9 /org/gtk/gvfs/exec_spaw/0
+ 1777 ?        S      0:00 /bin/sh /usr/sbin/rabbitmq-server
+ 1782 ?        Sl     0:12 /usr/lib/erlang/erts-5.8.5/bin/beam.smp -W w -K true -A30 -P 1048576 -- -root /usr/lib/erlang -progname erl -- -home /var/lib/rabbitmq -- -pa /usr/lib/rabbitmq/lib/rabbitmq_server-3.2.2/sbin/../ebin -noshell -noinput -s rabbit boot -sname rabbit@agenvida -boot start_sasl -kernel inet_default_connect_options [{nodelay,true}] -sasl errlog_type error -sasl sasl_error_logger false -rabbit error_logger {file,"/var/log/rabbitmq/rabbit@agenvida.log"} -rabbit sasl_error_logger {file,"/var/log/rabbitmq/rabbit@agenvida-sasl.log"} -rabbit enabled_plugins_file "/etc/rabbitmq/enabled_plugins" -rabbit plugins_dir "/usr/lib/rabbitmq/lib/rabbitmq_server-3.2.2/sbin/../plugins" -rabbit plugins_expand_dir "/var/lib/rabbitmq/mnesia/rabbit@agenvida-plugins-expand" -os_mon start_cpu_sup false -os_mon start_disksup false -os_mon start_memsup false -mnesia dir "/var/lib/rabbitmq/mnesia/rabbit@agenvida"
+ 1886 ?        S      0:00 /usr/lib/gvfs/gvfsd-burn --spawner :1.9 /org/gtk/gvfs/exec_spaw/1
+ 1888 ?        Sl     0:06 /usr/lib/bamf/bamfdaemon
+ 1895 ?        S      0:00 /usr/lib/gvfs/gvfsd-metadata
+ 1899 ?        Sl     0:05 /usr/lib/unity/unity-panel-service
+ 1901 ?        Sl     0:02 /usr/lib/indicator-appmenu/hud-service
+ 1915 ?        Ss     0:00 /bin/sh -c /usr/bin/compiz-decorator
+ 1916 ?        Sl     0:03 /usr/bin/gtk-window-decorator
+ 1931 ?        Sl     0:00 /usr/lib/indicator-session/indicator-session-service
+ 1937 ?        Sl     0:00 /usr/lib/indicator-messages/indicator-messages-service
+ 1942 ?        Sl     0:00 /usr/lib/indicator-datetime/indicator-datetime-service
+ 1945 ?        Sl     0:00 /usr/lib/indicator-sound/indicator-sound-service
+ 1949 ?        Sl     0:00 /usr/lib/indicator-printers/indicator-printers-service
+ 1950 ?        Sl     0:00 /usr/lib/indicator-application/indicator-application-service
+ 1979 ?        S      0:00 /usr/lib/geoclue/geoclue-master
+ 1984 ?        Ss     0:00 inet_gethost 4
+ 1985 ?        S      0:00 inet_gethost 4
+ 1995 ?        Sl     0:00 /usr/lib/ubuntu-geoip/ubuntu-geoip-provider
+ 2049 ?        Ss     0:00 /usr/sbin/apache2 -k start
+ 2078 ?        S      0:00 /usr/sbin/apache2 -k start
+ 2079 ?        S      0:00 /usr/sbin/apache2 -k start
+ 2080 ?        S      0:00 /usr/sbin/apache2 -k start
+ 2081 ?        S      0:00 /usr/sbin/apache2 -k start
+ 2082 ?        S      0:00 /usr/sbin/apache2 -k start
+ 2094 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 2109 ?        Sl     0:00 /usr/lib/gnome-disk-utility/gdu-notification-daemon
+ 2168 ?        Sl     0:00 telepathy-indicator
+ 2174 ?        Sl     0:00 /usr/lib/telepathy/mission-control-5
+ 2179 ?        Sl     0:00 /usr/lib/gnome-online-accounts/goa-daemon
+ 2185 ?        Sl     0:00 zeitgeist-datahub
+ 2186 ?        Sl     0:00 gnome-screensaver
+ 2193 ?        Sl     0:00 /usr/bin/zeitgeist-daemon
+ 2200 ?        Sl     0:00 /usr/lib/zeitgeist/zeitgeist-fts
+ 2202 ?        S      0:00 /bin/cat
+ 2227 ?        Sl     0:01 /usr/bin/python /usr/lib/ubuntuone-client/ubuntuone-syncdaemon
+ 2270 ?        Sl     0:01 update-notifier
+ 2282 ?        S      0:00 /usr/bin/python /usr/lib/system-service/system-service-d
+ 2292 ?        Sl     0:00 /usr/lib/unity-lens-applications/unity-applications-daemon
+ 2294 ?        Sl     0:00 /usr/lib/unity-lens-files/unity-files-daemon
+ 2296 ?        Sl     0:00 /usr/lib/unity-lens-music/unity-music-daemon
+ 2298 ?        Sl     0:00 /usr/bin/python /usr/lib/unity-lens-video/unity-lens-video
+ 2354 ?        Sl     0:00 /usr/lib/unity-lens-music/unity-musicstore-daemon
+ 2356 ?        Sl     0:00 /usr/bin/python /usr/lib/unity-scope-video-remote/unity-scope-video-remote
+ 2400 ?        SLl    4:32 /opt/google/chrome/chrome       
+ 2407 ?        S      0:05 /opt/google/chrome/chrome       
+ 2408 ?        S      0:00 /opt/google/chrome/chrome-sandbox /opt/google/chrome/chrome --type=zygote
+ 2409 ?        S      0:00 /opt/google/chrome/chrome --type=zygote
+ 2413 ?        S      0:00 /opt/google/chrome/nacl_helper
+ 2414 ?        S      0:00 /opt/google/chrome/chrome --type=zygote
+ 2524 ?        Sl     0:00 /usr/lib/deja-dup/deja-dup/deja-dup-monitor
+ 2543 ?        Sl     2:39 /opt/google/chrome/chrome --type=renderer --lang=en-US --force-fieldtrials=AutocompleteDynamicTrial_2/DefaultControl_R2_Stable/CookieRetentionPriorityStudy/ExperimentOn/ForceCompositingMode/disable/GZippedProtobufs/GzippedProtobufsDisabled/Prerender/PrerenderEnabled/PrerenderFromOmnibox/OmniboxPrerenderDisabled/PrerenderLocalPredictorSpec/LocalPredictor=Disabled/Test0PercentDefault/group_01/UMA-Dynamic-Binary-Uniformity-Trial/default/UMA-New-Install-Uniformity-Trial/Experiment/UMA-Session-Randomized-Uniformity-Trial-5-Percent/group_17/UMA-Uniformity-Trial-1-Percent/group_93/UMA-Uniformity-Trial-10-Percent/group_03/UMA-Uniformity-Trial-100-Percent/group_01/UMA-Uniformity-Trial-20-Percent/group_02/UMA-Uniformity-Trial-5-Percent/group_06/UMA-Uniformity-Trial-50-Percent/group_01/ --renderer-print-preview --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel=2400.5.801834570
+ 2554 ?        Rl     0:39 /usr/bin/python /usr/bin/terminator
+ 2566 ?        Z      0:00 [/usr/bin/termin] <defunct>
+ 2567 pts/0    Ss     0:00 /bin/bash
+ 2848 pts/2    Ss     0:00 /bin/bash
+ 3441 pts/0    S      0:00 sudo su
+ 3442 pts/0    S      0:00 su
+ 3450 pts/0    S+     0:00 bash
+ 4813 ?        Sl     0:07 /opt/google/chrome/chrome --type=renderer --lang=en-US --force-fieldtrials=AutocompleteDynamicTrial_2/DefaultControl_R2_Stable/CookieRetentionPriorityStudy/ExperimentOn/ForceCompositingMode/disable/GZippedProtobufs/GzippedProtobufsDisabled/Prerender/PrerenderEnabled/PrerenderFromOmnibox/OmniboxPrerenderDisabled/PrerenderLocalPredictorSpec/LocalPredictor=Disabled/Test0PercentDefault/group_01/UMA-Dynamic-Binary-Uniformity-Trial/default/UMA-New-Install-Uniformity-Trial/Experiment/UMA-Session-Randomized-Uniformity-Trial-5-Percent/group_17/UMA-Uniformity-Trial-1-Percent/group_93/UMA-Uniformity-Trial-10-Percent/group_03/UMA-Uniformity-Trial-100-Percent/group_01/UMA-Uniformity-Trial-20-Percent/group_02/UMA-Uniformity-Trial-5-Percent/group_06/UMA-Uniformity-Trial-50-Percent/group_01/ --renderer-print-preview --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel=2400.63.1717303743
+ 4822 ?        Sl     0:02 /opt/google/chrome/chrome --type=renderer --lang=en-US --force-fieldtrials=AutocompleteDynamicTrial_2/DefaultControl_R2_Stable/CookieRetentionPriorityStudy/ExperimentOn/ForceCompositingMode/disable/GZippedProtobufs/GzippedProtobufsDisabled/Prerender/PrerenderEnabled/PrerenderFromOmnibox/OmniboxPrerenderDisabled/PrerenderLocalPredictorSpec/LocalPredictor=Disabled/Test0PercentDefault/group_01/UMA-Dynamic-Binary-Uniformity-Trial/default/UMA-New-Install-Uniformity-Trial/Experiment/UMA-Session-Randomized-Uniformity-Trial-5-Percent/group_17/UMA-Uniformity-Trial-1-Percent/group_93/UMA-Uniformity-Trial-10-Percent/group_03/UMA-Uniformity-Trial-100-Percent/group_01/UMA-Uniformity-Trial-20-Percent/group_02/UMA-Uniformity-Trial-5-Percent/group_06/UMA-Uniformity-Trial-50-Percent/group_01/ --renderer-print-preview --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel=2400.64.1056411241
+ 4977 ?        Sl     0:58 /opt/google/chrome/chrome --type=renderer --lang=en-US --force-fieldtrials=AutocompleteDynamicTrial_2/DefaultControl_R2_Stable/CookieRetentionPriorityStudy/ExperimentOn/ForceCompositingMode/disable/GZippedProtobufs/GzippedProtobufsDisabled/Prerender/PrerenderEnabled/PrerenderFromOmnibox/OmniboxPrerenderDisabled/PrerenderLocalPredictorSpec/LocalPredictor=Disabled/Test0PercentDefault/group_01/UMA-Dynamic-Binary-Uniformity-Trial/default/UMA-New-Install-Uniformity-Trial/Experiment/UMA-Session-Randomized-Uniformity-Trial-5-Percent/group_17/UMA-Uniformity-Trial-1-Percent/group_93/UMA-Uniformity-Trial-10-Percent/group_03/UMA-Uniformity-Trial-100-Percent/group_01/UMA-Uniformity-Trial-20-Percent/group_02/UMA-Uniformity-Trial-5-Percent/group_06/UMA-Uniformity-Trial-50-Percent/group_01/ --renderer-print-preview --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel=2400.66.978159060
+ 5006 ?        S      0:01 [kworker/u:1]
+ 5384 ?        S      0:00 [kworker/u:2]
+ 5436 ?        Sl     0:03 /opt/google/chrome/chrome --type=renderer --lang=en-US --force-fieldtrials=AutocompleteDynamicTrial_2/DefaultControl_R2_Stable/CookieRetentionPriorityStudy/ExperimentOn/ForceCompositingMode/disable/GZippedProtobufs/GzippedProtobufsDisabled/Prerender/PrerenderEnabled/PrerenderFromOmnibox/OmniboxPrerenderDisabled/PrerenderLocalPredictorSpec/LocalPredictor=Disabled/Test0PercentDefault/group_01/UMA-Dynamic-Binary-Uniformity-Trial/default/UMA-New-Install-Uniformity-Trial/Experiment/UMA-Session-Randomized-Uniformity-Trial-5-Percent/group_17/UMA-Uniformity-Trial-1-Percent/group_93/UMA-Uniformity-Trial-10-Percent/group_03/UMA-Uniformity-Trial-100-Percent/group_01/UMA-Uniformity-Trial-20-Percent/group_02/UMA-Uniformity-Trial-5-Percent/group_06/UMA-Uniformity-Trial-50-Percent/group_01/ --renderer-print-preview --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel=2400.85.1449333108
+ 5452 ?        Sl     0:04 /opt/google/chrome/chrome --type=renderer --lang=en-US --force-fieldtrials=AutocompleteDynamicTrial_2/DefaultControl_R2_Stable/CookieRetentionPriorityStudy/ExperimentOn/ForceCompositingMode/disable/GZippedProtobufs/GzippedProtobufsDisabled/Prerender/PrerenderEnabled/PrerenderFromOmnibox/OmniboxPrerenderDisabled/PrerenderLocalPredictorSpec/LocalPredictor=Disabled/Test0PercentDefault/group_01/UMA-Dynamic-Binary-Uniformity-Trial/default/UMA-New-Install-Uniformity-Trial/Experiment/UMA-Session-Randomized-Uniformity-Trial-5-Percent/group_17/UMA-Uniformity-Trial-1-Percent/group_93/UMA-Uniformity-Trial-10-Percent/group_03/UMA-Uniformity-Trial-100-Percent/group_01/UMA-Uniformity-Trial-20-Percent/group_02/UMA-Uniformity-Trial-5-Percent/group_06/UMA-Uniformity-Trial-50-Percent/group_01/ --renderer-print-preview --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel=2400.87.577710060
+ 5514 ?        Sl     0:03 /opt/google/chrome/chrome --type=renderer --lang=en-US --force-fieldtrials=AutocompleteDynamicTrial_2/DefaultControl_R2_Stable/CookieRetentionPriorityStudy/ExperimentOn/ForceCompositingMode/disable/GZippedProtobufs/GzippedProtobufsDisabled/Prerender/PrerenderEnabled/PrerenderFromOmnibox/OmniboxPrerenderDisabled/PrerenderLocalPredictorSpec/LocalPredictor=Disabled/Test0PercentDefault/group_01/UMA-Dynamic-Binary-Uniformity-Trial/default/UMA-New-Install-Uniformity-Trial/Experiment/UMA-Session-Randomized-Uniformity-Trial-5-Percent/group_17/UMA-Uniformity-Trial-1-Percent/group_93/UMA-Uniformity-Trial-10-Percent/group_03/UMA-Uniformity-Trial-100-Percent/group_01/UMA-Uniformity-Trial-20-Percent/group_02/UMA-Uniformity-Trial-5-Percent/group_06/UMA-Uniformity-Trial-50-Percent/group_01/ --renderer-print-preview --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel=2400.88.1997979386
+ 5602 ?        Sl     0:00 /opt/google/chrome/chrome --type=renderer --lang=en-US --force-fieldtrials=AutocompleteDynamicTrial_2/DefaultControl_R2_Stable/CookieRetentionPriorityStudy/ExperimentOn/ForceCompositingMode/disable/GZippedProtobufs/GzippedProtobufsDisabled/Prerender/PrerenderEnabled/PrerenderFromOmnibox/OmniboxPrerenderDisabled/PrerenderLocalPredictorSpec/LocalPredictor=Disabled/Test0PercentDefault/group_01/UMA-Dynamic-Binary-Uniformity-Trial/default/UMA-New-Install-Uniformity-Trial/Experiment/UMA-Session-Randomized-Uniformity-Trial-5-Percent/group_17/UMA-Uniformity-Trial-1-Percent/group_93/UMA-Uniformity-Trial-10-Percent/group_03/UMA-Uniformity-Trial-100-Percent/group_01/UMA-Uniformity-Trial-20-Percent/group_02/UMA-Uniformity-Trial-5-Percent/group_06/UMA-Uniformity-Trial-50-Percent/group_01/ --renderer-print-preview --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel=2400.91.1139966438
+ 5641 ?        Sl     0:00 /opt/google/chrome/chrome --type=renderer --lang=en-US --force-fieldtrials=AutocompleteDynamicTrial_2/DefaultControl_R2_Stable/CookieRetentionPriorityStudy/ExperimentOn/ForceCompositingMode/disable/GZippedProtobufs/GzippedProtobufsDisabled/Prerender/PrerenderEnabled/PrerenderFromOmnibox/OmniboxPrerenderDisabled/PrerenderLocalPredictorSpec/LocalPredictor=Disabled/Test0PercentDefault/group_01/UMA-Dynamic-Binary-Uniformity-Trial/default/UMA-New-Install-Uniformity-Trial/Experiment/UMA-Session-Randomized-Uniformity-Trial-5-Percent/group_17/UMA-Uniformity-Trial-1-Percent/group_93/UMA-Uniformity-Trial-10-Percent/group_03/UMA-Uniformity-Trial-100-Percent/group_01/UMA-Uniformity-Trial-20-Percent/group_02/UMA-Uniformity-Trial-5-Percent/group_06/UMA-Uniformity-Trial-50-Percent/group_01/ --renderer-print-preview --disable-webgl --disable-pepper-3d --disable-gl-multisampling --disable-accelerated-compositing --disable-accelerated-2d-canvas --disable-accelerated-video-decode --channel=2400.95.158689079
+ 5659 ?        S      0:00 [kworker/u:0]
+ 5780 ?        S      0:00 [kworker/1:1]
+ 5893 ?        S      0:00 [kworker/1:0]
+ 5962 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5981 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5982 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5983 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5984 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5985 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5986 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5987 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5988 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5989 ?        S      0:00 /usr/bin/python /home/rodrigo/git/agenvida1/Agenvida/manage.py celery worker --time-limit=300 --concurrency=8 -B -n w1@agenvida.com --loglevel=INFO --workdir=/home/rodrigo/git/agenvida1/Agenvida/ --logfile=/var/log/celery/w1.log --pidfile=/var/run/celery/w1.pid
+ 5993 pts/2    R+     0:00 ps ax

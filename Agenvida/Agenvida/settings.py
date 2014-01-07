@@ -3,7 +3,7 @@
 
 import os
 RUTA_PROYECTO= os.path.dirname(os.path.realpath(__file__))
-
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'proj.settings')
 DEBUG = True
 TEMPLATE_DEBUG =False
 
