@@ -156,7 +156,22 @@
 	<script type="text/javascript" src="{{STATIC_URL}}js/proposito.js"></script>   
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.2/jquery-ui.min.js"></script>
- 
+                                     <script>
+                                    $('#reporte').click(function(e) {
+									    e.preventDefault();
+									    //do other stuff when a click happens
+									    var mes_ano=location.hash;
+										 
+										 var  mes = mes_ano.substring(6);
+										 alert(mes);
+										 
+										 //window.location.replace("/pdfmes/" +mes );
+										 
+										 window.open( 'http://localhost:8000/pdfmes/' +mes)
+									});
+									 
+									 </script>
+                                    
 <script>
         $(function() {
             var pull        = $('#pull');
