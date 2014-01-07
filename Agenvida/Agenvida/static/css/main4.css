@@ -1,11 +1,11 @@
 
 @font-face {
    font-family: 'Glabs';
-    src:url('http://localhost:8000/static/fonts/Glabs.eot');
-    src:url('http://localhost:8000/static/fonts/Glabs.eot?#iefix') format('embedded-opentype'),
-        url('http://localhost:8000/static/fonts/Glabs.woff') format('woff'),
-        url('http://localhost:8000/static/fonts/Glabs.ttf') format('truetype'),
-        url('http://localhost:8000/static/fonts/Glabs.svg#Glabs') format('svg');
+    src:url('http://www.agenvida.com/static/fonts/Glabs.eot');
+    src:url('http://www.agenvida.com/static/fonts/Glabs.eot?#iefix') format('embedded-opentype'),
+        url('http://www.agenvida.com/static/fonts/Glabs.woff') format('woff'),
+        url('http://www.agenvida.com/static/fonts/Glabs.ttf') format('truetype'),
+        url('http://www.agenvida.com/static/fonts/Glabs.svg#Glabs') format('svg');
     font-weight: normal;
     font-style: normal;
 }

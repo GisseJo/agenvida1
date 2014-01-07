@@ -11,6 +11,13 @@ SEXO_CHOICES=(
 ('MASCULINO', 'Masculino'),
 )
 
+HORA_CHOICES=(
+    ('MANANA', 'Mañana'),
+    ('MEDIODIA', 'Mediodia'),
+    ('TARDE', 'Tarde'),
+    ('NOCHE', 'Noche'),
+)
+
 class UserProfile(models.Model):
     user = models.ForeignKey(User, unique=True)
     #avatar = AvatarField(upload_to="images/avatars/", width=100, height=100, blank=True, null=True)
@@ -19,6 +26,10 @@ class UserProfile(models.Model):
     sexo = models.CharField(max_length=15,null=True, choices=SEXO_CHOICES) ## poder elegir a traves de choices
     pais = CountryField()
     grupo_de_vida = models.CharField(max_length=140,null=True, blank=True)
+    
+    recordatorio= models.CharField(max_length=15,null=True, choices=HORA_CHOICES, default='MANANA')
+    recordatorio_activo= models.BooleanField(default='True')
+    
     
 
 
