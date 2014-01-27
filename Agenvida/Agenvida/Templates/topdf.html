@@ -12,8 +12,66 @@
     
     <h3>Este es el resumen de los control diario de los propositos del mes</h3>  
         
+  {% if prop_particular %}
+			      
+      <h3>{{prop_particular.0.vinculacion}}</h3>
+<table border="1" >
+         
+         
+	<thead >
+	
+	<td style="background-color:white; height:40px; padding:3px;">Proposito </td>
+		{% for i in prop_particular.0|dias_mes_string %}        
+		  
+			<td style="background-color:white; height:40px; padding:1px 1px;">{{forloop.counter}}</td>
+			 
+			  {% if forloop.last %}
+			  <td style="background-color:yellow; height:40px; padding-left:5px; width:40px;">Total</td>
+			  {% endif %}
+			 
+		{% endfor %}
+	
+	</thead>
 
-      
+       
+<tbody>
+ {% for proposito in prop_particular %}
+	 <tr>
+	
+	        
+	       	<td bgcolor="#FF0000"  style="background-color:white; width:90px; padding-left:3px; padding-top:3px;">
+	       			{{proposito.proposito}}
+	       	</td>
+	       	
+	         {% for i in proposito|dias_mes_string %}
+	         
+	         
+	        		  {% if proposito|dia_marcado:forloop.counter == '1' %}
+	        		  
+	        		  	<td style="background-color:#f58634; "></td>
+	        		  	
+	        		  {% else%}
+							<td style="background-color:#c8c5e2; padding:0;"></td>    
+					 {% endif %}
+					 {% if forloop.last %}
+					 	<td style="background-color:white;  padding-left:5px;">{{proposito.cant_marc_check}}/{{proposito|dias_mes}} </td>
+					 {% endif %}
+	        		
+			          
+			 {% endfor %}    
+			        
+	</tr>
+       
+{% endfor %}
+</tbody>
+         
+ </table>
+ {% endif %}
+
+
+
+   {% if prop_dios %}
+			      
       <h3>{{prop_dios.0.vinculacion}}</h3>
 <table border="1" >
          
@@ -66,8 +124,9 @@
 </tbody>
          
  </table>
- 
- 
+ {% endif %}
+ {% if prop_conmigo %}
+	
 <h3>{{prop_conmigo.0.vinculacion}}</h3>
 <table border="1" >
          
@@ -120,7 +179,8 @@
 </tbody>
          
  </table>
- 
+ {% endif %}
+ {% if prop_losdemas %}
  
  
 <h3>{{prop_losdemas.0.vinculacion}}</h3>
@@ -176,7 +236,8 @@
  </table>
  
  
- 
+ {% endif %}
+ {% if prop_naturaleza %}
  <h3>{{prop_naturaleza.0.vinculacion}}</h3>
 <table border="1" >
          
@@ -229,6 +290,8 @@
 </tbody>
          
  </table>
+ {% endif %}
+ 
  
          	
     	<footer style="margin-top:70px; padding-top:70px;">

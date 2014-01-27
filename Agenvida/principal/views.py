@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# -*- coding:utf-8 -*-
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404 
@@ -34,11 +34,24 @@ def libro_pdf(request, mes):
     prop_conmigo=Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='2')
     prop_losdemas =Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='3')
     prop_naturaleza=Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='4')
+    prop_particular=Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='5')
+    if prop_dios.exists():
+        prop_dios=None
+    if prop_conmigo.exists():
+        prop_dios=None
+    if prop_losdemas.exists():
+        prop_dios=None
+    if prop_naturaleza.exists():
+        prop_dios=None
+    if prop_particular.exists():
+        prop_dios=None
+
+        
     usuario = request.user
-    print request.user.profile.ideal_personal
+#   print request.user.profile.ideal_personal
         
     
-    html = render_to_string('topdf.html',  {'pagesize':'A4', 'prop_dios':prop_dios, 'prop_losdemas':prop_losdemas, 'prop_conmigo':prop_conmigo, 'prop_naturaleza':prop_naturaleza, 'usuario':usuario }, context_instance=RequestContext(request))
+    html = render_to_string('topdf.html',  {'pagesize':'A4', 'prop_dios':prop_dios, 'prop_losdemas':prop_losdemas, 'prop_conmigo':prop_conmigo, 'prop_naturaleza':prop_naturaleza, 'usuario':usuario,'prop_particular':prop_particular }, context_instance=RequestContext(request))
     return generar_pdf(html)
 
 
