@@ -1,7 +1,8 @@
 # -*- coding:utf-8 -*-
 from django.contrib.auth.models import User
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render_to_response, get_object_or_404 
+
+from django.shortcuts import render_to_response, get_object_or_404,redirect 
 from django.template import RequestContext
 from django.core.mail import EmailMessage
 
@@ -35,16 +36,16 @@ def libro_pdf(request, mes):
     prop_losdemas =Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='3')
     prop_naturaleza=Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='4')
     prop_particular=Proposito.objects.filter(usuario=usuario, mes_ano__month=mes, vinculacion__id='5')
-    if prop_dios.exists():
+    if not prop_dios.exists():
         prop_dios=None
-    if prop_conmigo.exists():
-        prop_dios=None
-    if prop_losdemas.exists():
-        prop_dios=None
-    if prop_naturaleza.exists():
-        prop_dios=None
-    if prop_particular.exists():
-        prop_dios=None
+    if not prop_conmigo.exists():
+        prop_conmigo=None
+    if not prop_losdemas.exists():
+        prop_losdemas=None
+    if not prop_naturaleza.exists():
+        prop_naturaleza=None
+    if not  prop_particular.exists():   
+        prop_particular=None
 
         
     usuario = request.user
@@ -86,6 +87,8 @@ def login_user(request):
         return render_to_response('login/login.html', context_instance=RequestContext(request))
  
 def portada(request):
+    if request.user.is_authenticated():
+        return redirect('/he/')
     return render_to_response('nuevo.html', context_instance=RequestContext(request))
  
      

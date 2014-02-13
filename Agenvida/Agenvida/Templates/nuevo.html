@@ -74,7 +74,7 @@
             <li><a href="http://www.facebook.com/agenvida"><span class="icon-glabsfacebook" id="icon-menu"></span></a></li>
             <li><a href="http://www.twitter.com/agenvida"><span class="icon-glabstwitter" id="icon-menu"></span></a></li>  
             <li><a href="/contacto">Contacto</a></li>  
-            <li><a href="/login" title="Login"><span class="icon-glabssignin"id="icon-menu"></span></a></li>  
+            <li><a href="/accounts/login" title="Login"><span class="icon-glabssignin"id="icon-menu"></span></a></li>  
         </ul>  
         <a href="#" id="pull">Menu</a>
     </nav>
@@ -132,7 +132,7 @@
                             <fieldset>
                                 <p>Ya tenes tu cuenta? Entonces ingresá desde acá</p>
                                 {% block sidebar %}
-                                <form class="pure-form" name="LoginForm" action="/login/" method="post">
+                                <form class="pure-form" name="LoginForm" action="login/" method="post">
                                     {% csrf_token %}
                                     {% if next %}
                                         <input type="hidden" name="next" value="{{ next }}" />

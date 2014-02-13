@@ -50,8 +50,8 @@ def settings(request):
 	else:
 		form = UserForm(instance=request.user)
 		form.fields['username'].widget.attrs['readonly'] = True
-        
-	return render_to_response('userprofile/settings.html', { 'user_form': form}, context_instance=RequestContext(request))
+			        
+		return render_to_response('userprofile/settings.html', { 'user_form': form }, context_instance=RequestContext(request))
 
 
 
